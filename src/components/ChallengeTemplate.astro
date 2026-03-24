@@ -1,0 +1,72 @@
+---
+import Card from "./Card.astro";
+import Badge from "./Badge.astro";
+
+interface Challenge {
+  slug: string;
+  title: string;
+  problem: string;
+  solution: string;
+  evidences: string[];
+  tools: string[];
+  reflections: string[];
+}
+
+interface Props {
+  challenge: Challenge;
+}
+
+const { challenge } = Astro.props;
+---
+
+<section class="page-section hero-small">
+  <div class="container">
+    <p class="eyebrow">Desafios</p>
+    <h1>{challenge.title}</h1>
+    <p>Registro editable del proceso del equipo. Completar con material final antes de entregar.</p>
+  </div>
+</section>
+
+<section class="page-section">
+  <div class="container split-grid">
+    <Card title="Problema abordado">
+      <p>{challenge.problem}</p>
+    </Card>
+    <Card title="Solucion propuesta">
+      <p>{challenge.solution}</p>
+    </Card>
+  </div>
+</section>
+
+<section class="page-section">
+  <div class="container split-grid">
+    <Card title="Evidencias">
+      <ul class="clean-list">
+        {challenge.evidences.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </Card>
+
+    <Card title="Herramientas utilizadas">
+      <div class="badge-row">
+        {challenge.tools.map((tool) => (
+          <Badge label={tool} />
+        ))}
+      </div>
+    </Card>
+  </div>
+</section>
+
+<section class="page-section">
+  <div class="container">
+    <h2>Reflexion del equipo</h2>
+    <div class="card-grid">
+      {challenge.reflections.map((reflection, index) => (
+        <Card title={`Insight ${index + 1}`}>
+          <p>{reflection}</p>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>

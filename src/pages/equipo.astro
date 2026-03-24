@@ -1,51 +1,32 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Card from "../components/Card.astro";
+import Badge from "../components/Badge.astro";
+import { teamMembers } from "../data/content";
 ---
 
-<Layout title="Equipo - Portfolio Gestión Gerencial">
-	<h1>Equipo</h1>
-	<h2>Ficha de cada integrante</h2>
-	<div class="integrante">
-		<h3>Camila Aylen Martinelli Zeniquel</h3>
-		<p><strong>Competencias:</strong> Tecnología, Gestión</p>
-		<p><strong>Roles:</strong> Liderazgo, Comunicación</p>
-		<p><strong>Fortalezas:</strong> Resolución de problemas, trabajo en equipo</p>
-		<p><strong>Intereses:</strong> Automatización, análisis de datos</p>
-	</div>
-	<div class="integrante">
-		<h3>Renzo Octavio Urturi</h3>
-		<p><strong>Competencias:</strong> Tecnología, Gestión</p>
-		<p><strong>Roles:</strong> Coordinación, planificación</p>
-		<p><strong>Fortalezas:</strong> Organización, pensamiento estratégico</p>
-		<p><strong>Intereses:</strong> Transformación digital, innovación</p>
-	</div>
-	<div class="integrante">
-		<h3>Bruno Sebastian Rivero</h3>
-		<p><strong>Competencias:</strong> Tecnología, Gestión</p>
-		<p><strong>Roles:</strong> Desarrollo, soporte</p>
-		<p><strong>Fortalezas:</strong> Creatividad, adaptación</p>
-		<p><strong>Intereses:</strong> RPA, gestión de proyectos</p>
-	</div>
-	<div class="integrante">
-		<h3>Florencia Galarza Maumary</h3>
-		<p><strong>Competencias:</strong> Tecnología, Gestión</p>
-		<p><strong>Roles:</strong> Comunicación, control de calidad</p>
-		<p><strong>Fortalezas:</strong> Atención al detalle, análisis</p>
-		<p><strong>Intereses:</strong> UX, gestión del cambio</p>
-	</div>
-	<div class="integrante">
-		<h3>Fabricio Jerez</h3>
-		<p><strong>Competencias:</strong> Tecnología, Gestión</p>
-		<p><strong>Roles:</strong> Soporte técnico, documentación</p>
-		<p><strong>Fortalezas:</strong> Paciencia, empatía</p>
-		<p><strong>Intereses:</strong> Inteligencia artificial, modelado de procesos</p>
-	</div>
-</Layout>
+<BaseLayout title="Equipo | Portfolio UTN" description="Equipo, roles y competencias.">
+  <section class="page-section hero-small">
+    <div class="container">
+      <p class="eyebrow">Equipo</p>
+      <h1>Personas que impulsan el portfolio</h1>
+      <p>Perfiles resumidos con informacion editable para la entrega final.</p>
+    </div>
+  </section>
 
-<style>
-	.integrante {
-		border: 1px solid #ccc;
-		padding: 1rem;
-		margin: 1rem 0;
-	}
-</style>
+  <section class="page-section">
+    <div class="container card-grid">
+      {teamMembers.map((member) => (
+        <Card title={member.name} subtitle={member.role}>
+          <img src={member.avatar} alt={`Avatar de ${member.name}`} class="avatar" loading="lazy" width="120" height="120" />
+          <p class="stack-sm">Competencias clave:</p>
+          <div class="badge-row">
+            {member.competencies.map((competency) => (
+              <Badge label={competency} />
+            ))}
+          </div>
+        </Card>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

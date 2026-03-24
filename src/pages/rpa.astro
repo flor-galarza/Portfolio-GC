@@ -1,13 +1,29 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Card from "../components/Card.astro";
+import { rpaRoutes } from "../data/content";
 ---
 
-<Layout title="RPA - Portfolio Gestión Gerencial">
-	<h1>RPA</h1>
-	<h2>Integrante 1</h2>
-	<p>Contenido RPA para integrante 1.</p>
-	<h2>Integrante 2</h2>
-	<p>Contenido RPA para integrante 2.</p>
-	<h2>Integrante 3</h2>
-	<p>Contenido RPA para integrante 3.</p>
-</Layout>
+<BaseLayout title="RPA | Portfolio UTN" description="Ruta personal de aprendizaje de cada integrante.">
+  <section class="page-section hero-small">
+    <div class="container">
+      <p class="eyebrow">RPA</p>
+      <h1>Rutas personales de aprendizaje</h1>
+      <p>Cada integrante documenta su evolucion y foco profesional.</p>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container card-grid">
+      {rpaRoutes.map((route) => (
+        <Card title={route.member} subtitle="Itinerario individual">
+          <ol class="clean-list ordered">
+            {route.route.map((step) => (
+              <li>{step}</li>
+            ))}
+          </ol>
+        </Card>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

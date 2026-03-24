@@ -1,17 +1,11 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ChallengeTemplate from "../../components/ChallengeTemplate.astro";
+import { challengeContent } from "../../data/content";
+
+const challenge = challengeContent.find((item) => item.slug === "d7");
 ---
 
-<Layout title="Desafío D7 - Portfolio Gestión Gerencial">
-	<h1>Desafío D7</h1>
-	<h2>Problema Abordado</h2>
-	<p>Descripción del problema D7.</p>
-	<h2>Solución Propuesta</h2>
-	<p>Descripción de la solución.</p>
-	<h2>Evidencias</h2>
-	<p>Evidencias aquí.</p>
-	<h2>Herramientas Utilizadas</h2>
-	<p>Herramientas.</p>
-	<h2>Reflexión del Equipo</h2>
-	<p>Reflexión.</p>
-</Layout>
+<BaseLayout title="D7 | Portfolio UTN" description="Desafio D7 del equipo.">
+  {challenge && <ChallengeTemplate challenge={challenge} />}
+</BaseLayout>

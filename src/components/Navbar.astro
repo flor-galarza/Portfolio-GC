@@ -1,0 +1,76 @@
+---
+interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/equipo", label: "Equipo" },
+  { href: "/rpa", label: "RPA" },
+  { href: "/tpi", label: "TPI" }
+];
+
+const challengeLinks = ["d3", "d4", "d5", "d6", "d7"];
+
+const isCurrent = (href: string) => {
+  if (href === "/") return currentPath === "/";
+  return currentPath.startsWith(href);
+};
+---
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a href="/" class="brand">
+      <span class="brand-mark" aria-hidden="true">AT</span>
+      <span>Portfolio UTN</span>
+    </a>
+
+    <button class="mobile-menu-button" data-mobile-menu-button aria-expanded="false" aria-label="Abrir menu">
+      Menu
+    </button>
+
+    <nav class="nav-desktop" aria-label="Principal">
+      <ul>
+        {links.map((link) => (
+          <li>
+            <a href={link.href} class={isCurrent(link.href) ? "active" : ""}>{link.label}</a>
+          </li>
+        ))}
+        <li class="has-submenu">
+          <a href="/desafios" class={currentPath.startsWith("/desafios") ? "active" : ""}>Desafios</a>
+          <ul class="submenu">
+            {challengeLinks.map((slug) => (
+              <li>
+                <a href={`/desafios/${slug}`}>{slug.toUpperCase()}</a>
+              </li>
+            ))}
+          </ul>
+        </li>
+      </ul>
+      <button class="theme-toggle" data-theme-toggle type="button" aria-pressed="true">Tema: Oscuro</button>
+    </nav>
+  </div>
+
+  <nav class="nav-mobile" aria-label="Principal movil" data-mobile-menu>
+    <ul>
+      {links.map((link) => (
+        <li>
+          <a href={link.href} class={isCurrent(link.href) ? "active" : ""}>{link.label}</a>
+        </li>
+      ))}
+      <li>
+        <a href="/desafios" class={currentPath.startsWith("/desafios") ? "active" : ""}>Desafios</a>
+      </li>
+      {challengeLinks.map((slug) => (
+        <li>
+          <a href={`/desafios/${slug}`}>- {slug.toUpperCase()}</a>
+        </li>
+      ))}
+      <li>
+        <button class="theme-toggle" data-theme-toggle type="button" aria-pressed="true">Tema: Oscuro</button>
+      </li>
+    </ul>
+  </nav>
+</header>

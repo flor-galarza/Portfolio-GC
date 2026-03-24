@@ -1,8 +1,45 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Card from "../components/Card.astro";
+import { tpiContent } from "../data/content";
 ---
 
-<Layout title="TPI - Portfolio Gestión Gerencial">
-	<h1>TPI</h1>
-	<p>Sección específica del trabajo integrador.</p>
-</Layout>
+<BaseLayout title="TPI | Portfolio UTN" description="Trabajo Practico Integrador del equipo.">
+  <section class="page-section hero-small">
+    <div class="container">
+      <p class="eyebrow">TPI</p>
+      <h1>Trabajo Practico Integrador</h1>
+      <p>Descripcion del trabajo, objetivos, resultados y evidencias trazables.</p>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container split-grid">
+      <Card title="Descripcion del trabajo">
+        <p>{tpiContent.description}</p>
+      </Card>
+      <Card title="Resultado final">
+        <p>{tpiContent.result}</p>
+      </Card>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container split-grid">
+      <Card title="Objetivos">
+        <ul class="clean-list">
+          {tpiContent.objectives.map((objective) => (
+            <li>{objective}</li>
+          ))}
+        </ul>
+      </Card>
+      <Card title="Evidencias">
+        <ul class="clean-list">
+          {tpiContent.evidences.map((evidence) => (
+            <li>{evidence}</li>
+          ))}
+        </ul>
+      </Card>
+    </div>
+  </section>
+</BaseLayout>
