@@ -1,0 +1,26 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Card from "../../components/Card.astro";
+import { challengeContent } from "../../data/content";
+---
+
+<BaseLayout title="Desafios | Portfolio UTN" description="Listado de desafios D3 a D7.">
+  <section class="page-section hero-small">
+    <div class="container">
+      <p class="eyebrow">Desafios</p>
+      <h1>Ruta de desafios del equipo</h1>
+      <p>Acceso rapido a cada desafio con su problema, solucion, evidencias y reflexion.</p>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container card-grid">
+      {challengeContent.map((challenge) => (
+        <Card title={challenge.title} subtitle="Pagina independiente">
+          <p>{challenge.problem}</p>
+          <p><a href={`/desafios/${challenge.slug}`} class="link-cta">Ver desafio</a></p>
+        </Card>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

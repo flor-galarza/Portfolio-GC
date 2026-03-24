@@ -1,0 +1,86 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Card from "../components/Card.astro";
+import Timeline from "../components/Timeline.astro";
+import ProgressBar from "../components/ProgressBar.astro";
+import Badge from "../components/Badge.astro";
+import { teamName, teamMembers, timelineItems, learningProgress } from "../data/content";
+---
+
+<BaseLayout title="Home | Portfolio UTN" description="Micrositio portfolio del equipo UTN.">
+  <section class="page-section hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow">Portfolio Academico</p>
+        <h1>{teamName}</h1>
+        <p>
+          Micrositio multipagina para mostrar producciones, aprendizajes y evolucion profesional durante la cursada.
+        </p>
+        <div class="badge-row">
+          <Badge label="Astro" />
+          <Badge label="UX" />
+          <Badge label="RPA" />
+          <Badge label="Comunicacion" />
+        </div>
+      </div>
+      <div class="logo-panel reveal-up" role="img" aria-label="Logo placeholder del equipo">
+        <div class="logo-core">AT</div>
+        <p>Logo placeholder editable</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container">
+      <h2>Integrantes</h2>
+      <div class="card-grid">
+        {teamMembers.map((member) => (
+          <Card title={member.name} subtitle={member.role}>
+            <p>{member.competencies.join(" - ")}</p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container split-grid">
+      <Card title="Video presentacion">
+        <div class="video-wrap">
+          <iframe
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            title="Video presentacion del equipo"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </Card>
+      <Card title="Resumen del portfolio">
+        <p>
+          Este sitio resume el trabajo colectivo del equipo, mostrando decisiones, evidencias y reflexiones para cada
+          etapa. Todo el contenido es editable para completar con material definitivo de la cursada.
+        </p>
+      </Card>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container">
+      <h2>Linea de tiempo del aprendizaje</h2>
+      <Timeline items={timelineItems} />
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container">
+      <h2>Barra de progreso del equipo</h2>
+      <div class="progress-list">
+        {learningProgress.map((progress) => (
+          <ProgressBar label={progress.label} value={progress.value} />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

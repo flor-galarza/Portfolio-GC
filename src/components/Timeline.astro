@@ -1,0 +1,23 @@
+---
+interface Item {
+  period: string;
+  title: string;
+  detail: string;
+}
+
+interface Props {
+  items: Item[];
+}
+
+const { items } = Astro.props;
+---
+
+<ol class="timeline">
+  {items.map((item) => (
+    <li class="timeline-item reveal-up">
+      <p class="timeline-period">{item.period}</p>
+      <h3>{item.title}</h3>
+      <p>{item.detail}</p>
+    </li>
+  ))}
+</ol>
