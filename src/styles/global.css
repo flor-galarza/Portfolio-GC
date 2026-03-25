@@ -112,15 +112,11 @@ a {
   text-decoration: none;
 }
 
-.brand-mark {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 0.5rem;
-  display: grid;
-  place-items: center;
-  color: #111;
-  background: linear-gradient(135deg, var(--accent), #ffd98d);
-  font-size: 0.85rem;
+.brand-logo {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.55rem;
+  object-fit: cover;
 }
 
 .nav-desktop ul,
@@ -249,18 +245,11 @@ a {
   box-shadow: var(--shadow);
 }
 
-.logo-core {
-  width: 5.4rem;
-  height: 5.4rem;
-  border-radius: 1rem;
+.logo-panel img {
+  width: min(220px, 100%);
+  height: auto;
   margin-inline: auto;
   margin-bottom: 0.8rem;
-  display: grid;
-  place-items: center;
-  font-family: "Fraunces", serif;
-  font-size: 1.8rem;
-  color: #0f1525;
-  background: linear-gradient(130deg, #f3b740, #49d5c6);
 }
 
 .eyebrow {

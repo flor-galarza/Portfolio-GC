@@ -1,14 +1,29 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Card from "../components/Card.astro";
 ---
 
-<Layout title="Contacto - Portfolio Gestión Gerencial">
-	<h1>Contacto</h1>
-	<h2>Reflexión Final del Equipo</h2>
-	<p>Reflexión final aquí.</p>
-	<h2>Links Útiles</h2>
-	<ul>
-		<li><a href="#">Link 1</a></li>
-		<li><a href="#">Link 2</a></li>
-	</ul>
-</Layout>
+<BaseLayout title="Contacto | Portfolio UTN" description="Reflexión final y enlaces de cierre del equipo.">
+  <section class="page-section hero-small">
+    <div class="container">
+      <p class="eyebrow">Contacto</p>
+      <h1>Cierre del equipo</h1>
+      <p>Espacio editable para dejar reflexión final y enlaces relevantes para docentes y pares.</p>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container split-grid">
+      <Card title="Reflexión final del equipo">
+        <p>Reflexión final aquí.</p>
+      </Card>
+
+      <Card title="Links útiles">
+        <ul class="clean-list">
+          <li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+        </ul>
+      </Card>
+    </div>
+  </section>
+</BaseLayout>

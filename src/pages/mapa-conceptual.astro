@@ -1,13 +1,28 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Card from "../components/Card.astro";
 ---
 
-<Layout title="Mapa Conceptual - Portfolio Gestión Gerencial">
-	<h1>Mapa Conceptual</h1>
-	<h2>Nivel 1</h2>
-	<p>Mapa conceptual para nivel 1.</p>
-	<h2>Nivel 2</h2>
-	<p>Mapa conceptual para nivel 2.</p>
-	<h2>Nivel 3</h2>
-	<p>Mapa conceptual para nivel 3.</p>
-</Layout>
+<BaseLayout title="Mapa conceptual | Portfolio UTN" description="Mapa conceptual por niveles de aprendizaje.">
+  <section class="page-section hero-small">
+    <div class="container">
+      <p class="eyebrow">Mapa conceptual</p>
+      <h1>Relación de conceptos clave</h1>
+      <p>Vista editable para organizar conceptos del curso por nivel de profundidad.</p>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container card-grid">
+      <Card title="Nivel 1">
+        <p>Mapa conceptual para nivel 1.</p>
+      </Card>
+      <Card title="Nivel 2">
+        <p>Mapa conceptual para nivel 2.</p>
+      </Card>
+      <Card title="Nivel 3">
+        <p>Mapa conceptual para nivel 3.</p>
+      </Card>
+    </div>
+  </section>
+</BaseLayout>

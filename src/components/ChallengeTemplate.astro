@@ -1,16 +1,7 @@
 ---
 import Card from "./Card.astro";
 import Badge from "./Badge.astro";
-
-interface Challenge {
-  slug: string;
-  title: string;
-  problem: string;
-  solution: string;
-  evidences: string[];
-  tools: string[];
-  reflections: string[];
-}
+import type { Challenge } from "../data/content";
 
 interface Props {
   challenge: Challenge;

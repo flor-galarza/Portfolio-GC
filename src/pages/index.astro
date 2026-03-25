@@ -5,6 +5,7 @@ import Timeline from "../components/Timeline.astro";
 import ProgressBar from "../components/ProgressBar.astro";
 import Badge from "../components/Badge.astro";
 import { teamName, teamMembers, timelineItems, learningProgress } from "../data/content";
+import teamLogo from "../assets/logo.png";
 ---
 
 <BaseLayout title="Home | Portfolio UTN" description="Micrositio portfolio del equipo UTN.">
@@ -23,9 +24,9 @@ import { teamName, teamMembers, timelineItems, learningProgress } from "../data/
           <Badge label="Comunicacion" />
         </div>
       </div>
-      <div class="logo-panel reveal-up" role="img" aria-label="Logo placeholder del equipo">
-        <div class="logo-core">AT</div>
-        <p>Logo placeholder editable</p>
+      <div class="logo-panel reveal-up">
+        <img src={teamLogo.src} alt={`Logo de ${teamName}`} width="220" height="220" loading="eager" decoding="async" />
+        <p>Identidad visual del equipo</p>
       </div>
     </div>
   </section>

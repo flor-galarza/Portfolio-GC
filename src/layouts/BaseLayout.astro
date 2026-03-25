@@ -35,18 +35,28 @@ const { title, description = "Micrositio portfolio del equipo UTN" } = Astro.pro
     </div>
     <script is:inline>
       const root = document.documentElement;
+      const THEME_STORAGE_KEY = "portfolio-theme";
+      const THEME_TOGGLE_SELECTOR = "[data-theme-toggle]";
+
+      // Persistimos el tema en localStorage para mantener la preferencia entre navegaciones.
       const getPreferredTheme = () => {
-        const saved = localStorage.getItem("portfolio-theme");
+        const saved = localStorage.getItem(THEME_STORAGE_KEY);
         if (saved === "dark" || saved === "light") return saved;
         return "dark";
       };
 
       const applyTheme = (theme) => {
         root.dataset.theme = theme;
-        document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
+        document.querySelectorAll(THEME_TOGGLE_SELECTOR).forEach((button) => {
           button.setAttribute("aria-pressed", String(theme === "dark"));
           button.textContent = theme === "dark" ? "Tema: Oscuro" : "Tema: Claro";
         });
+      };
+
+      const toggleTheme = () => {
+        const nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
+        localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+        applyTheme(nextTheme);
       };
 
       applyTheme(getPreferredTheme());
@@ -56,12 +66,10 @@ const { title, description = "Micrositio portfolio del equipo UTN" } = Astro.pro
         if (!(target instanceof HTMLElement)) return;
         const toggle = target.closest("[data-theme-toggle]");
         if (!toggle) return;
-
-        const nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
-        localStorage.setItem("portfolio-theme", nextTheme);
-        applyTheme(nextTheme);
+        toggleTheme();
       });
 
+      // El menú móvil vive fuera de Astro islands, por eso usamos un listener DOM simple.
       const mobileMenuButton = document.querySelector("[data-mobile-menu-button]");
       const mobileMenu = document.querySelector("[data-mobile-menu]");
       if (mobileMenuButton instanceof HTMLButtonElement && mobileMenu instanceof HTMLElement) {

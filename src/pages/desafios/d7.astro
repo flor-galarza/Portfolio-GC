@@ -1,9 +1,9 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ChallengeTemplate from "../../components/ChallengeTemplate.astro";
-import { challengeContent } from "../../data/content";
+import { getChallengeBySlug } from "../../data/content";
 
-const challenge = challengeContent.find((item) => item.slug === "d7");
+const challenge = getChallengeBySlug("d7");
 ---
 
 <BaseLayout title="D7 | Portfolio UTN" description="Desafio D7 del equipo.">

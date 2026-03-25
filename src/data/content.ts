@@ -1,6 +1,47 @@
+// Fuente centralizada de contenido editable para el micrositio (evita duplicaciones entre páginas).
+export interface TeamMember {
+  name: string;
+  role: string;
+  avatar: string;
+  competencies: string[];
+}
+
+export interface TimelineItem {
+  period: string;
+  title: string;
+  detail: string;
+}
+
+export interface LearningProgressItem {
+  label: string;
+  value: number;
+}
+
+export interface Challenge {
+  slug: string;
+  title: string;
+  problem: string;
+  solution: string;
+  evidences: string[];
+  tools: string[];
+  reflections: string[];
+}
+
+export interface RpaRoute {
+  member: string;
+  route: string[];
+}
+
+export interface TpiContent {
+  description: string;
+  objectives: string[];
+  result: string;
+  evidences: string[];
+}
+
 export const teamName = "Equipo Atlas UTN";
 
-export const teamMembers = [
+export const teamMembers: TeamMember[] = [
   {
     name: "Camila Rojas",
     role: "UX Strategist",
@@ -27,7 +68,7 @@ export const teamMembers = [
   }
 ];
 
-export const timelineItems = [
+export const timelineItems: TimelineItem[] = [
   {
     period: "Semana 1",
     title: "Alineacion del equipo",
@@ -50,14 +91,14 @@ export const timelineItems = [
   }
 ];
 
-export const learningProgress = [
+export const learningProgress: LearningProgressItem[] = [
   { label: "UX", value: 82 },
   { label: "Desarrollo Web", value: 88 },
   { label: "Automatizacion", value: 79 },
   { label: "Comunicacion Tecnica", value: 91 }
 ];
 
-export const challengeContent = [
+export const challengeContent: Challenge[] = [
   {
     slug: "d3",
     title: "Desafio D3 - Descubrimiento",
@@ -155,7 +196,7 @@ export const challengeContent = [
   }
 ];
 
-export const rpaRoutes = [
+export const rpaRoutes: RpaRoute[] = [
   {
     member: "Camila Rojas",
     route: [
@@ -190,7 +231,7 @@ export const rpaRoutes = [
   }
 ];
 
-export const tpiContent = {
+export const tpiContent: TpiContent = {
   description:
     "El Trabajo Practico Integrador consolida aprendizajes de UX, desarrollo web y comunicacion tecnica en un portfolio profesional.",
   objectives: [
@@ -206,3 +247,6 @@ export const tpiContent = {
     "Matriz de evaluacion con criterios academicos"
   ]
 };
+
+export const getChallengeBySlug = (slug: string): Challenge | undefined =>
+  challengeContent.find((item) => item.slug === slug);

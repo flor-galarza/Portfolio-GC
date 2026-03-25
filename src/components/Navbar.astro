@@ -1,4 +1,6 @@
 ---
+import teamLogo from "../assets/logo.png";
+
 interface Props {
   currentPath: string;
 }
@@ -9,7 +11,9 @@ const links = [
   { href: "/", label: "Home" },
   { href: "/equipo", label: "Equipo" },
   { href: "/rpa", label: "RPA" },
-  { href: "/tpi", label: "TPI" }
+  { href: "/tpi", label: "TPI" },
+  { href: "/mapa-conceptual", label: "Mapa" },
+  { href: "/contacto", label: "Contacto" }
 ];
 
 const challengeLinks = ["d3", "d4", "d5", "d6", "d7"];
@@ -23,7 +27,7 @@ const isCurrent = (href: string) => {
 <header class="site-header">
   <div class="container nav-wrap">
     <a href="/" class="brand">
-      <span class="brand-mark" aria-hidden="true">AT</span>
+      <img src={teamLogo.src} alt="" class="brand-logo" width="40" height="40" aria-hidden="true" />
       <span>Portfolio UTN</span>
     </a>
 
