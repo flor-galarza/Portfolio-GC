@@ -39,33 +39,40 @@ export interface TpiContent {
   evidences: string[];
 }
 
-export const teamName = "Equipo Atlas UTN";
+export const teamName = "Equipo Gestión Compartida";
 
 export const teamMembers: TeamMember[] = [
   {
-    name: "Camila Rojas",
+    name: "Camila Zeniquel",
     role: "UX Strategist",
     avatar: "/assets/avatars/camila.svg",
     competencies: ["Research", "Wireframes", "Design System"]
   },
   {
-    name: "Mateo Silva",
+    name: "Florencia Galarza Maumary",
     role: "Frontend Developer",
     avatar: "/assets/avatars/mateo.svg",
     competencies: ["Astro", "Accessibility", "Performance"]
   },
   {
-    name: "Valentina Perez",
+    name: "Bruno Rivero",
     role: "Automation Analyst",
     avatar: "/assets/avatars/valentina.svg",
     competencies: ["RPA", "Process Mapping", "Testing"]
   },
   {
-    name: "Lucas Diaz",
+    name: "Renzo Urturi",
+    role: "Technical Communicator",
+    avatar: "/assets/avatars/lucas.svg",
+    competencies: ["Documentation", "Storytelling", "Metrics"]
+  },
+  {
+    name: "Fabricio Jerez",
     role: "Technical Communicator",
     avatar: "/assets/avatars/lucas.svg",
     competencies: ["Documentation", "Storytelling", "Metrics"]
   }
+  
 ];
 
 export const timelineItems: TimelineItem[] = [
@@ -101,150 +108,124 @@ export const learningProgress: LearningProgressItem[] = [
 export const challengeContent: Challenge[] = [
   {
     slug: "d3",
-    title: "Desafio D3 - Descubrimiento",
+    title: "Desafio D3 - Micrositio",
     problem:
-      "El equipo necesitaba entender con precision el problema del usuario y ordenar las necesidades del curso.",
+      "El problema del desafío.",
     solution:
-      "Aplicamos entrevistas cortas, un mapa de afinidad y priorizacion MoSCoW para enfocar el trabajo.",
+      "La solución del desafío",
     evidences: [
-      "Mapa de afinidad validado por docentes",
-      "Documento de hallazgos iniciales",
-      "Checklist de requisitos priorizados"
+      "Lista de evidencias de la solución (documentos, presentaciones, etc.)"
     ],
-    tools: ["Miro", "Notion", "Google Meet"],
+    tools: ["una herramienta", "otra herramienta"],
     reflections: [
-      "Entender el problema antes de construir evita retrabajo.",
-      "La escucha activa mejoro la calidad de decisiones.",
-      "Una buena priorizacion acelera todo el proyecto."
+      "Lista de reflexiones del desafío."
     ]
   },
   {
     slug: "d4",
-    title: "Desafio D4 - Prototipado",
+    title: "Desafio D4",
     problem:
-      "Habia ideas dispersas para la interfaz y faltaba una experiencia unificada para todas las paginas.",
+      "El problema del desafío.",
     solution:
-      "Creamos un lenguaje visual comun, componentes reutilizables y flujos de prueba rapida.",
+      "La solución del desafío",
     evidences: [
-      "Sistema de componentes en Figma",
-      "Mapa de navegacion validado",
-      "Prueba de usabilidad interna"
+      "Lista de evidencias de la solución (documentos, presentaciones, etc.)"
     ],
-    tools: ["Figma", "Astro", "Loom"],
+    tools: ["una herramienta", "otra herramienta"],
     reflections: [
-      "Disenar por componentes mejoro consistencia.",
-      "Prototipar temprano redujo incertidumbre tecnica.",
-      "Los test rapidos nos ayudaron a simplificar."
+      "Lista de reflexiones del desafío."
     ]
   },
   {
     slug: "d5",
-    title: "Desafio D5 - Implementacion",
+    title: "Desafio D5",
     problem:
-      "Se necesitaba construir el micrositio completo sin perder claridad de contenido ni rendimiento.",
+      "El problema del desafío.",
     solution:
-      "Adoptamos Astro con layout base, paginas modulares y estilos con variables CSS para escalar rapido.",
+      "La solución del desafío",
     evidences: [
-      "Repositorio con arquitectura multipagina",
-      "Componentes compartidos de navegacion y cards",
-      "Validacion de build sin errores"
+      "Lista de evidencias de la solución (documentos, presentaciones, etc.)"
     ],
-    tools: ["Astro", "CSS", "JavaScript"],
+    tools: ["una herramienta", "otra herramienta"],
     reflections: [
-      "Una arquitectura clara facilita iteraciones.",
-      "La separacion de contenido y presentacion mejora mantenimiento.",
-      "Mobile first fue clave para decisiones de layout."
+      "Lista de reflexiones del desafío."
     ]
   },
   {
     slug: "d6",
-    title: "Desafio D6 - Automatizacion",
+    title: "Desafio D6",
     problem:
-      "Faltaba una forma repetible de revisar avances y evidencias para cada entrega intermedia.",
+      "El problema del desafío.",
     solution:
-      "Definimos plantillas estandar de evidencia y una rutina de control de calidad semanal.",
+      "La solución del desafío",
     evidences: [
-      "Plantilla de reporte por desafio",
-      "Bitacora de validaciones",
-      "Matriz de calidad del equipo"
+      "Lista de evidencias de la solución (documentos, presentaciones, etc.)"
     ],
-    tools: ["Google Sheets", "Notion", "Checklist QA"],
+    tools: ["una herramienta", "otra herramienta"],
     reflections: [
-      "Documentar proceso simplifico las revisiones.",
-      "La automatizacion no siempre es codigo, tambien es metodo.",
-      "Los indicadores compartidos fortalecen el trabajo colaborativo."
+      "Lista de reflexiones del desafío."
     ]
   },
   {
     slug: "d7",
-    title: "Desafio D7 - Presentacion Final",
+    title: "Desafio D7",
     problem:
-      "Debiamos comunicar el proceso completo con una narrativa clara y evidencia verificable.",
+      "El problema del desafío.",
     solution:
-      "Organizamos el portfolio como historia de evolucion, con hitos, resultados y reflexiones concretas.",
+      "La solución del desafío",
     evidences: [
-      "Guion de presentacion final",
-      "Dashboard de resultados",
-      "Feedback de docentes y pares"
+      "Lista de evidencias de la solución (documentos, presentaciones, etc.)"
     ],
-    tools: ["Canva", "Astro", "YouTube"],
+    tools: ["una herramienta", "otra herramienta"],
     reflections: [
-      "La narrativa tecnica necesita foco y simplicidad.",
-      "Mostrar evidencias concretas genera confianza.",
-      "El equipo termino con una vision profesional comun."
+      "Lista de reflexiones del desafío."
     ]
   }
 ];
 
 export const rpaRoutes: RpaRoute[] = [
   {
-    member: "Camila Rojas",
+    member: "Camila Zeniquel",
     route: [
-      "Investigacion UX aplicada a contextos academicos",
-      "Modelado de journeys y heuristicas",
-      "Escalado de sistemas de interfaz"
+      "Espacio para RPA de Camila."
     ]
   },
   {
-    member: "Mateo Silva",
+    member: "Florencia Galarza Maumary",
     route: [
-      "Fundamentos de Astro y arquitectura de componentes",
-      "Optimizacion de performance frontend",
-      "Accesibilidad y semantica web"
+      "Espacio para RPA de Florencia."
     ]
   },
   {
-    member: "Valentina Perez",
+    member: "Bruno Rivero",
     route: [
-      "Mapeo de procesos repetitivos",
-      "Diseno de controles de calidad",
-      "Automatizacion ligera orientada a evidencia"
+      "Espacio para RPA de Bruno."
     ]
   },
   {
-    member: "Lucas Diaz",
+    member: "Renzo Urturi",
     route: [
-      "Redaccion tecnica orientada a audiencias mixtas",
-      "Storytelling de decisiones de producto",
-      "Sintesis de hallazgos y resultados"
+      "Espacio para RPA de Renzo."
+    ]
+  },
+  {
+    member: "Fabricio Jerez",
+    route: [
+      "Espacio para RPA de Fabricio."
     ]
   }
 ];
 
 export const tpiContent: TpiContent = {
   description:
-    "El Trabajo Practico Integrador consolida aprendizajes de UX, desarrollo web y comunicacion tecnica en un portfolio profesional.",
+    "Descripción de Trabajo Práctico Integrador",
   objectives: [
-    "Construir una narrativa de evolucion del equipo",
-    "Demostrar aplicacion de herramientas y metodologias",
-    "Presentar evidencias con trazabilidad"
+    "Objetivos del Trabajo Práctico Integrador"
   ],
   result:
-    "Se obtuvo un micrositio multipagina responsivo, con identidad visual consistente y contenido editable para futuras iteraciones.",
+    "Resultados del Trabajo Práctico Integrador",
   evidences: [
-    "Arquitectura de paginas y componentes",
-    "Registro cronologico de decisiones",
-    "Matriz de evaluacion con criterios academicos"
+    "Evidencias del Trabajo Práctico Integrador"
   ]
 };
 
