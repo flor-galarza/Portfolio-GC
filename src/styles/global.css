@@ -510,8 +510,17 @@ button:focus-visible {
   overflow: hidden;
 }
 
+.logo-panel.no-bg {
+  background: none;
+  border: none;
+}
+
+.logo-panel.no-shadow {
+  box-shadow: none;
+}
+
 .logo-panel img {
-  width: min(220px, 100%);
+  width: min(400px, 100%);
   height: auto;
   margin-inline: auto;
   margin-bottom: 0.8rem;

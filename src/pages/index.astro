@@ -42,31 +42,16 @@ import teamLogo from "../assets/logo.png";
           <a class="button button-primary" href="/desafios">Explorar desafíos</a>
           <a class="button button-secondary" href="/equipo">Conocer al equipo</a>
         </div>
-        <div class="hero-highlights" aria-label="Resumen rápido del portfolio">
-          {heroHighlights.map((item) => (
-            <article class="highlight-pill">
-              <strong>{item.value}</strong>
-              <span>{item.label}</span>
-            </article>
-          ))}
-        </div>
+        {/* Cuadros de heroHighlights eliminados */}
       </div>
 
       <div class="hero-visual reveal-up" data-reveal>
-        <div class="logo-panel logo-panel--hero">
+        <div class="logo-panel logo-panel--hero no-bg no-shadow">
           <div class="orbital-ring orbital-ring-a" aria-hidden="true"></div>
           <div class="orbital-ring orbital-ring-b" aria-hidden="true"></div>
-          <img src={teamLogo.src} alt={siteMeta.logoAlt} width="220" height="220" loading="eager" decoding="async" />
-          <p>Logo institucional del equipo y punto de entrada visual del portfolio.</p>
+          <img src={teamLogo.src} alt={siteMeta.logoAlt} width="400" height="400" loading="eager" decoding="async" />
         </div>
-        <div class="hero-stat-grid" aria-label="Datos destacados del equipo">
-          {quickFacts.map((fact) => (
-            <article class="hero-stat-card">
-              <span class="hero-stat-value">{fact.value}</span>
-              <span class="hero-stat-label">{fact.label}</span>
-            </article>
-          ))}
-        </div>
+        {/* Cuadros de quickFacts eliminados */}
       </div>
     </div>
   </section>
