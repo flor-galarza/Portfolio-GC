@@ -76,28 +76,11 @@ export interface TpiContent {
   evidences: EvidenceItem[];
 }
 
-export const siteMeta = {
-  teamName: "Gestión Compartida",
-  teamLabel: "Portfolio académico del equipo",
-  description:
-    "Sitio multipágina que conecta desafíos, TPI, rutas de aprendizaje y evidencias del equipo Gestión Compartida.",
-  logoAlt: "Logo del equipo Gestión Compartida"
-};
-
-export const navLinks: NavLink[] = [
-  { href: "/", label: "Home" },
-  { href: "/equipo", label: "Equipo" },
-  { href: "/rpa", label: "RPA" },
-  { href: "/tpi", label: "TPI" },
-  { href: "/mapa-conceptual", label: "Mapa conceptual" }
-];
-
-export const challengeSlugs = ["d3", "d4", "d5", "d6", "d7"];
+export const teamName = "Equipo Gestión Compartida";
 
 export const teamMembers: TeamMember[] = [
   {
-    id: "camila-rojas",
-    name: "Camila Rojas",
+    name: "Camila Zeniquel",
     role: "UX Strategist",
     initials: "CR",
     accent: "cyan",
@@ -115,8 +98,7 @@ export const teamMembers: TeamMember[] = [
       "Alineó la experiencia del micrositio con los objetivos académicos y aseguró que cada sección tuviera sentido para docentes y pares."
   },
   {
-    id: "mateo-silva",
-    name: "Mateo Silva",
+    name: "Florencia Galarza Maumary",
     role: "Frontend Developer",
     initials: "MS",
     accent: "mint",
@@ -134,8 +116,7 @@ export const teamMembers: TeamMember[] = [
       "Convirtió el portfolio en una experiencia multipágina coherente, con una estructura lista para futuras entregas y ajustes rápidos."
   },
   {
-    id: "valentina-perez",
-    name: "Valentina Perez",
+    name: "Bruno Rivero",
     role: "Automation Analyst",
     initials: "VP",
     accent: "violet",
@@ -153,8 +134,13 @@ export const teamMembers: TeamMember[] = [
       "Diseñó el marco de control que permite mostrar avances, respaldos y aprendizajes sin romper la claridad del portfolio."
   },
   {
-    id: "lucas-diaz",
-    name: "Lucas Diaz",
+    name: "Renzo Urturi",
+    role: "Technical Communicator",
+    avatar: "/assets/avatars/lucas.svg",
+    competencies: ["Documentation", "Storytelling", "Metrics"]
+  },
+  {
+    name: "Fabricio Jerez",
     role: "Technical Communicator",
     initials: "LD",
     accent: "amber",
@@ -191,6 +177,7 @@ export const teamMembers: TeamMember[] = [
       "Placeholder editorial listo para reemplazar con contenido final sin afectar cards, grids ni consistencia visual.",
     note: "Completar este perfil cuando el equipo confirme los datos del quinto integrante."
   }
+  
 ];
 
 export const heroHighlights = [
@@ -290,306 +277,124 @@ export const conceptLevels: ConceptLevel[] = [
 export const challengeContent: Challenge[] = [
   {
     slug: "d3",
-    code: "D3",
-    title: "Descubrimiento y definición del problema",
-    summary: "Se investigó el contexto inicial para entender necesidades, actores y oportunidades de mejora del proyecto.",
+    title: "Desafio D3 - Micrositio",
     problem:
-      "El equipo necesitaba evitar decisiones basadas en supuestos y construir una base común sobre qué problema valía la pena resolver primero.",
+      "El problema del desafío.",
     solution:
-      "Se organizaron entrevistas breves, afinidad de hallazgos y priorización MoSCoW para convertir información dispersa en un enfoque accionable.",
-    tools: ["Miro", "Notion", "Google Meet", "Matrices de priorización"],
+      "La solución del desafío",
     evidences: [
-      {
-        title: "Mapa de afinidad",
-        description: "Documento visual con agrupación de hallazgos y primeras oportunidades detectadas.",
-        type: "Documento",
-        status: "placeholder"
-      },
-      {
-        title: "Resumen de entrevistas",
-        description: "Síntesis lista para cargar con observaciones reales del equipo o de docentes.",
-        type: "Documento",
-        status: "placeholder"
-      },
-      {
-        title: "Priorización inicial",
-        description: "Registro de criterios y decisiones que guiaron el resto de los desafíos.",
-        type: "Presentación",
-        status: "placeholder"
-      }
+      "Lista de evidencias de la solución (documentos, presentaciones, etc.)"
     ],
-    learnings: [
-      {
-        title: "Aprendizaje principal",
-        detail: "Entender el problema con profundidad redujo retrabajos posteriores y permitió discutir con más foco."
-      },
-      {
-        title: "Qué funcionó bien",
-        detail: "Tener evidencia temprana ayudó a justificar decisiones frente a docentes y al propio equipo."
-      },
-      {
-        title: "Competencias desarrolladas",
-        detail: "Se fortalecieron investigación, análisis crítico y gestión colaborativa del alcance."
-      }
-    ],
-    wouldDoDifferent: [
-      "Registrar más citas textuales para enriquecer las evidencias cualitativas.",
-      "Incorporar antes un tablero compartido para seguimiento de hallazgos."
-    ],
-    competenciesDeveloped: ["Investigación UX", "Priorización", "Análisis de contexto"],
-    tpiConnection:
-      "D3 definió la base conceptual del TPI: el resto del sitio retoma los problemas, necesidades y decisiones priorizadas en esta etapa."
+    tools: ["una herramienta", "otra herramienta"],
+    reflections: [
+      "Lista de reflexiones del desafío."
+    ]
   },
   {
     slug: "d4",
-    code: "D4",
-    title: "Prototipado y experiencia",
-    summary: "El desafío consolidó una propuesta visual y de navegación capaz de ordenar el contenido del portfolio.",
+    title: "Desafio D4",
     problem:
-      "Existían ideas valiosas pero dispersas; faltaba una estructura visual común para mostrar equipo, desafíos, TPI y evidencias sin saturar la experiencia.",
+      "El problema del desafío.",
     solution:
-      "Se prototiparon recorridos, se definieron patrones de cards y se validó una experiencia multipágina enfocada en claridad y legibilidad.",
-    tools: ["Figma", "Loom", "Diagramas de flujo", "Revisión heurística"],
+      "La solución del desafío",
     evidences: [
-      {
-        title: "Wireframes del recorrido",
-        description: "Placeholder para capturas de baja y media fidelidad del sitio.",
-        type: "Imagen",
-        status: "placeholder"
-      },
-      {
-        title: "Mapa de navegación",
-        description: "Estructura que conecta home, páginas temáticas y desafíos del D3 al D7.",
-        type: "Documento",
-        status: "placeholder"
-      },
-      {
-        title: "Feedback interno",
-        description: "Resumen breve de observaciones surgidas en la validación entre integrantes.",
-        type: "Video/nota",
-        status: "placeholder"
-      }
+      "Lista de evidencias de la solución (documentos, presentaciones, etc.)"
     ],
-    learnings: [
-      {
-        title: "Aprendizaje principal",
-        detail: "Prototipar temprano volvió visibles los cuellos de lectura y mejoró la jerarquía visual del portfolio."
-      },
-      {
-        title: "Qué funcionó bien",
-        detail: "Pensar en componentes desde el diseño facilitó la implementación posterior en Astro."
-      },
-      {
-        title: "Competencias desarrolladas",
-        detail: "Se reforzaron UX, prototipado, comunicación visual y validación rápida."
-      }
-    ],
-    wouldDoDifferent: [
-      "Probar más variantes del home antes de fijar la composición final.",
-      "Agregar una instancia corta de test con usuarios externos al equipo."
-    ],
-    competenciesDeveloped: ["Prototipado", "Diseño UI", "Arquitectura de información"],
-    tpiConnection:
-      "D4 estableció el lenguaje visual que luego el TPI usa para mostrar relaciones entre personas, procesos, desafíos y resultados."
+    tools: ["una herramienta", "otra herramienta"],
+    reflections: [
+      "Lista de reflexiones del desafío."
+    ]
   },
   {
     slug: "d5",
-    code: "D5",
-    title: "Implementación del micrositio",
-    summary: "Se llevó el prototipo a un sitio funcional, reusable y preparado para completar con contenido real.",
+    title: "Desafio D5",
     problem:
-      "La dificultad era construir una experiencia multipágina profesional sin duplicar contenido ni perder flexibilidad para cambios de última hora.",
+      "El problema del desafío.",
     solution:
-      "Se adoptó Astro con páginas file-based, layout compartido, componentes reutilizables y un archivo central de datos para contenido editable.",
-    tools: ["Astro", "TypeScript", "Tailwind CSS 4", "CSS custom properties"],
+      "La solución del desafío",
     evidences: [
-      {
-        title: "Repositorio funcional",
-        description: "Base del proyecto con navegación, páginas dedicadas y estilos consistentes.",
-        type: "Código",
-        status: "available"
-      },
-      {
-        title: "Build validado",
-        description: "Evidencia del sitio estático generado sin errores de chequeo o compilación.",
-        type: "Reporte",
-        status: "available"
-      },
-      {
-        title: "Capturas responsive",
-        description: "Espacio listo para anexar vistas mobile y desktop de la entrega final.",
-        type: "Imagen",
-        status: "placeholder"
-      }
+      "Lista de evidencias de la solución (documentos, presentaciones, etc.)"
     ],
-    learnings: [
-      {
-        title: "Aprendizaje principal",
-        detail: "Separar contenido y presentación permitió escalar el proyecto sin rehacer secciones enteras."
-      },
-      {
-        title: "Qué funcionó bien",
-        detail: "La reutilización de plantillas redujo inconsistencias entre desafíos y páginas globales."
-      },
-      {
-        title: "Competencias desarrolladas",
-        detail: "Se fortalecieron desarrollo frontend, arquitectura de información y mantenimiento de contenido."
-      }
-    ],
-    wouldDoDifferent: [
-      "Automatizar aún más la generación de capturas o estados de entrega.",
-      "Sumar contenido definitivo del equipo desde etapas más tempranas."
-    ],
-    competenciesDeveloped: ["Desarrollo web", "Componentización", "Responsive design"],
-    tpiConnection:
-      "D5 materializa el TPI: convierte el proceso conceptual y metodológico en una interfaz navegable y verificable."
+    tools: ["una herramienta", "otra herramienta"],
+    reflections: [
+      "Lista de reflexiones del desafío."
+    ]
   },
   {
     slug: "d6",
-    code: "D6",
-    title: "Automatización y control de calidad",
-    summary: "Se definieron rutinas y soportes para que cada entrega tuviera evidencia consistente y fácil de revisar.",
+    title: "Desafio D6",
     problem:
-      "El equipo necesitaba una forma repetible de revisar avances, consolidar evidencias y sostener calidad sin depender de memoria individual.",
+      "El problema del desafío.",
     solution:
-      "Se construyeron plantillas de revisión, criterios compartidos y una lógica de trazabilidad que ordena qué material falta y cómo reemplazarlo.",
-    tools: ["Google Sheets", "Notion", "Checklist QA", "Documentación compartida"],
+      "La solución del desafío",
     evidences: [
-      {
-        title: "Checklist de QA",
-        description: "Guía reusable para controlar consistencia de contenido, diseño y entregables.",
-        type: "Documento",
-        status: "placeholder"
-      },
-      {
-        title: "Matriz de seguimiento",
-        description: "Registro de estado por desafío y por tipo de evidencia esperada.",
-        type: "Planilla",
-        status: "placeholder"
-      },
-      {
-        title: "Rutina semanal de revisión",
-        description: "Resumen breve de cómo se ordenaban ajustes y pendientes entre integrantes.",
-        type: "Nota operativa",
-        status: "placeholder"
-      }
+      "Lista de evidencias de la solución (documentos, presentaciones, etc.)"
     ],
-    learnings: [
-      {
-        title: "Aprendizaje principal",
-        detail: "La automatización no fue solo técnica: también implicó normalizar procesos y criterios compartidos."
-      },
-      {
-        title: "Qué funcionó bien",
-        detail: "La trazabilidad redujo pérdidas de contexto y volvió más simple el reemplazo de placeholders por contenido real."
-      },
-      {
-        title: "Competencias desarrolladas",
-        detail: "Se trabajaron gestión, control de calidad, automatización ligera y seguimiento colaborativo."
-      }
-    ],
-    wouldDoDifferent: [
-      "Relacionar antes las evidencias con responsables concretos por integrante.",
-      "Agregar métricas de avance visibles dentro del proceso de revisión."
-    ],
-    competenciesDeveloped: ["QA", "Automatización operativa", "Gestión de evidencias"],
-    tpiConnection:
-      "D6 sostiene al TPI al garantizar que cada sección del sitio tenga respaldo, orden y capacidad de actualización rápida."
+    tools: ["una herramienta", "otra herramienta"],
+    reflections: [
+      "Lista de reflexiones del desafío."
+    ]
   },
   {
     slug: "d7",
-    code: "D7",
-    title: "Presentación final y síntesis profesional",
-    summary: "El equipo integró proceso, evidencias y resultados en una narrativa lista para exposición académica.",
+    title: "Desafio D7",
     problem:
-      "Hacía falta cerrar el recorrido con una presentación clara, convincente y alineada con el valor real generado durante la cursada.",
+      "El problema del desafío.",
     solution:
-      "Se diseñó un relato final que organiza hitos, aprendizajes y resultados alrededor del portfolio, el TPI y la evolución del equipo.",
-    tools: ["Canva", "Astro", "YouTube", "Presentación final"],
+      "La solución del desafío",
     evidences: [
-      {
-        title: "Guion de exposición",
-        description: "Estructura editable para articular qué se cuenta en vivo y cómo se navega el sitio durante la presentación.",
-        type: "Documento",
-        status: "placeholder"
-      },
-      {
-        title: "Demo navegable del portfolio",
-        description: "El propio sitio funciona como respaldo de la exposición y del proceso completo del equipo.",
-        type: "Sitio web",
-        status: "available"
-      },
-      {
-        title: "Feedback final",
-        description: "Espacio para incorporar devoluciones de docentes y aprendizajes posteriores a la entrega.",
-        type: "Nota",
-        status: "placeholder"
-      }
+      "Lista de evidencias de la solución (documentos, presentaciones, etc.)"
     ],
-    learnings: [
-      {
-        title: "Aprendizaje principal",
-        detail: "La síntesis final fue más sólida cuando cada evidencia quedó vinculada a una decisión o un aprendizaje del equipo."
-      },
-      {
-        title: "Qué funcionó bien",
-        detail: "El portfolio permitió mostrar no solo el resultado, sino también la lógica detrás de cada elección."
-      },
-      {
-        title: "Competencias desarrolladas",
-        detail: "Se reforzaron presentación oral, storytelling técnico, análisis retrospectivo y trabajo interdisciplinario."
-      }
-    ],
-    wouldDoDifferent: [
-      "Grabar antes una versión preliminar de la presentación para iterar el guion.",
-      "Cerrar con material audiovisual definitivo de todos los desafíos."
-    ],
-    competenciesDeveloped: ["Storytelling", "Presentación", "Reflexión crítica"],
-    tpiConnection:
-      "D7 es el cierre del TPI: muestra cómo los contenidos del sitio se integran para construir una evidencia profesional de aprendizaje."
+    tools: ["una herramienta", "otra herramienta"],
+    reflections: [
+      "Lista de reflexiones del desafío."
+    ]
   }
 ];
 
-export const rpaSummary =
-  "Las rutas personales de aprendizaje muestran cómo cada integrante de Gestión Compartida conectó intereses, fortalezas y competencias con los desafíos reales del proyecto.";
+export const rpaRoutes: RpaRoute[] = [
+  {
+    member: "Camila Zeniquel",
+    route: [
+      "Espacio para RPA de Camila."
+    ]
+  },
+  {
+    member: "Florencia Galarza Maumary",
+    route: [
+      "Espacio para RPA de Florencia."
+    ]
+  },
+  {
+    member: "Bruno Rivero",
+    route: [
+      "Espacio para RPA de Bruno."
+    ]
+  },
+  {
+    member: "Renzo Urturi",
+    route: [
+      "Espacio para RPA de Renzo."
+    ]
+  },
+  {
+    member: "Fabricio Jerez",
+    route: [
+      "Espacio para RPA de Fabricio."
+    ]
+  }
+];
 
 export const tpiContent: TpiContent = {
   description:
-    "El Trabajo Práctico Integrador consolida investigación, experiencia, implementación, automatización y comunicación técnica en un solo portfolio digital.",
-  focus:
-    "El foco del TPI es demostrar trazabilidad: cada decisión visual o técnica del sitio está vinculada con un desafío, una evidencia y una reflexión del equipo.",
+    "Descripción de Trabajo Práctico Integrador",
   objectives: [
-    "Construir una narrativa profesional y verificable del proceso del equipo.",
-    "Conectar desafíos, competencias y resultados en una experiencia de navegación clara.",
-    "Mantener una base fácil de actualizar cuando se agreguen videos, mapas o documentos finales."
-  ],
-  integrations: [
-    "Home sintetiza identidad, equipo, accesos y visión general del TPI.",
-    "Cada desafío muestra problema, solución, evidencias y reflexión con relación directa al TPI.",
-    "Las RPA explican la evolución individual que sostiene el logro colectivo.",
-    "Los mapas conceptuales traducen el aprendizaje en una estructura visual por niveles."
+    "Objetivos del Trabajo Práctico Integrador"
   ],
   result:
-    "El resultado es un sitio web multipágina, responsive y orientado a modo oscuro, con componentes reutilizables, placeholders elegantes y una arquitectura preparada para el cierre académico final.",
+    "Resultados del Trabajo Práctico Integrador",
   evidences: [
-    {
-      title: "Arquitectura multipágina",
-      description: "Navegación clara entre Home, Equipo, RPA, TPI, Mapa conceptual y desafíos D3 a D7.",
-      type: "Sitio web",
-      status: "available"
-    },
-    {
-      title: "Contenido centralizado",
-      description: "Fuente única de datos para mantener consistencia y reemplazar placeholders sin romper layouts.",
-      type: "Código",
-      status: "available"
-    },
-    {
-      title: "Material final pendiente",
-      description: "Videos, mapas finales y documentos definitivos pueden cargarse luego sobre una base ya lista.",
-      type: "Placeholder",
-      status: "placeholder"
-    }
+    "Evidencias del Trabajo Práctico Integrador"
   ]
 };
 
