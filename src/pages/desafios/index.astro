@@ -1,26 +1,45 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Card from "../../components/Card.astro";
-import { challengeContent } from "../../data/content";
+import PageHero from "../../components/PageHero.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+import { challengeContent, siteMeta } from "../../data/content";
 ---
 
-<BaseLayout title="Desafios | Portfolio UTN" description="Listado de desafios D3 a D7.">
-  <section class="page-section hero-small">
-    <div class="container">
-      <p class="eyebrow">Desafios</p>
-      <h1>Ruta de desafios del equipo</h1>
-      <p>Acceso rapido a cada desafio con su problema, solucion, evidencias y reflexion.</p>
-    </div>
-  </section>
+<BaseLayout title={`Desafíos | ${siteMeta.teamName}`} description={`Recorrido de ${siteMeta.teamName} por los desafíos D3 a D7.`}>
+  <PageHero
+    eyebrow="Desafíos"
+    title="Recorrido D3 a D7"
+    description="Cada página desarrolla el problema abordado, la solución propuesta, las evidencias, las herramientas y la reflexión del equipo para esa etapa."
+    actions={[
+      { href: "/tpi", label: "Ver TPI" },
+      { href: "/", label: "Ir al inicio", variant: "secondary" }
+    ]}
+    compact
+  />
 
-  <section class="page-section">
-    <div class="container card-grid">
-      {challengeContent.map((challenge) => (
-        <Card title={challenge.title} subtitle="Pagina independiente">
-          <p>{challenge.problem}</p>
-          <p><a href={`/desafios/${challenge.slug}`} class="link-cta">Ver desafio</a></p>
-        </Card>
-      ))}
+  <section class="page-section section-shell">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Páginas por desafío"
+        title="Acceso directo a cada etapa del proceso"
+        description="La estructura mantiene una lectura consistente en todas las páginas y facilita reemplazar o ampliar evidencias sin tocar el diseño base."
+      />
+      <div class="card-grid">
+        {challengeContent.map((challenge) => (
+          <Card title={`${challenge.code} · ${challenge.title}`} subtitle="Página individual">
+            <p>{challenge.summary}</p>
+            <div class="badge-row challenge-inline-badges">
+              {challenge.competenciesDeveloped.map((item) => (
+                <span class="badge">{item}</span>
+              ))}
+            </div>
+            <p>
+              <a href={`/desafios/${challenge.slug}`} class="link-cta">Ver desafío completo</a>
+            </p>
+          </Card>
+        ))}
+      </div>
     </div>
   </section>
 </BaseLayout>

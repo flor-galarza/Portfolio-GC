@@ -1,9 +1,10 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Card from "../components/Card.astro";
+import { siteMeta } from "../data/content";
 ---
 
-<BaseLayout title="Contacto | Portfolio UTN" description="Reflexión final y enlaces de cierre del equipo.">
+<BaseLayout title={`Contacto | ${siteMeta.teamName}`} description={`Reflexión final y enlaces de cierre de ${siteMeta.teamName}.`}>
   <section class="page-section hero-small">
     <div class="container">
       <p class="eyebrow">Contacto</p>

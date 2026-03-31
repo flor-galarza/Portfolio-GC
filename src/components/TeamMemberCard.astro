@@ -1,0 +1,59 @@
+---
+import Badge from "./Badge.astro";
+import type { TeamMember } from "../data/content";
+
+interface Props {
+  member: TeamMember;
+  compact?: boolean;
+}
+
+const { member, compact = false } = Astro.props;
+const profileGroups = [
+  { label: "Fortalezas", items: member.strengths, type: "list" },
+  { label: "Intereses", items: member.interests, type: "badge" },
+  { label: "Competencias", items: member.competencies, type: "badge" }
+] as const;
+---
+
+<article class={`profile-card reveal-up ${compact ? "profile-card--compact" : ""}`} data-reveal>
+  <div class="profile-card__header">
+    <div class={`profile-avatar profile-avatar--${member.accent}`} aria-hidden="true">
+      <span>{member.initials}</span>
+    </div>
+    <div>
+      <p class="profile-kicker">{member.role}</p>
+      <h3>{member.name}</h3>
+      <p class="profile-tagline">{member.tagline}</p>
+    </div>
+  </div>
+
+  {!compact && <p>{member.bio}</p>}
+
+  {profileGroups.map((group) => (
+    <div class="profile-group">
+      <p class="list-label">{group.label}</p>
+      {group.type === "list" ? (
+        <ul class="clean-list clean-list--tight">
+          {group.items.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      ) : (
+        <div class="badge-row">
+          {group.items.map((item) => (
+            <Badge label={item} />
+          ))}
+        </div>
+      )}
+    </div>
+  ))}
+
+  {member.note && <p class="support-note profile-note">{member.note}</p>}
+
+  {!compact && (
+    <div class="profile-group">
+      <p class="list-label">Aporte al TPI</p>
+      <p>{member.contribution}</p>
+    </div>
+  )}
+</article>

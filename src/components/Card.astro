@@ -7,7 +7,7 @@ interface Props {
 const { title, subtitle } = Astro.props;
 ---
 
-<article class="card reveal-up">
+<article class="card reveal-up" data-reveal>
   <header>
     <h3>{title}</h3>
     {subtitle && <p class="card-subtitle">{subtitle}</p>}

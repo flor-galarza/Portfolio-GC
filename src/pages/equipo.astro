@@ -1,31 +1,29 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Card from "../components/Card.astro";
-import Badge from "../components/Badge.astro";
-import { teamMembers } from "../data/content";
+import PageHero from "../components/PageHero.astro";
+import TeamMemberCard from "../components/TeamMemberCard.astro";
+import { siteMeta, teamMembers, teamSectionDescription } from "../data/content";
 ---
 
-<BaseLayout title="Equipo | Portfolio UTN" description="Equipo, roles y competencias.">
-  <section class="page-section hero-small">
-    <div class="container">
-      <p class="eyebrow">Equipo</p>
-      <h1>Personas que impulsan el portfolio</h1>
-      <p>Perfiles resumidos con informacion editable para la entrega final.</p>
-    </div>
-  </section>
+<BaseLayout
+  title={`Equipo | ${siteMeta.teamName}`}
+  description={`Equipo, roles, fortalezas, intereses y competencias del portfolio de ${siteMeta.teamName}.`}
+>
+  <PageHero
+    eyebrow="Equipo"
+    title="Personas que convierten el proceso en una entrega profesional"
+    description={teamSectionDescription}
+    actions={[
+      { href: "/rpa", label: "Ver RPA" },
+      { href: "/", label: "Volver al inicio", variant: "secondary" }
+    ]}
+    compact
+  />
 
-  <section class="page-section">
-    <div class="container card-grid">
+  <section class="page-section section-shell">
+    <div class="container card-grid card-grid--profiles-lg">
       {teamMembers.map((member) => (
-        <Card title={member.name} subtitle={member.role}>
-          <img src={member.avatar} alt={`Avatar de ${member.name}`} class="avatar" loading="lazy" width="120" height="120" />
-          <p class="stack-sm">Competencias clave:</p>
-          <div class="badge-row">
-            {member.competencies.map((competency) => (
-              <Badge label={competency} />
-            ))}
-          </div>
-        </Card>
+        <TeamMemberCard member={member} />
       ))}
     </div>
   </section>

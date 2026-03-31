@@ -1,28 +1,38 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Card from "../components/Card.astro";
+import ConceptMapCard from "../components/ConceptMapCard.astro";
+import PageHero from "../components/PageHero.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import { conceptLevels, siteMeta } from "../data/content";
 ---
 
-<BaseLayout title="Mapa conceptual | Portfolio UTN" description="Mapa conceptual por niveles de aprendizaje.">
-  <section class="page-section hero-small">
-    <div class="container">
-      <p class="eyebrow">Mapa conceptual</p>
-      <h1>Relación de conceptos clave</h1>
-      <p>Vista editable para organizar conceptos del curso por nivel de profundidad.</p>
-    </div>
-  </section>
+<BaseLayout
+  title={`Mapa conceptual | ${siteMeta.teamName}`}
+  description={`Mapa conceptual por niveles de aprendizaje de ${siteMeta.teamName}.`}
+>
+  <PageHero
+    eyebrow="Mapa conceptual"
+    title="Relación de conceptos clave por nivel"
+    description="Cada nivel sintetiza cómo el equipo pasó de comprender el problema a diseñar la solución y cerrar el proceso con implementación, evidencias y reflexión."
+    actions={[
+      { href: "/tpi", label: "Ver TPI" },
+      { href: "/", label: "Volver al inicio", variant: "secondary" }
+    ]}
+    compact
+  />
 
-  <section class="page-section">
-    <div class="container card-grid">
-      <Card title="Nivel 1">
-        <p>Mapa conceptual para nivel 1.</p>
-      </Card>
-      <Card title="Nivel 2">
-        <p>Mapa conceptual para nivel 2.</p>
-      </Card>
-      <Card title="Nivel 3">
-        <p>Mapa conceptual para nivel 3.</p>
-      </Card>
+  <section class="page-section section-shell">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Niveles"
+        title="Base visual clara y fácil de enriquecer"
+        description="Si el equipo luego dispone de gráficos finales o versiones interactivas, estas tarjetas se pueden reemplazar sin modificar la arquitectura del sitio."
+      />
+      <div class="card-grid card-grid--concepts">
+        {conceptLevels.map((level) => (
+          <ConceptMapCard level={level} />
+        ))}
+      </div>
     </div>
   </section>
 </BaseLayout>

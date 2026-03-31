@@ -1,6 +1,16 @@
+---
+import { closingReflection, siteMeta } from "../data/content";
+---
+
 <footer class="site-footer">
   <div class="container footer-wrap">
-    <p>Portfolio UTN - Equipo Atlas</p>
-    <p>Contenido editable para entregas academicas.</p>
+    <div>
+      <p class="footer-title">{siteMeta.teamName}</p>
+      <p>{siteMeta.description}</p>
+    </div>
+    <div class="footer-closing">
+      <p class="footer-title">{closingReflection.title}</p>
+      <p class="footer-note">{closingReflection.detail}</p>
+    </div>
   </div>
 </footer>

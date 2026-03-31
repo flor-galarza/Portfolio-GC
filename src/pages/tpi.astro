@@ -1,45 +1,82 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Card from "../components/Card.astro";
-import { tpiContent } from "../data/content";
+import EvidenceList from "../components/EvidenceList.astro";
+import PageHero from "../components/PageHero.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import { challengeContent, siteMeta, tpiContent } from "../data/content";
 ---
 
-<BaseLayout title="TPI | Portfolio UTN" description="Trabajo Practico Integrador del equipo.">
-  <section class="page-section hero-small">
-    <div class="container">
-      <p class="eyebrow">TPI</p>
-      <h1>Trabajo Practico Integrador</h1>
-      <p>Descripcion del trabajo, objetivos, resultados y evidencias trazables.</p>
-    </div>
-  </section>
+<BaseLayout title={`TPI | ${siteMeta.teamName}`} description={`Trabajo Práctico Integrador del equipo ${siteMeta.teamName}.`}>
+  <PageHero
+    eyebrow="TPI"
+    title="Trabajo Práctico Integrador"
+    description={tpiContent.description}
+    actions={[
+      { href: "/desafios", label: "Recorrer desafíos" },
+      { href: "/mapa-conceptual", label: "Ver mapas conceptuales", variant: "secondary" }
+    ]}
+    compact
+  />
 
-  <section class="page-section">
-    <div class="container split-grid">
-      <Card title="Descripcion del trabajo">
-        <p>{tpiContent.description}</p>
+  <section class="page-section section-shell">
+    <div class="container split-grid split-grid--feature">
+      <Card title="Propósito del TPI" subtitle="Qué integra el sitio">
+        <p>{tpiContent.focus}</p>
       </Card>
-      <Card title="Resultado final">
+      <Card title="Resultado" subtitle="Qué entrega el equipo hoy">
         <p>{tpiContent.result}</p>
       </Card>
     </div>
   </section>
 
-  <section class="page-section">
-    <div class="container split-grid">
-      <Card title="Objetivos">
-        <ul class="clean-list">
+  <section class="page-section section-shell">
+    <div class="container split-grid split-grid--feature">
+      <Card title="Objetivos" subtitle="Qué debía demostrar la entrega">
+        <ul class="clean-list clean-list--tight">
           {tpiContent.objectives.map((objective) => (
             <li>{objective}</li>
           ))}
         </ul>
       </Card>
-      <Card title="Evidencias">
-        <ul class="clean-list">
-          {tpiContent.evidences.map((evidence) => (
-            <li>{evidence}</li>
+      <Card title="Conexiones internas" subtitle="Cómo se relacionan las páginas del sitio">
+        <ul class="clean-list clean-list--tight">
+          {tpiContent.integrations.map((item) => (
+            <li>{item}</li>
           ))}
         </ul>
       </Card>
+    </div>
+  </section>
+
+  <section class="page-section section-shell">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Evidencias del TPI"
+        title="Soportes actuales y placeholders para el material final"
+        description="La arquitectura del sitio ya deja preparados los espacios para incorporar videos, documentos, presentaciones y mapas finales."
+      />
+      <EvidenceList items={tpiContent.evidences} />
+    </div>
+  </section>
+
+  <section class="page-section section-shell">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Relación con los desafíos"
+        title="Cada etapa suma una parte del TPI"
+        description="El TPI no se explica en abstracto: se construye a partir de las decisiones, herramientas, reflexiones y competencias de cada desafío."
+      />
+      <div class="card-grid">
+        {challengeContent.map((challenge) => (
+          <Card title={`${challenge.code} · ${challenge.title}`} subtitle="Aporte al TPI">
+            <p>{challenge.tpiConnection}</p>
+            <p>
+              <a href={`/desafios/${challenge.slug}`} class="link-cta">Ver detalle del desafío</a>
+            </p>
+          </Card>
+        ))}
+      </div>
     </div>
   </section>
 </BaseLayout>

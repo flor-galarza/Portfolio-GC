@@ -1,29 +1,45 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Card from "../components/Card.astro";
-import { rpaRoutes } from "../data/content";
+import PageHero from "../components/PageHero.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import { rpaSummary, siteMeta, teamMembers } from "../data/content";
 ---
 
-<BaseLayout title="RPA | Portfolio UTN" description="Ruta personal de aprendizaje de cada integrante.">
-  <section class="page-section hero-small">
-    <div class="container">
-      <p class="eyebrow">RPA</p>
-      <h1>Rutas personales de aprendizaje</h1>
-      <p>Cada integrante documenta su evolucion y foco profesional.</p>
-    </div>
-  </section>
+<BaseLayout
+  title={`RPA | ${siteMeta.teamName}`}
+  description={`Rutas personales de aprendizaje de cada integrante de ${siteMeta.teamName}.`}
+>
+  <PageHero
+    eyebrow="RPA"
+    title="Rutas personales de aprendizaje"
+    description={rpaSummary}
+    actions={[
+      { href: "/equipo", label: "Ver equipo", variant: "secondary" },
+      { href: "/tpi", label: "Conectar con el TPI" }
+    ]}
+    compact
+  />
 
-  <section class="page-section">
-    <div class="container card-grid">
-      {rpaRoutes.map((route) => (
-        <Card title={route.member} subtitle="Itinerario individual">
-          <ol class="clean-list ordered">
-            {route.route.map((step) => (
-              <li>{step}</li>
-            ))}
-          </ol>
-        </Card>
-      ))}
+  <section class="page-section section-shell">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Itinerarios"
+        title="Cómo creció cada integrante durante el proyecto"
+        description="Las RPA articulan evolución técnica, intereses profesionales y aplicación concreta en los desafíos y en la construcción del sitio."
+      />
+      <div class="card-grid card-grid--rpa-lg">
+        {teamMembers.map((member) => (
+          <Card title={member.name} subtitle={member.role}>
+            <ol class="clean-list ordered clean-list--tight">
+              {member.rpa.map((step) => (
+                <li>{step}</li>
+              ))}
+            </ol>
+            <p class="support-note">{member.contribution}</p>
+          </Card>
+        ))}
+      </div>
     </div>
   </section>
 </BaseLayout>

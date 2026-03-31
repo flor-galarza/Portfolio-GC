@@ -1,0 +1,29 @@
+---
+import type { EvidenceItem } from "../data/content";
+
+interface Props {
+  items: EvidenceItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="evidence-list">
+  {items.map((item) => (
+    <article class="evidence-item">
+      <div class="evidence-item__top">
+        <span class="evidence-type">{item.type}</span>
+        <span class={`evidence-status ${item.status === "available" ? "is-available" : "is-placeholder"}`}>
+          {item.status === "available" ? "Disponible" : "Placeholder listo para reemplazo"}
+        </span>
+      </div>
+      <h3>{item.title}</h3>
+      <p>{item.description}</p>
+      {item.href && (
+        <p>
+          <a href={item.href} class="link-cta">Ver evidencia</a>
+        </p>
+      )}
+    </article>
+  ))}
+</div>

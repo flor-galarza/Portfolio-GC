@@ -26,6 +26,11 @@ const { title, description = "Micrositio portfolio del equipo UTN" } = Astro.pro
     />
   </head>
   <body>
+    <div class="page-backdrop" aria-hidden="true">
+      <span class="glow glow-a"></span>
+      <span class="glow glow-b"></span>
+      <span class="grid-overlay"></span>
+    </div>
     <div class="app-shell">
       <Navbar currentPath={Astro.url.pathname} />
       <main class="page-content">
@@ -78,6 +83,26 @@ const { title, description = "Micrositio portfolio del equipo UTN" } = Astro.pro
           mobileMenuButton.setAttribute("aria-expanded", String(!expanded));
           mobileMenu.toggleAttribute("data-open");
         });
+      }
+
+      const revealItems = document.querySelectorAll("[data-reveal]");
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (!reduceMotion && "IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            });
+          },
+          { threshold: 0.2 }
+        );
+
+        revealItems.forEach((item) => observer.observe(item));
+      } else {
+        revealItems.forEach((item) => item.classList.add("is-visible"));
       }
     </script>
   </body>

@@ -1,0 +1,25 @@
+---
+import type { ConceptLevel } from "../data/content";
+
+interface Props {
+  level: ConceptLevel;
+}
+
+const { level } = Astro.props;
+---
+
+<article class="concept-card reveal-up" data-reveal>
+  <div class="concept-card__head">
+    <p class="concept-level">{level.level}</p>
+    <h3>{level.title}</h3>
+    <p>{level.description}</p>
+  </div>
+
+  <div class="concept-node-grid" aria-label={`Conceptos del ${level.level}`}>
+    {level.nodes.map((node) => (
+      <span class="concept-node">{node}</span>
+    ))}
+  </div>
+
+  <p class="concept-outcome">{level.outcome}</p>
+</article>

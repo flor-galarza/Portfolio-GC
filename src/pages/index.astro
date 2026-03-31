@@ -1,85 +1,198 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Card from "../components/Card.astro";
-import Timeline from "../components/Timeline.astro";
-import ProgressBar from "../components/ProgressBar.astro";
 import Badge from "../components/Badge.astro";
-import { teamName, teamMembers, timelineItems, learningProgress } from "../data/content";
+import Card from "../components/Card.astro";
+import ConceptMapCard from "../components/ConceptMapCard.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import TeamMemberCard from "../components/TeamMemberCard.astro";
+import Timeline from "../components/Timeline.astro";
+import {
+  challengeContent,
+  conceptLevels,
+  heroHighlights,
+  presentationVideo,
+  quickFacts,
+  siteMeta,
+  strengthHighlights,
+  teamIntro,
+  teamMembers,
+  teamSectionDescription,
+  timelineItems,
+  tpiContent
+} from "../data/content";
 import teamLogo from "../assets/logo.png";
 ---
 
-<BaseLayout title="Home | Portfolio UTN" description="Micrositio portfolio del equipo UTN.">
+<BaseLayout title={`Home | ${siteMeta.teamName}`} description={siteMeta.description}>
   <section class="page-section hero">
-    <div class="container hero-grid">
-      <div>
-        <p class="eyebrow">Portfolio Academico</p>
-        <h1>{teamName}</h1>
-        <p>
-          Micrositio multipagina para mostrar producciones, aprendizajes y evolucion profesional durante la cursada.
-        </p>
+    <div class="container hero-grid hero-grid--enhanced">
+      <div class="hero-copy reveal-up" data-reveal>
+        <p class="eyebrow">Identificación del equipo</p>
+        <h1>{siteMeta.teamName}</h1>
+          <p class="hero-lead">
+          Sitio web multipágina, profesional y responsive de {siteMeta.teamName} que integra equipo, desafíos D3 a D7,
+          rutas personales de aprendizaje, mapas conceptuales y el Trabajo Práctico Integrador en una sola narrativa.
+          </p>
         <div class="badge-row">
-          <Badge label="Astro" />
-          <Badge label="UX" />
-          <Badge label="RPA" />
-          <Badge label="Comunicacion" />
+          <Badge label="Modo oscuro" />
+          <Badge label="Responsive" />
+          <Badge label="TPI conectado" />
+          <Badge label="Evidencias listas" />
+        </div>
+        <div class="hero-actions">
+          <a class="button button-primary" href="/desafios">Explorar desafíos</a>
+          <a class="button button-secondary" href="/equipo">Conocer al equipo</a>
+        </div>
+        <div class="hero-highlights" aria-label="Resumen rápido del portfolio">
+          {heroHighlights.map((item) => (
+            <article class="highlight-pill">
+              <strong>{item.value}</strong>
+              <span>{item.label}</span>
+            </article>
+          ))}
         </div>
       </div>
-      <div class="logo-panel reveal-up">
-        <img src={teamLogo.src} alt={`Logo de ${teamName}`} width="220" height="220" loading="eager" decoding="async" />
-        <p>Identidad visual del equipo</p>
+
+      <div class="hero-visual reveal-up" data-reveal>
+        <div class="logo-panel logo-panel--hero">
+          <div class="orbital-ring orbital-ring-a" aria-hidden="true"></div>
+          <div class="orbital-ring orbital-ring-b" aria-hidden="true"></div>
+          <img src={teamLogo.src} alt={siteMeta.logoAlt} width="220" height="220" loading="eager" decoding="async" />
+          <p>Logo institucional del equipo y punto de entrada visual del portfolio.</p>
+        </div>
+        <div class="hero-stat-grid" aria-label="Datos destacados del equipo">
+          {quickFacts.map((fact) => (
+            <article class="hero-stat-card">
+              <span class="hero-stat-value">{fact.value}</span>
+              <span class="hero-stat-label">{fact.label}</span>
+            </article>
+          ))}
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="page-section">
+  <section class="page-section section-shell">
+    <div class="container split-grid split-grid--feature">
+      <Card title="Identidad del equipo" subtitle="Quiénes somos y cómo trabajamos">
+        <p>
+          {teamIntro}
+        </p>
+      </Card>
+      <Card title="Contenido vinculado al TPI" subtitle="Una narrativa integrada, no secciones aisladas">
+        <p>{tpiContent.focus}</p>
+      </Card>
+    </div>
+  </section>
+
+  <section class="page-section section-shell">
     <div class="container">
-      <h2>Integrantes</h2>
-      <div class="card-grid">
+        <SectionHeader
+          eyebrow="Integrantes"
+          title="Perfiles individuales con rol, fortalezas, intereses y competencias"
+          description={teamSectionDescription}
+        />
+      <div class="card-grid card-grid--profiles">
         {teamMembers.map((member) => (
-          <Card title={member.name} subtitle={member.role}>
-            <p>{member.competencies.join(" - ")}</p>
-          </Card>
+          <TeamMemberCard member={member} compact />
         ))}
       </div>
     </div>
   </section>
 
-  <section class="page-section">
-    <div class="container split-grid">
-      <Card title="Video presentacion">
+  <section class="page-section section-shell">
+    <div class="container split-grid split-grid--feature">
+      <Card title={presentationVideo.title} subtitle="Video de presentación del equipo">
         <div class="video-wrap">
           <iframe
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-            title="Video presentacion del equipo"
+            src={presentationVideo.embedUrl}
+            title={presentationVideo.title}
             loading="lazy"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
           ></iframe>
         </div>
+        <p class="support-note">{presentationVideo.note}</p>
       </Card>
-      <Card title="Resumen del portfolio">
-        <p>
-          Este sitio resume el trabajo colectivo del equipo, mostrando decisiones, evidencias y reflexiones para cada
-          etapa. Todo el contenido es editable para completar con material definitivo de la cursada.
-        </p>
+
+      <Card title="Accesos a los desafíos" subtitle="Navegación rápida del D3 al D7">
+        <div class="challenge-link-grid">
+          {challengeContent.map((challenge) => (
+            <a class="challenge-link-card" href={`/desafios/${challenge.slug}`}>
+              <span>{challenge.code}</span>
+              <strong>{challenge.title}</strong>
+              <small>{challenge.summary}</small>
+            </a>
+          ))}
+        </div>
       </Card>
     </div>
   </section>
 
-  <section class="page-section">
+  <section class="page-section section-shell">
     <div class="container">
-      <h2>Linea de tiempo del aprendizaje</h2>
+      <SectionHeader
+        eyebrow="RPA por integrante"
+        title="La evolución individual que sostiene el recorrido colectivo"
+        description="Las rutas personales de aprendizaje muestran cómo cada integrante desarrolló intereses y competencias aplicadas al sitio y al TPI."
+      />
+      <div class="card-grid card-grid--rpa">
+        {teamMembers.map((member) => (
+          <Card title={member.name} subtitle={member.role}>
+            <ol class="clean-list ordered clean-list--tight">
+              {member.rpa.map((step) => (
+                <li>{step}</li>
+              ))}
+            </ol>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section section-shell">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Proceso"
+        title="Cronología del aprendizaje del equipo"
+        description="Los hitos resumen cómo evolucionó el portfolio desde la organización inicial hasta la integración final con el TPI."
+      />
       <Timeline items={timelineItems} />
     </div>
   </section>
 
-  <section class="page-section">
+  <section class="page-section section-shell">
     <div class="container">
-      <h2>Barra de progreso del equipo</h2>
-      <div class="progress-list">
-        {learningProgress.map((progress) => (
-          <ProgressBar label={progress.label} value={progress.value} />
+      <SectionHeader
+        eyebrow="Fortalezas"
+        title="Capacidades que sostienen la entrega"
+        description="La lectura visual reemplaza la antigua barra de progreso por una síntesis más editorial, clara y alineada al tono profesional del sitio."
+      />
+      <div class="strength-grid">
+        {strengthHighlights.map((item) => (
+          <article class="strength-card reveal-up" data-reveal>
+            <div class="strength-value">{item.value}</div>
+            <div>
+              <h3>{item.title}</h3>
+              <p>{item.detail}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section section-shell">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Mapa conceptual"
+        title="Un mapa por nivel, claro y fácil de reemplazar"
+        description="Cada nivel ordena conceptos del proyecto y deja una base visual elegante para incorporar versiones finales gráficas o interactivas."
+      />
+      <div class="card-grid card-grid--concepts">
+        {conceptLevels.map((level) => (
+          <ConceptMapCard level={level} />
         ))}
       </div>
     </div>

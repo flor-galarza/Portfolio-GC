@@ -1,11 +1,11 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ChallengeTemplate from "../../components/ChallengeTemplate.astro";
-import { getChallengeBySlug } from "../../data/content";
+import { getChallengeBySlug, siteMeta } from "../../data/content";
 
 const challenge = getChallengeBySlug("d6");
 ---
 
-<BaseLayout title="D6 | Portfolio UTN" description="Desafio D6 del equipo.">
+<BaseLayout title={`D6 | ${siteMeta.teamName}`} description={`Desafío D6 de ${siteMeta.teamName}.`}>
   {challenge && <ChallengeTemplate challenge={challenge} />}
 </BaseLayout>

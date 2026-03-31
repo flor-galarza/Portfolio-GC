@@ -1,6 +1,9 @@
 ---
 import Card from "./Card.astro";
 import Badge from "./Badge.astro";
+import EvidenceList from "./EvidenceList.astro";
+import PageHero from "./PageHero.astro";
+import SectionHeader from "./SectionHeader.astro";
 import type { Challenge } from "../data/content";
 
 interface Props {
@@ -10,54 +13,86 @@ interface Props {
 const { challenge } = Astro.props;
 ---
 
-<section class="page-section hero-small">
-  <div class="container">
-    <p class="eyebrow">Desafios</p>
-    <h1>{challenge.title}</h1>
-    <p>Registro editable del proceso del equipo. Completar con material final antes de entregar.</p>
-  </div>
-</section>
+<PageHero
+  eyebrow={`Desafío ${challenge.code}`}
+  title={challenge.title}
+  description={challenge.summary}
+  actions={[
+    { href: "/desafios", label: "Volver al recorrido", variant: "secondary" },
+    { href: "/tpi", label: "Ver conexión con el TPI" }
+  ]}
+  compact
+/>
 
-<section class="page-section">
-  <div class="container split-grid">
-    <Card title="Problema abordado">
+<section class="page-section section-shell">
+  <div class="container split-grid split-grid--feature">
+    <Card title="Problema abordado" subtitle="Qué necesitaba resolver el equipo">
       <p>{challenge.problem}</p>
     </Card>
-    <Card title="Solucion propuesta">
+    <Card title="Solución propuesta" subtitle="Cómo se respondió al desafío">
       <p>{challenge.solution}</p>
     </Card>
   </div>
 </section>
 
-<section class="page-section">
-  <div class="container split-grid">
-    <Card title="Evidencias">
-      <ul class="clean-list">
-        {challenge.evidences.map((item) => (
-          <li>{item}</li>
-        ))}
-      </ul>
-    </Card>
+<section class="page-section section-shell">
+  <div class="container">
+    <SectionHeader
+      eyebrow="Evidencias"
+      title="Documentos, presentaciones, videos y respaldos"
+      description="Si falta el material definitivo, el sitio deja placeholders claros y elegantes para reemplazarlos después sin romper la experiencia."
+    />
+    <EvidenceList items={challenge.evidences} />
+  </div>
+</section>
 
-    <Card title="Herramientas utilizadas">
+<section class="page-section section-shell">
+  <div class="container split-grid split-grid--feature">
+    <Card title="Herramientas utilizadas" subtitle="Tecnologías, gestión y soportes de trabajo">
       <div class="badge-row">
         {challenge.tools.map((tool) => (
           <Badge label={tool} />
         ))}
       </div>
     </Card>
+    <Card title="Conexión con el TPI" subtitle="Por qué este desafío importa en el recorrido global">
+      <p>{challenge.tpiConnection}</p>
+    </Card>
   </div>
 </section>
 
-<section class="page-section">
+<section class="page-section section-shell">
   <div class="container">
-    <h2>Reflexion del equipo</h2>
-    <div class="card-grid">
-      {challenge.reflections.map((reflection, index) => (
-        <Card title={`Insight ${index + 1}`}>
-          <p>{reflection}</p>
+    <SectionHeader
+      eyebrow="Reflexión del equipo"
+      title="Aprendizajes, mejoras y competencias desarrolladas"
+      description="Cada desafío deja una lectura crítica que conecta proceso, resultado y evolución del equipo."
+    />
+    <div class="card-grid card-grid--reflections">
+      {challenge.learnings.map((reflection) => (
+        <Card title={reflection.title}>
+          <p>{reflection.detail}</p>
         </Card>
       ))}
     </div>
+  </div>
+</section>
+
+<section class="page-section section-shell">
+  <div class="container split-grid split-grid--feature">
+    <Card title="Qué haríamos distinto" subtitle="Oportunidades de mejora para próximas iteraciones">
+      <ul class="clean-list clean-list--tight">
+        {challenge.wouldDoDifferent.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </Card>
+    <Card title="Competencias desarrolladas" subtitle="Capacidades reforzadas en el proceso">
+      <div class="badge-row">
+        {challenge.competenciesDeveloped.map((item) => (
+          <Badge label={item} />
+        ))}
+      </div>
+    </Card>
   </div>
 </section>
