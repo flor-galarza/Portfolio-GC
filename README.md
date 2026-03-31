@@ -1,4 +1,4 @@
-# Portfolio UTN — Micrositio del equipo Atlas
+# Portfolio UTN — Micrositio del equipo Gestión Compartida
 
 Micrositio multipágina desarrollado para presentar el portfolio académico del equipo Atlas UTN: integrantes, evolución del aprendizaje, desafíos (D3 a D7), ruta profesional (RPA) y síntesis del TPI.
 
@@ -12,7 +12,7 @@ El proyecto está construido con Astro y una base de estilos globales con Tailwi
 
 ## Stack
 
-- **Framework:** Astro 4
+- **Framework:** Astro 5
 - **Estilos:** Tailwind CSS 4 (`@import "tailwindcss"`) + CSS global
 - **Tooling:** Vite (interno de Astro) para dev/build/preview
 - **Lenguaje:** TypeScript (config `astro/tsconfigs/strict`)
