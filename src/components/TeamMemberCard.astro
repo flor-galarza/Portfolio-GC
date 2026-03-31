@@ -9,9 +9,8 @@ interface Props {
 
 const { member, compact = false } = Astro.props;
 const profileGroups = [
-  { label: "Fortalezas", items: member.strengths, type: "list" },
-  { label: "Intereses", items: member.interests, type: "badge" },
-  { label: "Competencias", items: member.competencies, type: "badge" }
+  { label: "Intereses", items: member.interests },
+  { label: "Competencias", items: member.competencies }
 ] as const;
 ---
 
@@ -32,19 +31,11 @@ const profileGroups = [
   {profileGroups.map((group) => (
     <div class="profile-group">
       <p class="list-label">{group.label}</p>
-      {group.type === "list" ? (
-        <ul class="clean-list clean-list--tight">
-          {group.items.map((item) => (
-            <li>{item}</li>
-          ))}
-        </ul>
-      ) : (
-        <div class="badge-row">
-          {group.items.map((item) => (
-            <Badge label={item} />
-          ))}
-        </div>
-      )}
+      <div class="badge-row">
+        {group.items.map((item) => (
+          <Badge label={item} />
+        ))}
+      </div>
     </div>
   ))}
 

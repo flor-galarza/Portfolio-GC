@@ -18,7 +18,6 @@ export interface TeamMember {
   accent: "cyan" | "mint" | "violet" | "amber" | "rose";
   tagline: string;
   bio: string;
-  strengths: string[];
   interests: string[];
   competencies: string[];
   rpa: string[];
@@ -29,12 +28,6 @@ export interface TeamMember {
 export interface TimelineItem {
   period: string;
   title: string;
-  detail: string;
-}
-
-export interface StrengthHighlight {
-  title: string;
-  value: string;
   detail: string;
 }
 
@@ -54,6 +47,7 @@ export interface ReflectionItem {
 export interface Challenge {
   slug: string;
   code: string;
+  status: "available" | "upcoming";
   title: string;
   summary: string;
   problem: string;
@@ -94,7 +88,7 @@ export const siteMeta: SiteMeta = {
   teamName,
   teamLabel: "Portfolio académico multipágina",
   description:
-    "Micrositio profesional del equipo Gestión Compartida con equipo, desafíos D3 a D7, RPA, mapa conceptual y TPI integrados en una narrativa única.",
+    "Micrositio profesional del equipo Gestión Compartida con D3 desarrollado, D4 a D7 preparados como próximas etapas, RPA, mapa conceptual y TPI en una narrativa única.",
   logoAlt: "Logo del equipo Gestión Compartida"
 };
 
@@ -116,7 +110,6 @@ export const teamMembers: TeamMember[] = [
     accent: "cyan",
     tagline: "Convierte necesidades difusas en experiencias claras.",
     bio: "Lidera la investigación, la arquitectura de información y los criterios visuales que sostienen el recorrido del sitio.",
-    strengths: ["Investigación aplicada", "Jerarquía visual", "Síntesis de hallazgos"],
     interests: ["Service design", "Design systems", "Validación con usuarios"],
     competencies: ["UX research", "Wireframing", "Arquitectura de información"],
     rpa: [
@@ -135,7 +128,6 @@ export const teamMembers: TeamMember[] = [
     accent: "mint",
     tagline: "Transforma el relato del equipo en una interfaz sólida y mantenible.",
     bio: "Diseña la arquitectura del frontend, implementa componentes reutilizables y cuida el rendimiento del sitio en desktop y mobile.",
-    strengths: ["Arquitectura Astro", "Responsive design", "Accesibilidad"],
     interests: ["Performance web", "Semántica HTML", "Componentización"],
     competencies: ["Astro", "TypeScript", "Optimización frontend"],
     rpa: [
@@ -154,7 +146,6 @@ export const teamMembers: TeamMember[] = [
     accent: "violet",
     tagline: "Ordena procesos y vuelve trazables las evidencias del proyecto.",
     bio: "Se enfoca en la consistencia de entregables, el seguimiento de evidencias y la estandarización de reportes por desafío.",
-    strengths: ["Mapeo de procesos", "QA liviano", "Trazabilidad"],
     interests: ["Automatización operativa", "Analítica", "Gestión visual"],
     competencies: ["RPA", "Process mapping", "Control de calidad"],
     rpa: [
@@ -173,7 +164,6 @@ export const teamMembers: TeamMember[] = [
     accent: "amber",
     tagline: "Da forma narrativa a los resultados, decisiones y aprendizajes.",
     bio: "Integra storytelling, documentación y síntesis para que el sitio exprese claramente qué se hizo, por qué y con qué impacto.",
-    strengths: ["Storytelling técnico", "Documentación", "Síntesis ejecutiva"],
     interests: ["Comunicación digital", "Presentaciones", "Narrativas de producto"],
     competencies: ["Documentación técnica", "Presentación de evidencias", "Métricas"],
     rpa: [
@@ -192,7 +182,6 @@ export const teamMembers: TeamMember[] = [
     accent: "rose",
     tagline: "Conecta el trabajo colectivo con una lectura clara del proceso completo.",
     bio: "Sostiene la integración entre desafíos, RPA y TPI para que el portfolio muestre un recorrido consistente de punta a punta.",
-    strengths: ["Coordinación", "Síntesis transversal", "Seguimiento de entregables"],
     interests: ["Gestión colaborativa", "Mejora continua", "Narrativa de proyecto"],
     competencies: ["Integración de contenidos", "Planificación", "Comunicación interna"],
     rpa: [
@@ -207,21 +196,21 @@ export const teamMembers: TeamMember[] = [
 
 export const heroHighlights = [
   { value: String(teamMembers.length), label: "integrantes con roles complementarios" },
-  { value: "1", label: "desafíos documentados" },
-  { value: "1", label: "TPI articulado de punta a punta" }
+  { value: "1", label: "desafío desarrollado con contenido real" },
+  { value: "4", label: "etapas reservadas para próximas entregas" }
 ];
 
 export const quickFacts = [
-  { value: "+2", label: "semanas de evolución" },
+  { value: "1", label: "semana cerrada con contenido publicado" },
   { value: "5", label: "perfiles listos para presentar" },
-  { value: "100%", label: "estructura editable para cierre final" }
+  { value: "100%", label: "estructura preparada para sumar D4-D7" }
 ];
 
 export const teamIntro =
   "Gestión Compartida combina diseño, desarrollo, automatización y comunicación técnica para transformar aprendizajes en un portfolio claro, profesional y listo para presentar.";
 
 export const teamSectionDescription =
-  "Los cinco perfiles comparten una estructura consistente de rol, fortalezas, intereses, competencias y aporte concreto al recorrido del sitio.";
+  "Los cinco perfiles comparten una estructura consistente de rol, intereses, competencias y aporte concreto al recorrido del sitio.";
 
 export const rpaSummary =
   "Cada ruta personal de aprendizaje muestra cómo el crecimiento individual fortaleció la construcción del portfolio y la conexión con el TPI.";
@@ -234,41 +223,18 @@ export const timelineItems: TimelineItem[] = [
   },
   {
     period: "Semana 3",
-    title: "Próximamente",
-    detail: "Próximamente"
+    title: "Próxima etapa: D4",
+    detail: "Espacio reservado para documentar decisiones, evidencias y aprendizajes cuando comience el siguiente desafío."
   },
   {
     period: "Semana 6",
-    title: "Próximamente",
-    detail: "Próximamente"
+    title: "Próximas etapas: D5 y D6",
+    detail: "La narrativa del sitio ya prevé estas instancias sin anticipar contenido que todavía no fue desarrollado."
   },
   {
     period: "Semana 9",
-    title: "Próximamente",
-    detail: "Próximamente"
-  }
-];
-
-export const strengthHighlights: StrengthHighlight[] = [
-  {
-    title: "Diseño y claridad",
-    value: "82%",
-    detail: "El sitio prioriza jerarquía visual, lectura guiada y componentes consistentes para sostener una experiencia profesional."
-  },
-  {
-    title: "Desarrollo reusable",
-    value: "88%",
-    detail: "La arquitectura multipágina se apoya en datos centralizados y plantillas reutilizables para crecer sin fricción."
-  },
-  {
-    title: "Gestión de evidencias",
-    value: "79%",
-    detail: "Cada desafío queda respaldado con placeholders elegantes o material disponible, siempre listo para reemplazo."
-  },
-  {
-    title: "Comunicación técnica",
-    value: "91%",
-    detail: "El portfolio conecta problema, solución, reflexión y TPI para que el proceso sea entendible de punta a punta."
+    title: "Próxima etapa: D7",
+    detail: "El cierre final se incorporará cuando el proyecto llegue a esa fase y existan materiales reales para publicar."
   }
 ];
 
@@ -309,10 +275,43 @@ const placeholderEvidence = (title: string, type: string): EvidenceItem => ({
   description: "Espacio preparado para reemplazar este material por la evidencia final sin modificar la arquitectura del sitio."
 });
 
+const createUpcomingChallenge = (slug: string, code: string): Challenge => ({
+  slug,
+  code,
+  status: "upcoming",
+  title: "Próximamente",
+  summary:
+    "Esta etapa aún no fue desarrollada. La página queda preparada para incorporar contenido real, evidencias y reflexiones cuando corresponda.",
+  problem:
+    "El desafío todavía no comenzó, por lo que no hay un problema documentado para comunicar en esta instancia.",
+  solution:
+    "Se dejó una estructura editorial y visual consistente para publicar la versión definitiva sin rehacer la página cuando llegue el momento.",
+  tools: ["Alcance por definir", "Evidencias por incorporar", "Actualización futura"],
+  evidences: [
+    placeholderEvidence(`Espacio de evidencias ${code}`, "Documento"),
+    placeholderEvidence(`Material visual ${code}`, "Galería")
+  ],
+  learnings: [
+    {
+      title: "Contenido en preparación",
+      detail: "Los aprendizajes de esta etapa se documentarán una vez que el equipo la haya transitado y validado."
+    },
+    {
+      title: "Placeholder editable",
+      detail: "La página ya mantiene tono, jerarquía y estructura para reemplazar este contenido de forma rápida y prolija."
+    }
+  ],
+  wouldDoDifferent: ["Definir responsables, materiales y fecha de publicación apenas comience esta etapa."],
+  competenciesDeveloped: ["Se completará al desarrollar esta etapa"],
+  tpiConnection:
+    "Esta sección quedará vinculada al TPI cuando el desafío tenga decisiones, evidencias y resultados reales para integrar."
+});
+
 export const challengeContent: Challenge[] = [
   {
     slug: "d3",
     code: "D3",
+    status: "available",
     title: "Micrositio inicial",
     summary: "Primera versión del sitio para ordenar identidad, secciones clave y narrativa del equipo.",
     problem: "Era necesario transformar contenido disperso en un micrositio claro, navegable y alineado con la consigna académica.",
@@ -327,74 +326,10 @@ export const challengeContent: Challenge[] = [
     competenciesDeveloped: ["Arquitectura de información", "Diseño responsive", "Trabajo colaborativo"],
     tpiConnection: "D3 sentó la base estructural que luego permitió conectar equipo, desafíos, RPA y TPI en un solo relato."
   },
-  {
-    slug: "d4",
-    code: "D4",
-    title: "Próximamente",
-    summary: "Próximamente",
-    problem: "Próximamente",
-    solution: "Próximamente",
-    tools: ["Astro", "CSS", "Figma", "Miro"],
-    evidences: [placeholderEvidence("Wireframes de refinamiento D4", "Documento"), placeholderEvidence("Comparativa antes y después", "Galería")],
-    learnings: [
-      { title: "Próximamente", detail: "Próximamente" },
-      { title: "Próximamente", detail: "Próximamente" }
-    ],
-    wouldDoDifferent: ["Próximamente"],
-    competenciesDeveloped: ["-"],
-    tpiConnection: "Próximamente"
-  },
-  {
-    slug: "d5",
-    code: "D5",
-    title: "Próximamente",
-    summary: "Próximamente",
-    problem: "Próximamente",
-    solution: "Próximamente",
-    tools: ["Astro", "TypeScript", "Drive", "Canva"],
-    evidences: [placeholderEvidence("Listado de evidencias D5", "Documento"), placeholderEvidence("Storyboard del desafío D5", "Presentación")],
-    learnings: [
-      { title: "Preparar el reemplazo", detail: "Los placeholders bien definidos evitan roturas visuales y facilitan el cierre final del sitio." },
-      { title: "Trazabilidad", detail: "Relacionar cada evidencia con su desafío mejora el control del material pendiente." }
-    ],
-    wouldDoDifferent: ["Asignar responsables por evidencia", "Definir antes los formatos finales esperados"],
-    competenciesDeveloped: ["Gestión de evidencias", "QA", "Organización documental"],
-    tpiConnection: "D5 aseguró que el TPI pudiera mostrar soportes reales o pendientes sin perder continuidad narrativa."
-  },
-  {
-    slug: "d6",
-    code: "D6",
-    title: "Integración multipágina",
-    summary: "Se conectaron rutas, componentes y datos para consolidar una experiencia coherente entre secciones.",
-    problem: "El sitio necesitaba escalar a varias páginas sin duplicar lógica ni fragmentar la información del equipo.",
-    solution: "Se centralizó el contenido compartido y se reutilizaron componentes para sostener consistencia técnica y visual.",
-    tools: ["Astro", "TypeScript", "CSS", "Git"],
-    evidences: [placeholderEvidence("Mapa de rutas D6", "Documento"), placeholderEvidence("Revisión de componentes reutilizados", "Checklist")],
-    learnings: [
-      { title: "Escalabilidad", detail: "Un módulo de contenido bien definido evita divergencias entre imports, exports y shape de datos." },
-      { title: "Mantenibilidad", detail: "Las páginas genéricas aceleran cambios globales y reducen riesgo de inconsistencias." }
-    ],
-    wouldDoDifferent: ["Tipar aún más el contenido compartido", "Agregar validaciones automatizadas antes del merge"],
-    competenciesDeveloped: ["Arquitectura frontend", "Tipado", "Integración"],
-    tpiConnection: "D6 fue clave para que el TPI pudiera nutrirse de datos comunes sin depender de contenido duplicado en cada página."
-  },
-  {
-    slug: "d7",
-    code: "D7",
-    title: "Cierre y preparación final",
-    summary: "Se dejó el portfolio listo para presentación, revisión final y carga de material definitivo.",
-    problem: "El cierre requería coherencia entre narrativa, datos y preparación para los últimos reemplazos de contenido.",
-    solution: "Se ajustó el tono editorial, se consolidaron conexiones con el TPI y se dejó una base estable para el cierre del proyecto.",
-    tools: ["Astro", "TypeScript", "Git", "YouTube"],
-    evidences: [placeholderEvidence("Video final del equipo", "Video"), placeholderEvidence("Checklist de cierre D7", "Checklist")],
-    learnings: [
-      { title: "Preparación final", detail: "Cerrar naming y contratos de datos evita bugs visibles al final del proceso." },
-      { title: "Entrega profesional", detail: "La coherencia entre secciones es tan importante como el contenido de cada una por separado." }
-    ],
-    wouldDoDifferent: ["Congelar antes el shape del contenido compartido", "Ejecutar checks después de cada merge relevante"],
-    competenciesDeveloped: ["Cierre de proyecto", "Consistencia editorial", "Validación final"],
-    tpiConnection: "D7 articula todo el recorrido y deja visible cómo el equipo integra proceso, resultado y próximos pasos en el TPI."
-  }
+  createUpcomingChallenge("d4", "D4"),
+  createUpcomingChallenge("d5", "D5"),
+  createUpcomingChallenge("d6", "D6"),
+  createUpcomingChallenge("d7", "D7")
 ];
 
 export const challengeSlugs = challengeContent.map((challenge) => challenge.slug);
@@ -406,9 +341,9 @@ export const rpaRoutes: RpaRoute[] = teamMembers.map((member) => ({
 
 export const tpiContent: TpiContent = {
   description:
-    "El Trabajo Práctico Integrador reúne el recorrido completo del equipo en una experiencia web multipágina, clara y lista para presentar.",
+    "El Trabajo Práctico Integrador reúne el avance actual del equipo y deja listas las etapas futuras dentro de una experiencia web multipágina, clara y presentable.",
   focus:
-    "Integra identidad de equipo, desafíos, rutas personales de aprendizaje y mapa conceptual en una única narrativa profesional.",
+    "Integra identidad de equipo, desafío D3, rutas personales de aprendizaje, mapa conceptual y una base preparada para sumar D4 a D7 sin contradicciones.",
   objectives: [
     "Mostrar el proceso de trabajo del equipo con una lectura clara y ordenada.",
     "Conectar cada desafío con aprendizajes, evidencias y decisiones de diseño e implementación.",
@@ -417,11 +352,11 @@ export const tpiContent: TpiContent = {
   integrations: [
     "Home como síntesis general del portfolio.",
     "Equipo y RPA para explicar roles, evolución y aportes individuales.",
-    "Desafíos D3 a D7 como respaldo del proceso.",
+    "D3 como etapa actualmente documentada y D4 a D7 como estructura reservada para próximas entregas.",
     "Mapa conceptual como lectura complementaria de los aprendizajes."
   ],
   result:
-    "El resultado es un portfolio académico coherente, responsive y mantenible, preparado para exhibir avances y reemplazar placeholders por evidencias definitivas.",
+    "El resultado es un portfolio académico coherente, responsive y mantenible, preparado para exhibir el avance real de la primera semana y sumar nuevas etapas sin rehacer la experiencia.",
   evidences: [
     placeholderEvidence("Documento síntesis del TPI", "Documento"),
     placeholderEvidence("Presentación final del equipo", "Presentación"),

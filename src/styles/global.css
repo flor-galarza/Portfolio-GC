@@ -398,7 +398,6 @@ button:focus-visible {
 .hero-highlights,
 .hero-stat-grid,
 .card-grid,
-.strength-grid,
 .challenge-link-grid,
 .evidence-list,
 .concept-node-grid {
@@ -409,7 +408,6 @@ button:focus-visible {
 .hero-highlights,
 .hero-stat-grid,
 .card-grid,
-.strength-grid,
 .challenge-link-grid,
 .evidence-list {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -428,7 +426,6 @@ button:focus-visible {
 .highlight-pill,
 .hero-stat-card,
 .card,
-.strength-card,
 .profile-card,
 .challenge-link-card,
 .evidence-item,
@@ -448,13 +445,11 @@ button:focus-visible {
   padding: 1.15rem;
 }
 
-.card,
-.strength-card {
+.card {
   padding: 1.35rem;
 }
 
 .card,
-.strength-card,
 .timeline-item,
 .profile-card,
 .challenge-link-card,
@@ -466,7 +461,6 @@ button:focus-visible {
 }
 
 .card::before,
-.strength-card::before,
 .timeline-item::before,
 .profile-card::before,
 .evidence-item::before,
@@ -481,7 +475,6 @@ button:focus-visible {
 }
 
 .card:hover,
-.strength-card:hover,
 .timeline-item:hover,
 .profile-card:hover,
 .challenge-link-card:hover,
@@ -492,8 +485,7 @@ button:focus-visible {
 }
 
 .highlight-pill strong,
-.hero-stat-value,
-.strength-value {
+.hero-stat-value {
   display: block;
   font-family: "Fraunces", "Georgia", serif;
   font-size: clamp(1.9rem, 5vw, 2.7rem);
@@ -656,15 +648,6 @@ button:focus-visible {
   border-radius: var(--radius-xl);
   border: 1px solid var(--line);
   background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 92%, transparent), color-mix(in srgb, var(--surface-2) 96%, transparent));
-}
-
-.strength-grid {
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-}
-
-.strength-card {
-  display: grid;
-  gap: 0.85rem;
 }
 
 .profile-card {

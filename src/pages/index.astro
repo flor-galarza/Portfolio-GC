@@ -13,7 +13,6 @@ import {
   presentationVideo,
   quickFacts,
   siteMeta,
-  strengthHighlights,
   teamIntro,
   teamMembers,
   teamSectionDescription,
@@ -30,14 +29,14 @@ import teamLogo from "../assets/logo.png";
         <p class="eyebrow">Identificación del equipo</p>
         <h1>{siteMeta.teamName}</h1>
           <p class="hero-lead">
-          Sitio web multipágina, profesional y responsive de {siteMeta.teamName} que integra equipo, desafíos D3 a D7,
-          rutas personales de aprendizaje, mapas conceptuales y el Trabajo Práctico Integrador en una sola narrativa.
+          Sitio web multipágina, profesional y responsive de {siteMeta.teamName} con el desafío D3 desarrollado,
+          las etapas D4 a D7 preparadas como próximas entregas, rutas personales de aprendizaje, mapas conceptuales y TPI en una sola narrativa.
           </p>
         <div class="badge-row">
           <Badge label="Modo oscuro" />
           <Badge label="Responsive" />
           <Badge label="TPI conectado" />
-          <Badge label="Evidencias listas" />
+          <Badge label="Placeholders listos" />
         </div>
         <div class="hero-actions">
           <a class="button button-primary" href="/desafios">Explorar desafíos</a>
@@ -89,7 +88,7 @@ import teamLogo from "../assets/logo.png";
     <div class="container">
         <SectionHeader
           eyebrow="Integrantes"
-          title="Perfiles individuales con rol, fortalezas, intereses y competencias"
+          title="Perfiles individuales con rol, intereses y competencias"
           description={teamSectionDescription}
         />
       <div class="card-grid card-grid--profiles">
@@ -116,13 +115,14 @@ import teamLogo from "../assets/logo.png";
         <p class="support-note">{presentationVideo.note}</p>
       </Card>
 
-      <Card title="Accesos a los desafíos" subtitle="Navegación rápida del D3 al D7">
+      <Card title="Accesos a los desafíos" subtitle="D3 disponible hoy y D4-D7 listos para completarse más adelante">
         <div class="challenge-link-grid">
           {challengeContent.map((challenge) => (
             <a class="challenge-link-card" href={`/desafios/${challenge.slug}`}>
               <span>{challenge.code}</span>
               <strong>{challenge.title}</strong>
               <small>{challenge.summary}</small>
+              <small>{challenge.status === "available" ? "Contenido publicado" : "Próximamente"}</small>
             </a>
           ))}
         </div>
@@ -156,30 +156,9 @@ import teamLogo from "../assets/logo.png";
       <SectionHeader
         eyebrow="Proceso"
         title="Cronología del aprendizaje del equipo"
-        description="Los hitos resumen cómo evolucionó el portfolio desde la organización inicial hasta la integración final con el TPI."
+        description="Los hitos muestran el avance actual de la primera semana y dejan visibles las próximas etapas sin anticipar contenido inexistente."
       />
       <Timeline items={timelineItems} />
-    </div>
-  </section>
-
-  <section class="page-section section-shell">
-    <div class="container">
-      <SectionHeader
-        eyebrow="Fortalezas"
-        title="Capacidades que sostienen la entrega"
-        description="La lectura visual reemplaza la antigua barra de progreso por una síntesis más editorial, clara y alineada al tono profesional del sitio."
-      />
-      <div class="strength-grid">
-        {strengthHighlights.map((item) => (
-          <article class="strength-card reveal-up" data-reveal>
-            <div class="strength-value">{item.value}</div>
-            <div>
-              <h3>{item.title}</h3>
-              <p>{item.detail}</p>
-            </div>
-          </article>
-        ))}
-      </div>
     </div>
   </section>
 

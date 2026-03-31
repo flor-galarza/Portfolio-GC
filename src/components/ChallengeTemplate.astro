@@ -11,6 +11,7 @@ interface Props {
 }
 
 const { challenge } = Astro.props;
+const isUpcoming = challenge.status === "upcoming";
 ---
 
 <PageHero
@@ -24,12 +25,25 @@ const { challenge } = Astro.props;
   compact
 />
 
+{isUpcoming && (
+  <section class="page-section section-shell">
+    <div class="container">
+      <Card title="Estado de la etapa" subtitle="Contenido reservado para una próxima entrega">
+        <p>
+          Esta página mantiene la estructura definitiva del sitio, pero todavía no publica avances inexistentes. Cuando el desafío se
+          desarrolle, este espacio podrá actualizarse con información real sin cambiar la UX general.
+        </p>
+      </Card>
+    </div>
+  </section>
+)}
+
 <section class="page-section section-shell">
   <div class="container split-grid split-grid--feature">
-    <Card title="Problema abordado" subtitle="Qué necesitaba resolver el equipo">
+    <Card title={isUpcoming ? "Estado actual" : "Problema abordado"} subtitle={isUpcoming ? "Qué se sabe hoy sobre esta etapa" : "Qué necesitaba resolver el equipo"}>
       <p>{challenge.problem}</p>
     </Card>
-    <Card title="Solución propuesta" subtitle="Cómo se respondió al desafío">
+    <Card title={isUpcoming ? "Preparación del espacio" : "Solución propuesta"} subtitle={isUpcoming ? "Cómo quedará lista la página para su publicación futura" : "Cómo se respondió al desafío"}>
       <p>{challenge.solution}</p>
     </Card>
   </div>
@@ -48,14 +62,14 @@ const { challenge } = Astro.props;
 
 <section class="page-section section-shell">
   <div class="container split-grid split-grid--feature">
-    <Card title="Herramientas utilizadas" subtitle="Tecnologías, gestión y soportes de trabajo">
+    <Card title={isUpcoming ? "Qué se completará aquí" : "Herramientas utilizadas"} subtitle={isUpcoming ? "Frentes previstos para documentar cuando la etapa comience" : "Tecnologías, gestión y soportes de trabajo"}>
       <div class="badge-row">
         {challenge.tools.map((tool) => (
           <Badge label={tool} />
         ))}
       </div>
     </Card>
-    <Card title="Conexión con el TPI" subtitle="Por qué este desafío importa en el recorrido global">
+    <Card title="Conexión con el TPI" subtitle={isUpcoming ? "Cómo se integrará esta etapa cuando exista contenido real" : "Por qué este desafío importa en el recorrido global"}>
       <p>{challenge.tpiConnection}</p>
     </Card>
   </div>
@@ -65,8 +79,8 @@ const { challenge } = Astro.props;
   <div class="container">
     <SectionHeader
       eyebrow="Reflexión del equipo"
-      title="Aprendizajes, mejoras y competencias desarrolladas"
-      description="Cada desafío deja una lectura crítica que conecta proceso, resultado y evolución del equipo."
+      title={isUpcoming ? "Notas preparadas para futuras iteraciones" : "Aprendizajes, mejoras y competencias desarrolladas"}
+      description={isUpcoming ? "La experiencia mantiene la misma jerarquía visual sin inventar aprendizajes todavía no obtenidos." : "Cada desafío deja una lectura crítica que conecta proceso, resultado y evolución del equipo."}
     />
     <div class="card-grid card-grid--reflections">
       {challenge.learnings.map((reflection) => (
@@ -80,14 +94,14 @@ const { challenge } = Astro.props;
 
 <section class="page-section section-shell">
   <div class="container split-grid split-grid--feature">
-    <Card title="Qué haríamos distinto" subtitle="Oportunidades de mejora para próximas iteraciones">
+    <Card title={isUpcoming ? "Qué se definirá más adelante" : "Qué haríamos distinto"} subtitle={isUpcoming ? "Pendientes editoriales para completar esta etapa" : "Oportunidades de mejora para próximas iteraciones"}>
       <ul class="clean-list clean-list--tight">
         {challenge.wouldDoDifferent.map((item) => (
           <li>{item}</li>
         ))}
       </ul>
     </Card>
-    <Card title="Competencias desarrolladas" subtitle="Capacidades reforzadas en el proceso">
+    <Card title={isUpcoming ? "Competencias a documentar" : "Competencias desarrolladas"} subtitle={isUpcoming ? "Se completarán cuando el desafío tenga trabajo real publicado" : "Capacidades reforzadas en el proceso"}>
       <div class="badge-row">
         {challenge.competenciesDeveloped.map((item) => (
           <Badge label={item} />

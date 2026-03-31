@@ -1,36 +1,65 @@
-# Portfolio UTN — Micrositio del equipo Gestión Compartida
+# Sitio Web — Gestión Compartida
 
-Micrositio multipágina desarrollado para presentar el portfolio académico del equipo Atlas UTN: integrantes, evolución del aprendizaje, desafíos (D3 a D7), ruta profesional (RPA) y síntesis del TPI.
+Micrositio multipágina desarrollado con Astro para presentar el portfolio académico del equipo **Gestión Compartida**. Reúne identidad de equipo, recorrido de aprendizaje, TPI, mapa conceptual y la evolución de los desafíos en una estructura clara, mantenible y lista para seguir creciendo.
 
-## Descripción
+## Estado actual
 
-El proyecto está construido con Astro y una base de estilos globales con Tailwind CSS 4 + CSS personalizado. La arquitectura prioriza:
+- **D3**: desarrollado con contenido real.
+- **D4 a D7**: visibles como **Próximamente**, con estructura preparada para completar más adelante.
+- El sitio ya refleja el refactor de arquitectura y el uso de **componentes reutilizables** + **contenido centralizado**.
 
-- contenido editable centralizado en `src/data/content.ts`
-- componentes reutilizables para secciones comunes
-- navegación clara entre páginas académicas clave
+## Stack principal
 
-## Stack
+- **Astro 5**
+- **TypeScript**
+- **Tailwind CSS 4** + estilos globales propios
+- **Vite** (integrado en Astro)
 
-- **Framework:** Astro 5
-- **Estilos:** Tailwind CSS 4 (`@import "tailwindcss"`) + CSS global
-- **Tooling:** Vite (interno de Astro) para dev/build/preview
-- **Lenguaje:** TypeScript (config `astro/tsconfigs/strict`)
+## Secciones del sitio
 
-## Requisitos
+- `/` — Home
+- `/equipo` — presentación del equipo Gestión Compartida
+- `/rpa` — rutas personales de aprendizaje
+- `/tpi` — síntesis del Trabajo Práctico Integrador
+- `/mapa-conceptual` — mapa conceptual del proyecto
+- `/desafios` — índice general de desafíos
+- `/desafios/d3` a `/desafios/d7` — páginas individuales por desafío
+
+> Nota: existe además `/contacto` como ruta secundaria dentro del proyecto.
+
+## Estructura útil para edición
+
+```text
+src/
+├── components/        # Componentes reutilizables de UI
+├── data/
+│   └── content.ts     # Fuente central de textos, equipo, desafíos y TPI
+├── layouts/
+│   └── BaseLayout.astro
+├── pages/             # Rutas del sitio (Astro file-based routing)
+└── styles/
+    └── global.css     # Estilos globales y variables visuales
+```
+
+## Mantenimiento rápido
+
+- **La mayoría del contenido editable vive en `src/data/content.ts`.**
+- Las páginas de desafíos reutilizan una plantilla común, por lo que el cambio de estado o contenido suele resolverse desde datos centrales.
+- La navegación global y la estructura compartida pasan por `src/components/` y `src/layouts/BaseLayout.astro`.
+- Antes de publicar, conviene revisar `astro.config.mjs`, ya que el campo `site` sigue con un valor placeholder.
+
+## Cómo correr el proyecto localmente
+
+### Requisitos
 
 - Node.js 18+
 - npm 9+
 
-> Si usás otra versión de Node, se recomienda gestionar entornos con `nvm`.
-
-## Instalación
+### Instalación
 
 ```bash
 npm install
 ```
-
-## Ejecución
 
 ### Desarrollo
 
@@ -40,65 +69,22 @@ npm run dev
 
 Servidor local por defecto: `http://localhost:4321`
 
-### Build de producción
+## Comandos relevantes
 
-```bash
-npm run build
-```
+| Comando | Uso |
+| --- | --- |
+| `npm run dev` | Inicia el entorno local de desarrollo |
+| `npm run build` | Genera la versión de producción en `dist/` |
+| `npm run preview` | Previsualiza localmente el build generado |
+| `npm run check` | Ejecuta chequeos de Astro y TypeScript |
 
-Salida generada en `dist/`.
+## Flujo recomendado para futuras ediciones
 
-### Preview local del build
+1. Actualizar contenido en `src/data/content.ts`.
+2. Levantar el proyecto con `npm run dev`.
+3. Verificar consistencia con `npm run check`.
+4. Generar build con `npm run build` antes de publicar.
 
-```bash
-npm run preview
-```
+## Salida de producción
 
-Útil para validar el artefacto de producción de forma local (no reemplaza un servidor productivo).
-
-## Scripts disponibles
-
-| Script | Descripción |
-| :-- | :-- |
-| `npm run dev` | Inicia entorno de desarrollo |
-| `npm run build` | Genera build optimizado en `dist/` |
-| `npm run preview` | Levanta una vista local del build |
-| `npm run check` | Ejecuta chequeos de Astro/TypeScript |
-
-## Estructura del proyecto
-
-```text
-/
-├── public/                # Assets estáticos servidos tal cual
-├── src/
-│   ├── assets/            # Assets procesados por Astro (ej: logo)
-│   ├── components/        # Componentes reutilizables
-│   ├── data/              # Contenido editable del micrositio
-│   ├── layouts/           # Layout base y estructura global
-│   ├── pages/             # Rutas del sitio (file-based routing)
-│   └── styles/            # Estilos globales
-├── astro.config.mjs       # Configuración de Astro
-├── tsconfig.json          # Configuración TypeScript
-└── package.json           # Scripts y dependencias
-```
-
-## Despliegue
-
-El proyecto genera un sitio estático en `dist/`, por lo que puede desplegarse en cualquier hosting estático (Netlify, Vercel, GitHub Pages, Cloudflare Pages, etc.).
-
-Flujo recomendado:
-
-1. `npm run build`
-2. Publicar el contenido de `dist/` en el proveedor elegido
-
-## Troubleshooting básico
-
-- **Error de dependencias o lockfile:**
-  - borrar `node_modules`
-  - ejecutar `npm install`
-- **Cambios de estilos no impactan:**
-  - confirmar que `src/styles/global.css` sigue importado desde `src/layouts/BaseLayout.astro`
-- **El sitio no arranca en el puerto esperado:**
-  - iniciar con `npm run dev -- --port 4321` (o puerto libre)
-- **Errores de tipado/chequeo:**
-  - correr `npm run check` y revisar archivos `.astro` y `.ts` afectados
+El proyecto genera un sitio estático en `dist/`, apto para desplegar en hosting estático como Netlify, Vercel, GitHub Pages o Cloudflare Pages.

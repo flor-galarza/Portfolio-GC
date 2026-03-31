@@ -64,12 +64,12 @@ import { challengeContent, siteMeta, tpiContent } from "../data/content";
     <div class="container">
       <SectionHeader
         eyebrow="Relación con los desafíos"
-        title="Cada etapa suma una parte del TPI"
-        description="El TPI no se explica en abstracto: se construye a partir de las decisiones, herramientas, reflexiones y competencias de cada desafío."
+        title="Avance actual y etapas reservadas dentro del TPI"
+        description="Hoy el TPI se apoya en D3 como contenido real y mantiene D4 a D7 como espacios preparados para incorporar futuras decisiones, evidencias y aprendizajes."
       />
       <div class="card-grid">
         {challengeContent.map((challenge) => (
-          <Card title={`${challenge.code} · ${challenge.title}`} subtitle="Aporte al TPI">
+          <Card title={`${challenge.code} · ${challenge.title}`} subtitle={challenge.status === "available" ? "Aporte actual al TPI" : "Espacio reservado en el TPI"}>
             <p>{challenge.tpiConnection}</p>
             <p>
               <a href={`/desafios/${challenge.slug}`} class="link-cta">Ver detalle del desafío</a>

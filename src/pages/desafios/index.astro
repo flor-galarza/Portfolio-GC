@@ -6,11 +6,11 @@ import SectionHeader from "../../components/SectionHeader.astro";
 import { challengeContent, siteMeta } from "../../data/content";
 ---
 
-<BaseLayout title={`Desafíos | ${siteMeta.teamName}`} description={`Recorrido de ${siteMeta.teamName} por los desafíos D3 a D7.`}>
+<BaseLayout title={`Desafíos | ${siteMeta.teamName}`} description={`Recorrido de ${siteMeta.teamName}: D3 disponible y D4 a D7 preparados como próximas etapas.`}>
   <PageHero
     eyebrow="Desafíos"
     title="Recorrido D3 a D7"
-    description="Cada página desarrolla el problema abordado, la solución propuesta, las evidencias, las herramientas y la reflexión del equipo para esa etapa."
+    description="D3 ya muestra contenido real del proyecto y D4 a D7 conservan un estado de Próximamente, coherente y listo para editar cuando esas etapas existan."
     actions={[
       { href: "/tpi", label: "Ver TPI" },
       { href: "/", label: "Ir al inicio", variant: "secondary" }
@@ -25,15 +25,16 @@ import { challengeContent, siteMeta } from "../../data/content";
         title="Acceso directo a cada etapa del proceso"
         description="La estructura mantiene una lectura consistente en todas las páginas y facilita reemplazar o ampliar evidencias sin tocar el diseño base."
       />
-      <div class="card-grid">
-        {challengeContent.map((challenge) => (
-          <Card title={`${challenge.code} · ${challenge.title}`} subtitle="Página individual">
-            <p>{challenge.summary}</p>
-            <div class="badge-row challenge-inline-badges">
-              {challenge.competenciesDeveloped.map((item) => (
-                <span class="badge">{item}</span>
-              ))}
-            </div>
+        <div class="card-grid">
+          {challengeContent.map((challenge) => (
+            <Card title={`${challenge.code} · ${challenge.title}`} subtitle="Página individual">
+              <p>{challenge.summary}</p>
+              <div class="badge-row challenge-inline-badges">
+                <span class="badge">{challenge.status === "available" ? "Disponible" : "Próximamente"}</span>
+                {challenge.status === "available" && challenge.competenciesDeveloped.map((item) => (
+                  <span class="badge">{item}</span>
+                ))}
+              </div>
             <p>
               <a href={`/desafios/${challenge.slug}`} class="link-cta">Ver desafío completo</a>
             </p>
