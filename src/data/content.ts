@@ -22,6 +22,7 @@ export interface TeamMember {
   competencies: string[];
   rpa: string[];
   contribution: string;
+  avatar?: string;
   note?: string;
 }
 
@@ -136,7 +137,8 @@ export const teamMembers: TeamMember[] = [
       "Preparar una base flexible para evidencias definitivas."
     ],
     contribution:
-      "Convirtió el portfolio en una experiencia multipágina coherente, con una estructura lista para futuras entregas y ajustes rápidos."
+      "Convirtió el portfolio en una experiencia multipágina coherente, con una estructura lista para futuras entregas y ajustes rápidos.",
+    avatar: "/src/assets/flor.jpeg"
   },
   {
     id: "bruno-rivero",

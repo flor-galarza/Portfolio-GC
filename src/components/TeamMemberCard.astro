@@ -1,6 +1,7 @@
 ---
 import Badge from "./Badge.astro";
 import type { TeamMember } from "../data/content";
+import florImg from "../assets/flor.jpeg";
 
 interface Props {
   member: TeamMember;
@@ -17,7 +18,11 @@ const profileGroups = [
 <article class={`profile-card reveal-up ${compact ? "profile-card--compact" : ""}`} data-reveal>
   <div class="profile-card__header">
     <div class={`profile-avatar profile-avatar--${member.accent}`} aria-hidden="true">
-      <span>{member.initials}</span>
+      {member.id === "florencia-galarza-maumary" ? (
+        <img src={florImg.src} alt={member.name} />
+      ) : (
+        <span>{member.initials}</span>
+      )}
     </div>
     <div>
       <p class="profile-kicker">{member.role}</p>
