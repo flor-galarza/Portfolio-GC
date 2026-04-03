@@ -242,7 +242,7 @@ export const timelineItems: TimelineItem[] = [
 
 export const presentationVideo = {
   title: "Video de presentación del equipo",
-  embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+  embedUrl: "https://www.youtube.com/embed/2a_obX6rFCA",
   note: "Placeholder profesional: reemplazar por el video final del equipo cuando esté disponible."
 };
 
