@@ -323,16 +323,33 @@ export const challengeContent: Challenge[] = [
     title: "Micrositio inicial",
     summary: "Primera versión del sitio para ordenar identidad, secciones clave y narrativa del equipo.",
     problem: "Era necesario transformar contenido disperso en un micrositio claro, navegable y alineado con la consigna académica.",
-    solution: "Se definió una estructura base de páginas, secciones y componentes reutilizables para sostener el crecimiento del portfolio.",
+    solution: "Se definió una estructura base de páginas, secciones y componentes reutilizables; el micrositio publicado funciona además como la evidencia principal de que el desafío fue resuelto.",
     tools: ["Astro", "TypeScript", "Figma", "Google Drive"],
-    evidences: [placeholderEvidence("Presentación del desafío D3", "Presentación"), placeholderEvidence("Capturas del micrositio inicial", "Galería")],
+    evidences: [
+      {
+        title: "Micrositio publicado",
+        description:
+          "La evidencia central del desafío es el propio micrositio multipágina ya implementado. Reúne identidad, navegación, páginas por sección y una narrativa consistente del trabajo del equipo.",
+        type: "Sitio web",
+        href: "/",
+        status: "available"
+      },
+      {
+        title: "Investigación Unidad 1",
+        description:
+          "Trabajo de investigación correspondiente a la Unidad 1. Reúne el análisis realizado para el desafío y funciona como respaldo documental del proceso inicial.",
+        type: "Documento PDF",
+        href: "/desafios/d3/investigacion-unidad-1.pdf",
+        status: "available"
+      }
+    ],
     learnings: [
       { title: "Lo que aprendimos", detail: "Una arquitectura simple y consistente facilita iterar sin reescribir páginas completas." },
       { title: "Qué funcionó mejor", detail: "Centralizar contenido desde un único módulo redujo duplicaciones y errores de sincronización." }
     ],
     wouldDoDifferent: ["Validar antes la estructura final de datos", "Cerrar naming e imports comunes desde el inicio"],
     competenciesDeveloped: ["Arquitectura de información", "Diseño responsive", "Trabajo colaborativo"],
-    tpiConnection: "D3 sentó la base estructural que luego permitió conectar equipo, desafíos, RPA y TPI en un solo relato."
+    tpiConnection: "D3 sentó la base estructural del micrositio publicado y permitió conectar equipo, desafíos, RPA y TPI en un solo relato verificable desde la propia experiencia web."
   },
   createUpcomingChallenge("d4", "D4"),
   createUpcomingChallenge("d5", "D5"),
@@ -349,7 +366,7 @@ export const rpaRoutes: RpaRoute[] = teamMembers.map((member) => ({
 
 export const tpiContent: TpiContent = {
   description:
-    "El Trabajo Práctico Integrador reúne el avance actual del equipo y deja listas las etapas futuras dentro de una experiencia web multipágina, clara y presentable.",
+    "El Trabajo Práctico Integrador reúne el avance actual del equipo, incorpora el diagnóstico de la primera entrevista al cliente y deja listas las etapas futuras dentro de una experiencia web multipágina, clara y presentable.",
   focus:
     "Integra identidad de equipo, desafío D3, rutas personales de aprendizaje, mapa conceptual y una base preparada para sumar D4 a D7 sin contradicciones.",
   objectives: [
@@ -364,9 +381,16 @@ export const tpiContent: TpiContent = {
     "Mapa conceptual como lectura complementaria de los aprendizajes."
   ],
   result:
-    "El resultado es un portfolio académico coherente, responsive y mantenible, preparado para exhibir el avance real de la primera semana y sumar nuevas etapas sin rehacer la experiencia.",
+    "El resultado es un portfolio académico coherente, responsive y mantenible, preparado para exhibir el avance real de la primera semana, documentar la primera entrevista de diagnóstico al cliente y sumar nuevas etapas sin rehacer la experiencia.",
   evidences: [
-    placeholderEvidence("Documento síntesis del TPI", "Documento"),
+    {
+      title: "Diagnóstico organizacional · primera entrevista al cliente",
+      description:
+        "Documento PDF con el relevamiento inicial realizado al cliente, utilizado como base para entender el contexto de trabajo y orientar las próximas decisiones del TPI.",
+      type: "Documento",
+      href: "/tpi/diagnostico-organizacion-tpi-2026-gg.pdf",
+      status: "available"
+    },
     placeholderEvidence("Presentación final del equipo", "Presentación"),
     placeholderEvidence("Mapa conceptual final", "Mapa")
   ]

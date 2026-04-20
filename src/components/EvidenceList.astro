@@ -21,7 +21,7 @@ const { items } = Astro.props;
       <p>{item.description}</p>
       {item.href && (
         <p>
-          <a href={item.href} class="link-cta">Ver evidencia</a>
+          <a href={item.href} class="link-cta" target="_blank" rel="noreferrer">Ver evidencia</a>
         </p>
       )}
     </article>

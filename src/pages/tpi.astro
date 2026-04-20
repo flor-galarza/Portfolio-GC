@@ -13,6 +13,7 @@ import { challengeContent, siteMeta, tpiContent } from "../data/content";
     title="Trabajo Práctico Integrador"
     description={tpiContent.description}
     actions={[
+      { href: "/tpi/diagnostico-organizacion-tpi-2026-gg.pdf", label: "Ver diagnóstico inicial" },
       { href: "/desafios", label: "Recorrer desafíos" },
       { href: "/mapa-conceptual", label: "Ver mapas conceptuales", variant: "secondary" }
     ]}
@@ -45,6 +46,26 @@ import { challengeContent, siteMeta, tpiContent } from "../data/content";
             <li>{item}</li>
           ))}
         </ul>
+      </Card>
+    </div>
+  </section>
+
+  <section class="page-section section-shell">
+    <div class="container split-grid split-grid--feature">
+      <Card title="Primera entrevista al cliente" subtitle="Diagnóstico inicial realizado">
+        <p>
+          Se realizó la primera entrevista de diagnóstico con el cliente para relevar su contexto organizacional,
+          identificar necesidades iniciales y dejar una base clara para las próximas decisiones del TPI.
+        </p>
+      </Card>
+      <Card title="Documento disponible" subtitle="Evidencia incorporada al sitio">
+        <p>
+          El PDF de la entrevista ya forma parte de la sección TPI como evidencia concreta del trabajo de
+          relevamiento y análisis realizado en esta primera etapa.
+        </p>
+        <p>
+          <a href="/tpi/diagnostico-organizacion-tpi-2026-gg.pdf" class="link-cta">Abrir PDF del diagnóstico</a>
+        </p>
       </Card>
     </div>
   </section>

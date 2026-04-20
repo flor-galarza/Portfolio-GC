@@ -53,8 +53,12 @@ const isUpcoming = challenge.status === "upcoming";
   <div class="container">
     <SectionHeader
       eyebrow="Evidencias"
-      title="Documentos, presentaciones, videos y respaldos"
-      description="Si falta el material definitivo, el sitio deja placeholders claros y elegantes para reemplazarlos después sin romper la experiencia."
+      title={isUpcoming ? "Documentos, presentaciones, videos y respaldos" : "Micrositio publicado y respaldos del proceso"}
+      description={
+        isUpcoming
+          ? "Si falta el material definitivo, el sitio deja placeholders claros y elegantes para reemplazarlos después sin romper la experiencia."
+          : "En este desafío no hacen falta placeholders de presentación o galería: la propia publicación del micrositio ya funciona como evidencia principal, acompañada por sus respaldos documentales."
+      }
     />
     <EvidenceList items={challenge.evidences} />
   </div>
