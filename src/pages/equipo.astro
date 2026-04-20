@@ -1,8 +1,10 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Card from "../components/Card.astro";
 import PageHero from "../components/PageHero.astro";
+import SectionHeader from "../components/SectionHeader.astro";
 import TeamMemberCard from "../components/TeamMemberCard.astro";
-import { siteMeta, teamMembers, teamSectionDescription } from "../data/content";
+import { presentationVideo, siteMeta, teamMembers, teamSectionDescription } from "../data/content";
 ---
 
 <BaseLayout
@@ -19,6 +21,46 @@ import { siteMeta, teamMembers, teamSectionDescription } from "../data/content";
     ]}
     compact
   />
+
+  <section class="page-section section-shell">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Presentacion"
+        title={presentationVideo.title}
+        description="Una pieza breve para conocer el enfoque del equipo, la propuesta del sitio y la mirada que sostiene el trabajo en conjunto."
+      />
+
+      <div class="team-video-card">
+        <Card title="Mira el video" subtitle="Mensaje sintetico del equipo">
+          <div class="team-video-showcase">
+            <div class="team-video-shell">
+              <div class="video-wrap team-video-frame">
+                <iframe
+                  src={presentationVideo.embedUrl}
+                  title={presentationVideo.title}
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+
+            <div class="team-video-content">
+              <p>
+                Este video resume la identidad del equipo y como se conectan desafios, evidencias y objetivos dentro de una narrativa profesional.
+              </p>
+              <ul class="clean-list team-video-points" aria-label="Aspectos destacados del video">
+                <li>Contexto del proyecto y objetivo general.</li>
+                <li>Roles complementarios y forma de trabajo.</li>
+                <li>Recorrido actual y proximas etapas del portfolio.</li>
+              </ul>
+            </div>
+          </div>
+        </Card>
+      </div>
+    </div>
+  </section>
 
   <section class="page-section section-shell">
     <div class="container card-grid card-grid--profiles-lg">

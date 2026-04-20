@@ -86,7 +86,7 @@ import teamLogo from "../assets/logo.png";
 
   <section class="page-section section-shell">
     <div class="container split-grid split-grid--feature">
-      <Card title={presentationVideo.title} subtitle="Video de presentación del equipo">
+      <Card title={presentationVideo.title}>
         <div class="video-wrap">
           <iframe
             src={presentationVideo.embedUrl}
@@ -97,7 +97,6 @@ import teamLogo from "../assets/logo.png";
             allowfullscreen
           ></iframe>
         </div>
-        <p class="support-note">{presentationVideo.note}</p>
       </Card>
 
       <Card title="Accesos a los desafíos" subtitle="D3 disponible hoy y D4-D7 listos para completarse más adelante">

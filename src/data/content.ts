@@ -83,6 +83,12 @@ export interface RpaRoute {
   route: string[];
 }
 
+export interface PresentationVideo {
+  title: string;
+  embedUrl: string;
+  note: string;
+}
+
 export const teamName = "Equipo Gestión Compartida";
 
 export const siteMeta: SiteMeta = {
@@ -240,10 +246,10 @@ export const timelineItems: TimelineItem[] = [
   }
 ];
 
-export const presentationVideo = {
+export const presentationVideo: PresentationVideo = {
   title: "Video de presentación del equipo",
   embedUrl: "https://www.youtube.com/embed/2a_obX6rFCA",
-  note: "Placeholder profesional: reemplazar por el video final del equipo cuando esté disponible."
+  note: "Este video resume la identidad del equipo y como se conectan desafios, evidencias y objetivos dentro de una narrativa profesional.\n\nContexto del proyecto y objetivo general.\nRoles complementarios y forma de trabajo.\nRecorrido actual y proximas etapas del portfolio."
 };
 
 export const conceptLevels: ConceptLevel[] = [
