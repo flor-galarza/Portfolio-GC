@@ -78,10 +78,6 @@ export interface TpiContent {
   evidences: EvidenceItem[];
 }
 
-export interface RpaRoute {
-  member: string;
-  route: string[];
-}
 
 export interface PresentationVideo {
   title: string;
@@ -93,7 +89,7 @@ export const teamName = "Equipo Gestión Compartida";
 
 export const siteMeta: SiteMeta = {
   teamName,
-  teamLabel: "Portfolio académico multipágina",
+  teamLabel: "Portfolio académico",
   description:
     "Micrositio profesional del equipo Gestión Compartida con D3 desarrollado, D4 a D7 preparados como próximas etapas, RPA, mapa conceptual y TPI en una narrativa única.",
   logoAlt: "Logo del equipo Gestión Compartida"
@@ -102,30 +98,31 @@ export const siteMeta: SiteMeta = {
 export const navLinks: NavLink[] = [
   { href: "/", label: "Home" },
   { href: "/equipo", label: "Equipo" },
-  { href: "/rpa", label: "RPA" },
   { href: "/tpi", label: "TPI" },
+  { href: "/actividades", label: "Actividades" },
   { href: "/mapa-conceptual", label: "Mapa conceptual" },
-  { href: "/contacto", label: "Contacto" }
 ];
 
 export const teamMembers: TeamMember[] = [
   {
     id: "camila-zeniquel",
     name: "Camila Zeniquel",
-    role: "UX Strategist",
+    role: "Functional Analyst",
     initials: "CZ",
     accent: "cyan",
     tagline: "Convierte necesidades difusas en experiencias claras.",
     bio: "Lidera la investigación, la arquitectura de información y los criterios visuales que sostienen el recorrido del sitio.",
     interests: ["Service design", "Design systems", "Validación con usuarios"],
-    competencies: ["UX research", "Wireframing", "Arquitectura de información"],
+    competencies: ["UX research", "Security", "Arquitectura de información"],
     rpa: [
       "Detectar necesidades reales del usuario antes de diseñar.",
-      "Traducir insights en decisiones de navegación y contenido.",
+      "Supervisar la integridad entre el diseño visual y los requerimientos funcionales.",
       "Documentar hallazgos para mejorar iteraciones futuras."
     ],
     contribution:
-      "Alineó la experiencia del micrositio con los objetivos académicos y aseguró que cada sección tuviera sentido para docentes y pares."
+      "Actualizaciones del micrositio con los objetivos académicos y aseguró que cada sección tuviera sentido para docentes y pares."
+    ,
+    avatar: "/src/assets/cami.jpeg"
   },
   {
     id: "florencia-galarza-maumary",
@@ -189,7 +186,7 @@ export const teamMembers: TeamMember[] = [
     initials: "FJ",
     accent: "rose",
     tagline: "Conecta el trabajo colectivo con una lectura clara del proceso completo.",
-    bio: "Sostiene la integración entre desafíos, RPA y TPI para que el portfolio muestre un recorrido consistente de punta a punta.",
+    bio: "Sostiene la integración entre desafíos y TPI para que el portfolio muestre un recorrido consistente de punta a punta.",
     interests: ["Gestión colaborativa", "Mejora continua", "Narrativa de proyecto"],
     competencies: ["Integración de contenidos", "Planificación", "Comunicación interna"],
     rpa: [
@@ -334,14 +331,7 @@ export const challengeContent: Challenge[] = [
         href: "/",
         status: "available"
       },
-      {
-        title: "Investigación Unidad 1",
-        description:
-          "Trabajo de investigación correspondiente a la Unidad 1. Reúne el análisis realizado para el desafío y funciona como respaldo documental del proceso inicial.",
-        type: "Documento PDF",
-        href: "/desafios/d3/investigacion-unidad-1.pdf",
-        status: "available"
-      }
+      // La evidencia 'Investigación Unidad 1' fue movida a la sección Actividades.
     ],
     learnings: [
       { title: "Lo que aprendimos", detail: "Una arquitectura simple y consistente facilita iterar sin reescribir páginas completas." },
@@ -359,10 +349,7 @@ export const challengeContent: Challenge[] = [
 
 export const challengeSlugs = challengeContent.map((challenge) => challenge.slug);
 
-export const rpaRoutes: RpaRoute[] = teamMembers.map((member) => ({
-  member: member.name,
-  route: member.rpa
-}));
+// rpaRoutes removed: routes are available via each member's `rpa` field on `teamMembers`.
 
 export const tpiContent: TpiContent = {
   description:

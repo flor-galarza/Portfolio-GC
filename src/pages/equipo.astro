@@ -4,7 +4,8 @@ import Card from "../components/Card.astro";
 import PageHero from "../components/PageHero.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import TeamMemberCard from "../components/TeamMemberCard.astro";
-import { presentationVideo, siteMeta, teamMembers, teamSectionDescription } from "../data/content";
+import Timeline from "../components/Timeline.astro";
+import { presentationVideo, siteMeta, teamMembers, teamSectionDescription, timelineItems } from "../data/content";
 ---
 
 <BaseLayout
@@ -16,12 +17,17 @@ import { presentationVideo, siteMeta, teamMembers, teamSectionDescription } from
     title="Personas que convierten el proceso en una entrega profesional"
     description={teamSectionDescription}
     actions={[
-      { href: "/rpa", label: "Ver RPA" },
       { href: "/", label: "Volver al inicio", variant: "secondary" }
     ]}
     compact
   />
-
+  <section class="page-section section-shell">
+    <div class="container card-grid card-grid--profiles-lg">
+      {teamMembers.map((member) => (
+        <TeamMemberCard member={member} />
+      ))}
+    </div>
+  </section>
   <section class="page-section section-shell">
     <div class="container">
       <SectionHeader
@@ -62,11 +68,17 @@ import { presentationVideo, siteMeta, teamMembers, teamSectionDescription } from
     </div>
   </section>
 
+  
   <section class="page-section section-shell">
-    <div class="container card-grid card-grid--profiles-lg">
-      {teamMembers.map((member) => (
-        <TeamMemberCard member={member} />
-      ))}
+    <div class="container">
+      <SectionHeader
+        eyebrow="Proceso"
+        title="Cronología del aprendizaje del equipo"
+        description="Los hitos muestran el avance actual de la primera semana y dejan visibles las próximas etapas sin anticipar contenido inexistente."
+      />
+      <Timeline items={timelineItems} />
     </div>
   </section>
+
+
 </BaseLayout>

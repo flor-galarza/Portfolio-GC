@@ -26,18 +26,7 @@ import teamLogo from "../assets/logo.png";
   <section class="page-section hero">
     <div class="container hero-grid hero-grid--enhanced">
       <div class="hero-copy reveal-up" data-reveal>
-        <p class="eyebrow">Identificación del equipo</p>
         <h1>{siteMeta.teamName}</h1>
-          <p class="hero-lead">
-          Sitio web multipágina, profesional y responsive de {siteMeta.teamName} con el desafío D3 desarrollado,
-          las etapas D4 a D7 preparadas como próximas entregas, rutas personales de aprendizaje, mapas conceptuales y TPI en una sola narrativa.
-          </p>
-        <div class="badge-row">
-          <Badge label="Modo oscuro" />
-          <Badge label="Responsive" />
-          <Badge label="TPI conectado" />
-          <Badge label="Placeholders listos" />
-        </div>
         <div class="hero-actions">
           <a class="button button-primary" href="/desafios">Explorar desafíos</a>
           <a class="button button-secondary" href="/equipo">Conocer al equipo</a>
@@ -99,50 +88,16 @@ import teamLogo from "../assets/logo.png";
         </div>
       </Card>
 
-      <Card title="Accesos a los desafíos" subtitle="D3 disponible hoy y D4-D7 listos para completarse más adelante">
+      <Card title="Accesos a los desafíos" subtitle="Detalle de desafíos completos y próximos a completarse">
         <div class="challenge-link-grid">
           {challengeContent.map((challenge) => (
             <a class="challenge-link-card" href={`/desafios/${challenge.slug}`}>
               <span>{challenge.code}</span>
               <strong>{challenge.title}</strong>
-              <small>{challenge.summary}</small>
-              <small>{challenge.status === "available" ? "Contenido publicado" : "Próximamente"}</small>
             </a>
           ))}
         </div>
       </Card>
-    </div>
-  </section>
-
-  <section class="page-section section-shell">
-    <div class="container">
-      <SectionHeader
-        eyebrow="RPA por integrante"
-        title="La evolución individual que sostiene el recorrido colectivo"
-        description="Las rutas personales de aprendizaje muestran cómo cada integrante desarrolló intereses y competencias aplicadas al sitio y al TPI."
-      />
-      <div class="card-grid card-grid--rpa">
-        {teamMembers.map((member) => (
-          <Card title={member.name} subtitle={member.role}>
-            <ol class="clean-list ordered clean-list--tight">
-              {member.rpa.map((step) => (
-                <li>{step}</li>
-              ))}
-            </ol>
-          </Card>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="page-section section-shell">
-    <div class="container">
-      <SectionHeader
-        eyebrow="Proceso"
-        title="Cronología del aprendizaje del equipo"
-        description="Los hitos muestran el avance actual de la primera semana y dejan visibles las próximas etapas sin anticipar contenido inexistente."
-      />
-      <Timeline items={timelineItems} />
     </div>
   </section>
 
@@ -155,7 +110,7 @@ import teamLogo from "../assets/logo.png";
       />
       <div class="card-grid card-grid--concepts">
         {conceptLevels.map((level) => (
-          <ConceptMapCard level={level} />
+          <ConceptMapCard level={level} compact />
         ))}
       </div>
     </div>

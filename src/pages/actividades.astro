@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import Card from "../components/Card.astro";
+import { siteMeta } from "../data/content";
+---
+
+<BaseLayout title={`Actividades | ${siteMeta.teamName}`} description={`Actividades del equipo ${siteMeta.teamName}`}>
+  <PageHero
+    eyebrow="Actividades"
+    title="Registro de actividades"
+    description="Pequeña bitácora de actividades y tareas asociadas al proyecto"
+    compact
+  />
+
+  <section class="page-section section-shell">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Agenda"
+        title="Actividades principales"
+        description="A continuación se muestran las actividades registradas por el equipo. Cada actividad puede documentarse con recursos y evidencias específicas."
+      />
+
+      <div class="card-grid">
+        <Card title="Investigación Unidad 1" subtitle="Documento PDF">
+          <p>
+            Trabajo de investigación correspondiente a la Unidad 1. Reúne el análisis realizado para el desafío y funciona como respaldo documental del proceso inicial.
+          </p>
+          <p>
+            <a href="/desafios/d3/investigacion-unidad-1.pdf" class="link-cta">Abrir PDF</a>
+          </p>
+        </Card>
+
+        <Card title="Tests de Liderazgo" subtitle="Resultados de tests">
+          <p>Se evidencian los resultados de los diferentes tests de liderazgo tomados durante la clase del 23/04</p>
+          <p>
+            <a href="/actividades/liderazgo/" class="link-cta">Ver resultados</a>
+          </p>
+        </Card>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

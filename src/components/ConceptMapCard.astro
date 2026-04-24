@@ -3,9 +3,10 @@ import type { ConceptLevel } from "../data/content";
 
 interface Props {
   level: ConceptLevel;
+  compact?: boolean;
 }
 
-const { level } = Astro.props;
+const { level, compact = false } = Astro.props;
 ---
 
 <article class="concept-card reveal-up" data-reveal>
@@ -15,11 +16,15 @@ const { level } = Astro.props;
     <p>{level.description}</p>
   </div>
 
-  <div class="concept-node-grid" aria-label={`Conceptos del ${level.level}`}>
-    {level.nodes.map((node) => (
-      <span class="concept-node">{node}</span>
-    ))}
-  </div>
+  {!compact && (
+    <>
+      <div class="concept-node-grid" aria-label={`Conceptos del ${level.level}`}>
+        {level.nodes.map((node) => (
+          <span class="concept-node">{node}</span>
+        ))}
+      </div>
 
-  <p class="concept-outcome">{level.outcome}</p>
+      <p class="concept-outcome">{level.outcome}</p>
+    </>
+  )}
 </article>

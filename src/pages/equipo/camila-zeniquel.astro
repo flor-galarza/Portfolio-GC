@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { teamMembers } from "../../data/content";
+
+const member = teamMembers.find((m) => m.id === "camila-zeniquel");
+---
+
+<BaseLayout title={member ? `${member.name} | Ruta personal` : `Miembro`}>
+  <section class="page-section">
+    <div class="container">
+      {member ? (
+        <>
+          <h1>{member.name}</h1>
+          <p class="support-note">Esta es la ruta personal de aprendizaje de {member.name}. Aquí cada integrante puede documentar recursos, evidencias y reflexiones relacionadas con su crecimiento individual.</p>
+        </>
+      ) : (
+        <>
+          <h1>Miembro no encontrado</h1>
+          <p>La ruta solicitada no existe o está en preparación.</p>
+        </>
+      )}
+    </div>
+  </section>
+</BaseLayout>
