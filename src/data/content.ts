@@ -1,3 +1,6 @@
+import camiAvatar from "../assets/cami.jpeg";
+import florAvatar from "../assets/flor.jpeg";
+
 export interface NavLink {
   href: string;
   label: string;
@@ -122,7 +125,7 @@ export const teamMembers: TeamMember[] = [
     contribution:
       "Actualizaciones del micrositio con los objetivos académicos y aseguró que cada sección tuviera sentido para docentes y pares."
     ,
-    avatar: "/src/assets/cami.jpeg"
+    avatar: camiAvatar.src
   },
   {
     id: "florencia-galarza-maumary",
@@ -141,7 +144,7 @@ export const teamMembers: TeamMember[] = [
     ],
     contribution:
       "Convirtió el portfolio en una experiencia multipágina coherente, con una estructura lista para futuras entregas y ajustes rápidos.",
-    avatar: "/src/assets/flor.jpeg"
+    avatar: florAvatar.src
   },
   {
     id: "bruno-rivero",
