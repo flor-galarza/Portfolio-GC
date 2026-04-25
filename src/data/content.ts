@@ -1,6 +1,6 @@
 import camiAvatar from "../assets/cami.jpeg";
 import florAvatar from "../assets/flor.jpeg";
-
+import BrunoAvatar from "../assets/Bruno.jpeg";
 export interface NavLink {
   href: string;
   label: string;
@@ -154,15 +154,16 @@ export const teamMembers: TeamMember[] = [
     accent: "violet",
     tagline: "Ordena procesos y vuelve trazables las evidencias del proyecto.",
     bio: "Se enfoca en la consistencia de entregables, el seguimiento de evidencias y la estandarización de reportes por desafío.",
-    interests: ["Automatización operativa", "Analítica", "Gestión visual"],
-    competencies: ["RPA", "Process mapping", "Control de calidad"],
+    interests: ["Redes de datos", "DevOps", "Seguridad de la información"],
+    competencies: [ "Process mapping", "Infraestructura"],
     rpa: [
       "Estructurar evidencia para evitar pérdidas de contexto.",
       "Definir rutinas repetibles de revisión por desafío.",
       "Conectar documentación con decisiones del TPI."
     ],
     contribution:
-      "Diseñó el marco de control que permite mostrar avances, respaldos y aprendizajes sin romper la claridad del portfolio."
+      "Diseñó el marco de control que permite mostrar avances, respaldos y aprendizajes sin romper la claridad del portfolio.",
+    avatar: BrunoAvatar.src
   },
   {
     id: "renzo-urturi",
