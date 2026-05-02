@@ -1,6 +1,7 @@
 import camiAvatar from "../assets/cami.jpeg";
 import florAvatar from "../assets/flor.jpeg";
 import BrunoAvatar from "../assets/Bruno.jpeg";
+import renzoAvatar from "../assets/Renzo.jpg";
 export interface NavLink {
   href: string;
   label: string;
@@ -181,7 +182,8 @@ export const teamMembers: TeamMember[] = [
       "Vincular evidencias con resultados concretos del equipo."
     ],
     contribution:
-      "Aportó cohesión editorial a la experiencia, haciendo que cada página comunique proceso, valor y próximos pasos."
+      "Aportó cohesión editorial a la experiencia, haciendo que cada página comunique proceso, valor y próximos pasos.",
+    avatar: renzoAvatar.src
   },
   {
     id: "fabricio-jerez",
