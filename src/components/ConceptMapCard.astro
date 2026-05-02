@@ -16,6 +16,12 @@ const { level, compact = false } = Astro.props;
     <p>{level.description}</p>
   </div>
 
+  {level.imageSrc && (
+    <figure class="concept-map-figure">
+      <img src={level.imageSrc} alt={level.imageAlt ?? `Mapa conceptual de ${level.level}`} loading="lazy" />
+    </figure>
+  )}
+
   {!compact && (
     <>
       <div class="concept-node-grid" aria-label={`Conceptos del ${level.level}`}>

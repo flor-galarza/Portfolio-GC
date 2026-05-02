@@ -2,6 +2,9 @@ import camiAvatar from "../assets/cami.jpeg";
 import florAvatar from "../assets/flor.jpeg";
 import BrunoAvatar from "../assets/Bruno.jpeg";
 import renzoAvatar from "../assets/Renzo.jpg";
+import mapaUnidad1 from "../assets/Mapas Mentales/Unidad 1.png";
+import mapaUnidad2 from "../assets/Mapas Mentales/Unidad 2.png";
+import mapaUnidad3 from "../assets/Mapas Mentales/Unidad 3.png";
 export interface NavLink {
   href: string;
   label: string;
@@ -71,6 +74,8 @@ export interface ConceptLevel {
   description: string;
   nodes: string[];
   outcome: string;
+  imageSrc?: string;
+  imageAlt?: string;
 }
 
 export interface TpiContent {
@@ -261,21 +266,27 @@ export const conceptLevels: ConceptLevel[] = [
     title: "Comprensión del contexto",
     description: "Base conceptual para entender usuarios, consignas, necesidades y criterios del curso.",
     nodes: ["Usuario", "Problema", "Contexto académico", "Requerimientos", "Priorización"],
-    outcome: "Permite alinear al equipo antes de prototipar o implementar."
+    outcome: "Permite alinear al equipo antes de prototipar o implementar.",
+    imageSrc: mapaUnidad1.src,
+    imageAlt: "Mapa conceptual de la Unidad 1"
   },
   {
     level: "Nivel 2",
     title: "Diseño de la solución",
     description: "Relaciona experiencia, contenidos, arquitectura visual y decisiones del sistema multipágina.",
     nodes: ["UX", "Flujos", "Componentes", "Responsive", "Accesibilidad"],
-    outcome: "Hace visible cómo se pasó del análisis a una propuesta navegable y consistente."
+    outcome: "Hace visible cómo se pasó del análisis a una propuesta navegable y consistente.",
+    imageSrc: mapaUnidad2.src,
+    imageAlt: "Mapa conceptual de la Unidad 2"
   },
   {
     level: "Nivel 3",
     title: "Ejecución y mejora continua",
     description: "Conecta implementación, automatización, evidencia y reflexión para cerrar el aprendizaje.",
     nodes: ["Implementación", "QA", "Evidencias", "TPI", "Aprendizajes"],
-    outcome: "Resume cómo el equipo convierte entregas parciales en conocimiento integrado."
+    outcome: "Resume cómo el equipo convierte entregas parciales en conocimiento integrado.",
+    imageSrc: mapaUnidad3.src,
+    imageAlt: "Mapa conceptual de la Unidad 3"
   }
 ];
 

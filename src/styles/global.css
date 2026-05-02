@@ -861,6 +861,20 @@ button:focus-visible {
   gap: 1rem;
 }
 
+.concept-map-figure {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--surface-3) 92%, transparent);
+}
+
+.concept-map-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .concept-node-grid {
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
 }
