@@ -344,7 +344,33 @@ export const challengeContent: Challenge[] = [
     competenciesDeveloped: ["Arquitectura de información", "Diseño responsive", "Trabajo colaborativo"],
     tpiConnection: "D3 sentó la base estructural del micrositio publicado y permitió conectar equipo, desafíos, RPA y TPI en un solo relato verificable desde la propia experiencia web."
   },
-  createUpcomingChallenge("d4", "D4"),
+  {
+    slug: "d4",
+    code: "D4",
+    status: "available",
+    title: "Cálculo del Punto de Equilibrio",
+    summary: "Análisis financiero para determinar el volumen de ventas necesario donde los ingresos igualan exactamente a los costos totales, sin generar ganancias ni pérdidas.",
+    problem: "Determinar el punto exacto donde una empresa alcanza el equilibrio financiero, permitiendo tomar decisiones estratégicas sobre precios, inventarios y proyecciones de ventas.",
+    solution: "Implementación de fórmulas y herramientas de cálculo para determinar el punto de equilibrio, con aplicación práctica en una hoja de cálculo interactiva.",
+    tools: ["Google Sheets", "Fórmulas financieras", "Análisis de costos"],
+    evidences: [
+      {
+        title: "Hoja de cálculo del Punto de Equilibrio",
+        description: "Herramienta interactiva que permite calcular el punto de equilibrio, fijar precios técnicos, valorar inventarios y proyectar ventas futuras.",
+        type: "Hoja de cálculo",
+        href: "https://docs.google.com/spreadsheets/d/15l6oDHL5kPS5TgdEisktE3R5G1aHjOA2LoYIVLjB-mk/edit?gid=778115137#gid=778115137",
+        status: "available"
+      }
+    ],
+    learnings: [
+      { title: "Fijación técnica de precios", detail: "Aprender a establecer precios basados en costos reales y objetivos de rentabilidad." },
+      { title: "Control de inventarios", detail: "Valorar existencias y optimizar la eficiencia operativa mediante análisis del punto de equilibrio." },
+      { title: "Planificación estratégica", detail: "Proyectar volúmenes de venta necesarios para alcanzar utilidades deseadas." }
+    ],
+    wouldDoDifferent: ["Incluir más variables en el modelo", "Agregar gráficos visuales para mejor comprensión"],
+    competenciesDeveloped: ["Análisis financiero", "Modelado matemático", "Toma de decisiones"],
+    tpiConnection: "D4 aporta herramientas prácticas de gestión financiera que complementan el análisis organizacional del TPI, permitiendo evaluar la viabilidad económica de la organización estudiada."
+  },
   createUpcomingChallenge("d5", "D5"),
   createUpcomingChallenge("d6", "D6"),
   createUpcomingChallenge("d7", "D7")

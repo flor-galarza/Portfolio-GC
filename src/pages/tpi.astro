@@ -13,60 +13,73 @@ import { challengeContent, siteMeta, tpiContent } from "../data/content";
     title="Trabajo Práctico Integrador"
     description={tpiContent.description}
     actions={[
-      { href: "/tpi/diagnostico-organizacion-tpi-2026-gg.pdf", label: "Ver diagnóstico inicial" },
-      { href: "/desafios", label: "Recorrer desafíos" },
-      { href: "/mapa-conceptual", label: "Ver mapas conceptuales", variant: "secondary" }
+      { href: "/", label: "Volver al inicio", variant: "secondary" }
     ]}
     compact
   />
 
+  <!-- Sección: Propósito y Metodología -->
   <section class="page-section section-shell">
     <div class="container split-grid split-grid--feature">
-      <Card title="Propósito del TPI" subtitle="Qué integra el sitio">
-        <p>{tpiContent.focus}</p>
+      <Card title="Consigna del TPI" subtitle="Qué se busca lograr">
+        <p>
+          Realizar una actividad de aprendizaje significativo mediante el análisis de una organización real a partir de un problema organizacional, aplicando herramientas, metodologías y técnicas de gestión.
+        </p>
       </Card>
-      <Card title="Resultado" subtitle="Qué entrega el equipo hoy">
-        <p>{tpiContent.result}</p>
+      <Card title="Metodología" subtitle="Cómo se desarrolla el trabajo">
+        <p>
+          El desarrollo del TPI se realiza mediante trabajo colaborativo, permitiendo evaluar la participación activa de cada integrante del equipo en la resolución integral del proyecto.
+        </p>
       </Card>
     </div>
   </section>
 
+  <!-- Sección: Organización Estudiada -->
   <section class="page-section section-shell">
-    <div class="container split-grid split-grid--feature">
-      <Card title="Objetivos" subtitle="Qué debía demostrar la entrega">
-        <ul class="clean-list clean-list--tight">
-          {tpiContent.objectives.map((objective) => (
-            <li>{objective}</li>
-          ))}
-        </ul>
-      </Card>
-      <Card title="Conexiones internas" subtitle="Cómo se relacionan las páginas del sitio">
-        <ul class="clean-list clean-list--tight">
-          {tpiContent.integrations.map((item) => (
-            <li>{item}</li>
-          ))}
-        </ul>
-      </Card>
-    </div>
-  </section>
-
-  <section class="page-section section-shell">
-    <div class="container split-grid split-grid--feature">
-      <Card title="Primera entrevista al cliente" subtitle="Diagnóstico inicial realizado">
-        <p>
-          Se realizó la primera entrevista de diagnóstico con el cliente para relevar su contexto organizacional,
-          identificar necesidades iniciales y dejar una base clara para las próximas decisiones del TPI.
-        </p>
-      </Card>
-      <Card title="Documento disponible" subtitle="Evidencia incorporada al sitio">
-        <p>
-          El PDF de la entrevista ya forma parte de la sección TPI como evidencia concreta del trabajo de
-          relevamiento y análisis realizado en esta primera etapa.
-        </p>
-        <p>
-          <a href="/tpi/diagnostico-organizacion-tpi-2026-gg.pdf" class="link-cta">Abrir PDF del diagnóstico</a>
-        </p>
-      </Card>
+    <div class="container">
+      <SectionHeader
+        eyebrow="Caso de Estudio"
+        title="Organización Esnal Seguros"
+        description="Productores Asesores de Seguros - Análisis organizacional de la empresa"
+      />
+      <div class="split-grid split-grid--feature">
+        <Card title="Información de la Organización" subtitle="Datos de ubicación y contacto">
+          <div class="organization-info">
+            <div class="info-group">
+              <strong>Razón Social:</strong>
+              <p>Organización Esnal Seguros</p>
+            </div>
+            <div class="info-group">
+              <strong>Rubro:</strong>
+              <p>Productores Asesores de Seguros</p>
+            </div>
+            <div class="info-group">
+              <strong>Domicilio:</strong>
+              <p>Formosa 82</p>
+            </div>
+            <div class="info-group">
+              <strong>Localidad:</strong>
+              <p>Resistencia, San Fernando</p>
+            </div>
+            <div class="info-group">
+              <strong>Provincia:</strong>
+              <p>Chaco</p>
+            </div>
+          </div>
+        </Card>
+        <div class="map-container">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3534.5825831246287!2d-58.979157!3d-27.467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x944e6bdca79a9d5f%3A0xf4f4f4f4f4f4f4f4!2sFormosa%2082%2C%20Resistencia%2C%20Chaco%2C%20Argentina!5e0!3m2!1ses!2sar!4v1715000000000" 
+            width="100%" 
+            height="400" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Ubicación de Organización Esnal Seguros"
+          ></iframe>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -78,26 +91,6 @@ import { challengeContent, siteMeta, tpiContent } from "../data/content";
         description="La arquitectura del sitio ya deja preparados los espacios para incorporar videos, documentos, presentaciones y mapas finales."
       />
       <EvidenceList items={tpiContent.evidences} />
-    </div>
-  </section>
-
-  <section class="page-section section-shell">
-    <div class="container">
-      <SectionHeader
-        eyebrow="Relación con los desafíos"
-        title="Avance actual y etapas reservadas dentro del TPI"
-        description="Hoy el TPI se apoya en D3 como contenido real y mantiene D4 a D7 como espacios preparados para incorporar futuras decisiones, evidencias y aprendizajes."
-      />
-      <div class="card-grid">
-        {challengeContent.map((challenge) => (
-          <Card title={`${challenge.code} · ${challenge.title}`} subtitle={challenge.status === "available" ? "Aporte actual al TPI" : "Espacio reservado en el TPI"}>
-            <p>{challenge.tpiConnection}</p>
-            <p>
-              <a href={`/desafios/${challenge.slug}`} class="link-cta">Ver detalle del desafío</a>
-            </p>
-          </Card>
-        ))}
-      </div>
     </div>
   </section>
 </BaseLayout>

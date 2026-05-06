@@ -12,7 +12,6 @@ import { challengeContent, siteMeta } from "../../data/content";
     title="Recorrido D3 a D7"
     description="Desafíos completados y próximos a completar"
     actions={[
-      { href: "/tpi", label: "Ver TPI" },
       { href: "/", label: "Ir al inicio", variant: "secondary" }
     ]}
     compact
@@ -25,19 +24,24 @@ import { challengeContent, siteMeta } from "../../data/content";
         title="Detalle de desafíos"
         description="Un recorrido por los desafíos técnicos superados y las competencias desarrolladas en cada etapa del cuatrimestre."
       />
-        <div class="card-grid">
+        <div class="card-vertical">
           {challengeContent.map((challenge) => (
-            <a class="challenge-card-link" href={`/desafios/${challenge.slug}`}>
-              <Card title={`${challenge.code} · ${challenge.title}`} subtitle="Página individual">
-                <p>{challenge.summary}</p>
-                <div class="badge-row challenge-inline-badges">
-                  <span class="badge">{challenge.status === "available" ? "Disponible" : "Próximamente"}</span>
-                  {challenge.status === "available" && challenge.competenciesDeveloped.map((item) => (
-                    <span class="badge">{item}</span>
-                  ))}
-                </div>
-              </Card>
-            </a>
+            <Card title={`${challenge.code} · ${challenge.title}`} subtitle="Página individual">
+              <p>{challenge.summary}</p>
+              {challenge.status === "available" && challenge.evidences.length > 0 && challenge.evidences[0].href && (
+                <p>
+                  <a href={challenge.evidences[0].href} class="link-cta" target="_blank" rel="noopener noreferrer">
+                    {challenge.code === "D4" ? "Abrir hoja de cálculo" : "Ver evidencia"}
+                  </a>
+                </p>
+              )}
+              <div class="badge-row challenge-inline-badges">
+                <span class="badge">{challenge.status === "available" ? "Disponible" : "Próximamente"}</span>
+                {challenge.status === "available" && challenge.competenciesDeveloped.map((item) => (
+                  <span class="badge">{item}</span>
+                ))}
+              </div>
+            </Card>
           ))}
         </div>
     </div>

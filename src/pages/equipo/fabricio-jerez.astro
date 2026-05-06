@@ -1,24 +1,79 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Card from "../../components/Card.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+import PageHero from "../../components/PageHero.astro";
 import { teamMembers } from "../../data/content";
 
 const member = teamMembers.find((m) => m.id === "fabricio-jerez");
 ---
 
 <BaseLayout title={member ? `${member.name} | Ruta personal` : `Miembro`}>
-  <section class="page-section">
-    <div class="container">
-      {member ? (
-        <>
-          <h1>{member.name}</h1>
-          <p class="support-note">Esta es la ruta personal de aprendizaje de {member.name}. Aquí cada integrante puede documentar recursos, evidencias y reflexiones relacionadas con su crecimiento individual.</p>
-        </>
-      ) : (
-        <>
-          <h1>Miembro no encontrado</h1>
-          <p>La ruta solicitada no existe o está en preparación.</p>
-        </>
-      )}
-    </div>
-  </section>
+  {member ? (
+    <>
+      <PageHero
+        eyebrow="Equipo"
+        title={member.name}
+        description={member.tagline}
+        compact
+      />
+
+      <!-- Sección: Información del Rol -->
+      <section class="page-section section-shell">
+        <div class="container">
+          <SectionHeader
+            eyebrow="Rol y Responsabilidades"
+            title={member.role}
+            description="Descripción detallada del rol, habilidades y aporte al proyecto"
+          />
+
+          <div class="split-grid split-grid--team">
+            <Card title="Funciones principales" subtitle="Qué hace en el equipo">
+              <p>{member.bio}</p>
+            </Card>
+
+            <Card title="Intereses profesionales" subtitle="Áreas de especialización">
+              <ul class="clean-list clean-list--tight">
+                {member.interests.map((interest) => (
+                  <li>{interest}</li>
+                ))}
+              </ul>
+            </Card>
+          </div>
+
+          <div class="split-grid split-grid--team">
+            <Card title="Competencias desarrolladas" subtitle="Habilidades técnicas y blandas">
+              <ul class="clean-list clean-list--tight">
+                {member.competencies.map((competency) => (
+                  <li>{competency}</li>
+                ))}
+              </ul>
+            </Card>
+
+            <Card title="Aporte al proyecto" subtitle="Contribución específica al equipo">
+              <p>{member.contribution}</p>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección: Ruta Personal de Aprendizaje -->
+      <section class="page-section section-shell">
+        <div class="container">
+          <SectionHeader
+            eyebrow="Desarrollo Individual"
+            title="Ruta Personal de Aprendizaje"
+            description="Reflexiones y aprendizajes específicos de cada integrante durante el proyecto"
+          />
+        </div>
+      </section>
+    </>
+  ) : (
+    <section class="page-section">
+      <div class="container">
+        <h1>Miembro no encontrado</h1>
+        <p>La ruta solicitada no existe o está en preparación.</p>
+      </div>
+    </section>
+  )}
 </BaseLayout>
