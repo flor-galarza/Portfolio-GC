@@ -1,38 +1,418 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ConceptMapCard from "../components/ConceptMapCard.astro";
-import PageHero from "../components/PageHero.astro";
-import SectionHeader from "../components/SectionHeader.astro";
 import { conceptLevels, siteMeta } from "../data/content";
+
+const unitMaps = conceptLevels.slice(0, 3);
 ---
 
 <BaseLayout
   title={`Mapa conceptual | ${siteMeta.teamName}`}
   description={`Mapa conceptual por niveles de aprendizaje de ${siteMeta.teamName}.`}
 >
-  <PageHero
-    eyebrow="Mapa conceptual"
-    title="Relación de conceptos clave por nivel"
-    description="Cada nivel sintetiza cómo el equipo pasó de comprender el problema a diseñar la solución y cerrar el proceso con implementación, evidencias y reflexión."
-    actions={[
-      { href: "/tpi", label: "Ver TPI" },
-      { href: "/", label: "Volver al inicio", variant: "secondary" }
-    ]}
-    compact
-  />
-
   <section class="page-section section-shell">
     <div class="container">
-      <SectionHeader
-        eyebrow="Niveles"
-        title="Base visual clara y fácil de enriquecer"
-        description="Si el equipo luego dispone de gráficos finales o versiones interactivas, estas tarjetas se pueden reemplazar sin modificar la arquitectura del sitio."
-      />
-      <div class="card-grid card-grid--concepts">
-        {conceptLevels.map((level) => (
-          <ConceptMapCard level={level} />
+      <div class="card-grid card-grid--concepts" aria-label="Mapas de las primeras tres unidades">
+        {unitMaps.map((level, index) => (
+          <article class="concept-card reveal-up" data-reveal>
+            <button
+              class="concept-card-trigger"
+              type="button"
+              aria-label={`Ampliar mapa de la Unidad ${index + 1}`}
+              data-open-map
+              data-map-src={level.imageSrc}
+              data-map-alt={level.imageAlt ?? `Mapa mental de la Unidad ${index + 1}`}
+              data-map-unit={`Unidad ${index + 1}`}
+            >
+              <p class="concept-level">Unidad {index + 1}</p>
+              {level.imageSrc && (
+                <figure class="concept-map-figure">
+                  <img
+                    src={level.imageSrc}
+                    alt={level.imageAlt ?? `Mapa mental de la Unidad ${index + 1}`}
+                    loading="lazy"
+                  />
+                </figure>
+              )}
+            </button>
+          </article>
         ))}
       </div>
     </div>
   </section>
+
+  <dialog class="map-lightbox" data-map-dialog aria-label="Mapa conceptual ampliado">
+    <div class="map-lightbox__content">
+      <p class="map-lightbox__unit" data-map-unit-label>Unidad</p>
+      <div class="map-lightbox__zoom-controls" role="group" aria-label="Controles de zoom">
+        <button class="map-lightbox__zoom-button" type="button" data-zoom-out aria-label="Alejar mapa">
+          -
+        </button>
+        <button class="map-lightbox__zoom-button" type="button" data-zoom-reset aria-label="Restablecer zoom">
+          100%
+        </button>
+        <button class="map-lightbox__zoom-button" type="button" data-zoom-in aria-label="Acercar mapa">
+          +
+        </button>
+      </div>
+      <button class="map-lightbox__close" type="button" data-close-map aria-label="Cerrar ampliación">
+        Cerrar
+      </button>
+      <figure class="map-lightbox__figure">
+        <img data-map-preview src="" alt="" />
+      </figure>
+    </div>
+  </dialog>
 </BaseLayout>
+
+<style>
+  .concept-card-trigger {
+    display: grid;
+    gap: 1rem;
+    width: 100%;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    text-align: left;
+    padding: 0;
+    cursor: zoom-in;
+  }
+
+  .concept-card-trigger:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 6px;
+    border-radius: 0.9rem;
+  }
+
+  .map-lightbox {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    border: 0;
+    padding: 0;
+    width: min(92vw, 1080px);
+    max-width: 92vw;
+    max-height: 92vh;
+    border-radius: 1rem;
+    overflow: hidden;
+    background: var(--surface);
+    color: var(--text);
+  }
+
+  .map-lightbox__content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: min(92vh, 780px);
+  }
+
+  .map-lightbox::backdrop {
+    background: rgb(10 14 25 / 70%);
+    backdrop-filter: blur(2px);
+  }
+
+  .map-lightbox__close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    display: inline-flex;
+    border: 1px solid var(--line);
+    border-radius: 0.65rem;
+    background: var(--surface-2);
+    color: var(--text);
+    font: inherit;
+    font-weight: 700;
+    padding: 0.35rem 0.75rem;
+    cursor: pointer;
+  }
+
+  .map-lightbox__unit {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    margin: 0;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--surface-2);
+    color: var(--text);
+    font-weight: 700;
+    font-size: 0.9rem;
+    line-height: 1;
+    padding: 0.45rem 0.75rem;
+  }
+
+  .map-lightbox__zoom-controls {
+    position: absolute;
+    top: 0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex;
+    gap: 0.35rem;
+  }
+
+  .map-lightbox__zoom-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.35rem;
+    border: 1px solid var(--line);
+    border-radius: 0.65rem;
+    background: var(--surface-2);
+    color: var(--text);
+    font: inherit;
+    font-weight: 700;
+    padding: 0.35rem 0.6rem;
+    cursor: pointer;
+  }
+
+  .map-lightbox__zoom-button:focus-visible,
+  .map-lightbox__close:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .map-lightbox__figure {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    padding-top: 3.25rem;
+    box-sizing: border-box;
+  }
+
+  .map-lightbox__figure img {
+    max-width: 100%;
+    max-height: calc(92vh - 4.25rem);
+    object-fit: contain;
+    display: block;
+    border-radius: 0.75rem;
+    transform-origin: center center;
+    transition: transform 140ms ease-out;
+    touch-action: none;
+  }
+
+  .map-lightbox__figure img.is-pannable {
+    cursor: grab;
+  }
+
+  .map-lightbox__figure img.is-panning {
+    cursor: grabbing;
+  }
+
+  @media (max-width: 640px) {
+    .map-lightbox {
+      width: 96vw;
+      max-width: 96vw;
+    }
+
+    .map-lightbox__content {
+      min-height: min(92vh, 96vw);
+    }
+
+    .map-lightbox__figure {
+      padding: 0.75rem;
+      padding-top: 3rem;
+    }
+
+    .map-lightbox__figure img {
+      max-height: calc(92vh - 3.75rem);
+    }
+  }
+</style>
+
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>("[data-map-dialog]");
+  const previewImage = dialog?.querySelector<HTMLImageElement>("[data-map-preview]");
+  const openButtons = document.querySelectorAll("[data-open-map]");
+  const closeButton = dialog?.querySelector<HTMLButtonElement>("[data-close-map]");
+  const unitLabel = dialog?.querySelector<HTMLElement>("[data-map-unit-label]");
+  const zoomInButton = dialog?.querySelector<HTMLButtonElement>("[data-zoom-in]");
+  const zoomOutButton = dialog?.querySelector<HTMLButtonElement>("[data-zoom-out]");
+  const zoomResetButton = dialog?.querySelector<HTMLButtonElement>("[data-zoom-reset]");
+  const previewFigure = dialog?.querySelector<HTMLElement>(".map-lightbox__figure");
+
+  const minZoom = 0.5;
+  const maxZoom = 3;
+  const zoomStep = 0.25;
+  let currentZoom = 1;
+  let translateX = 0;
+  let translateY = 0;
+  let isPanning = false;
+  let activePointerId: number | null = null;
+  let panStartX = 0;
+  let panStartY = 0;
+  let panOriginX = 0;
+  let panOriginY = 0;
+
+  const clampZoom = (value: number) => Math.min(maxZoom, Math.max(minZoom, value));
+
+  const clampTranslate = () => {
+    if (!previewImage || !previewFigure) return;
+
+    const containerWidth = previewFigure.clientWidth;
+    const containerHeight = previewFigure.clientHeight;
+    const renderedWidth = previewImage.offsetWidth * currentZoom;
+    const renderedHeight = previewImage.offsetHeight * currentZoom;
+    const maxOffsetX = Math.max(0, (renderedWidth - containerWidth) / 2);
+    const maxOffsetY = Math.max(0, (renderedHeight - containerHeight) / 2);
+
+    translateX = Math.max(-maxOffsetX, Math.min(maxOffsetX, translateX));
+    translateY = Math.max(-maxOffsetY, Math.min(maxOffsetY, translateY));
+  };
+
+  const applyTransform = () => {
+    if (!previewImage) return;
+
+    previewImage.style.transform = `translate(${translateX}px, ${translateY}px) scale(${currentZoom})`;
+  };
+
+  const updateZoomUI = () => {
+    if (!previewImage) return;
+
+    if (currentZoom <= 1) {
+      translateX = 0;
+      translateY = 0;
+    } else {
+      clampTranslate();
+    }
+
+    applyTransform();
+    previewImage.classList.toggle("is-pannable", currentZoom > 1);
+    previewImage.classList.toggle("is-panning", isPanning && currentZoom > 1);
+
+    if (zoomResetButton) {
+      zoomResetButton.textContent = `${Math.round(currentZoom * 100)}%`;
+    }
+
+    if (zoomInButton) zoomInButton.disabled = currentZoom >= maxZoom;
+    if (zoomOutButton) zoomOutButton.disabled = currentZoom <= minZoom;
+  };
+
+  const setZoom = (nextZoom: number) => {
+    currentZoom = clampZoom(nextZoom);
+    updateZoomUI();
+  };
+
+  const resetZoom = () => {
+    isPanning = false;
+    activePointerId = null;
+    translateX = 0;
+    translateY = 0;
+    setZoom(1);
+  };
+
+  const closeLightbox = () => {
+    dialog?.close();
+    if (previewImage) {
+      previewImage.removeAttribute("src");
+      previewImage.removeAttribute("alt");
+    }
+    resetZoom();
+  };
+
+  openButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const src = button.getAttribute("data-map-src");
+      const alt = button.getAttribute("data-map-alt") ?? "Mapa conceptual ampliado";
+      const unit = button.getAttribute("data-map-unit") ?? "Unidad";
+
+      if (!src || !previewImage || !dialog) return;
+
+      previewImage.setAttribute("src", src);
+      previewImage.setAttribute("alt", alt);
+      if (unitLabel) unitLabel.textContent = unit;
+      resetZoom();
+      dialog.showModal();
+      closeButton?.focus();
+    });
+  });
+
+  zoomInButton?.addEventListener("click", () => setZoom(currentZoom + zoomStep));
+  zoomOutButton?.addEventListener("click", () => setZoom(currentZoom - zoomStep));
+  zoomResetButton?.addEventListener("click", resetZoom);
+
+  previewImage?.addEventListener(
+    "wheel",
+    (event) => {
+      if (!dialog?.open) return;
+      event.preventDefault();
+      const direction = event.deltaY < 0 ? 1 : -1;
+      setZoom(currentZoom + direction * zoomStep);
+    },
+    { passive: false }
+  );
+
+  previewImage?.addEventListener("pointerdown", (event) => {
+    if (!dialog?.open || currentZoom <= 1 || !previewImage) return;
+
+    event.preventDefault();
+    isPanning = true;
+    activePointerId = event.pointerId;
+    panStartX = event.clientX;
+    panStartY = event.clientY;
+    panOriginX = translateX;
+    panOriginY = translateY;
+    previewImage.setPointerCapture(event.pointerId);
+    updateZoomUI();
+  });
+
+  previewImage?.addEventListener("pointermove", (event) => {
+    if (!isPanning || event.pointerId !== activePointerId) return;
+
+    const deltaX = event.clientX - panStartX;
+    const deltaY = event.clientY - panStartY;
+    translateX = panOriginX + deltaX;
+    translateY = panOriginY + deltaY;
+    clampTranslate();
+    applyTransform();
+  });
+
+  const stopPanning = (event: PointerEvent) => {
+    if (!previewImage || event.pointerId !== activePointerId) return;
+
+    if (previewImage.hasPointerCapture(event.pointerId)) {
+      previewImage.releasePointerCapture(event.pointerId);
+    }
+
+    isPanning = false;
+    activePointerId = null;
+    updateZoomUI();
+  };
+
+  previewImage?.addEventListener("pointerup", stopPanning);
+  previewImage?.addEventListener("pointercancel", stopPanning);
+
+  window.addEventListener("resize", () => {
+    if (!dialog?.open || currentZoom <= 1) return;
+    clampTranslate();
+    applyTransform();
+  });
+
+  dialog?.addEventListener("keydown", (event) => {
+    if (event.key === "+" || event.key === "=") {
+      event.preventDefault();
+      setZoom(currentZoom + zoomStep);
+      return;
+    }
+
+    if (event.key === "-" || event.key === "_") {
+      event.preventDefault();
+      setZoom(currentZoom - zoomStep);
+      return;
+    }
+
+    if (event.key === "0") {
+      event.preventDefault();
+      resetZoom();
+    }
+  });
+
+  closeButton?.addEventListener("click", closeLightbox);
+
+  dialog?.addEventListener("click", (event) => {
+    if (event.target === dialog) closeLightbox();
+  });
+</script>
