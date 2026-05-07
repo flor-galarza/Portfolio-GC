@@ -39,6 +39,7 @@ export interface TeamMember {
   competencies: string[];
   contribution: string;
   avatar?: string;
+  note?: string;
   learningUnits: LearningUnit[];   // ← reemplaza a rpa
 }
 export interface TimelineItem {
@@ -227,15 +228,15 @@ export const teamMembers: TeamMember[] = [
         subtitle: "LAS ORGANIZACIONES Y SU ADMINISTRACIÓN",
         color: "mint",
         newConcepts: [
-          "Concepto nuevo 1 — completar",
-          "Concepto nuevo 2 — completar",
+          "Roles de gerencia",
+          "Punto de equilibrio",
         ],
         interestConcepts: [
-          "Concepto de interés 1 — completar",
-          "Concepto de interés 2 — completar",
+          "Usos del proceso administrativo",
+          "Teorías modernas de gestión",
         ],
         reflection:
-          "Reflexión personal de Florencia sobre la unidad 1 — completar.",
+          "En esta unidad, lo más valioso es comprender que la administración no es solo un conjunto de tareas, sino un proceso dinámico de planificación, organización, dirección y control orientado a alcanzar metas de manera eficiente y eficaz. He aprendido que las organizaciones son sistemas sociales complejos que operan en un entorno cambiante, lo que exige que el administrador moderno actúe como un facilitador capaz de coordinar el esfuerzo humano. Me queda claro que la labor gerencial es indispensable para transformar recursos aislados en resultados colectivos con propósito.",
       },
       {
         id: 2,
@@ -243,15 +244,16 @@ export const teamMembers: TeamMember[] = [
         subtitle: "ESTRATEGIA EMPRESARIAL",
         color: "mint",
         newConcepts: [
-          "Concepto nuevo 1 — completar",
-          "Concepto nuevo 2 — completar",
+          "Análisis de situación",
+          "Cuadro de mando integral",
+          "Mapa estratégico",
         ],
         interestConcepts: [
-          "Concepto de interés 1 — completar",
-          "Concepto de interés 2 — completar",
+          "Gestión del conocimiento",
+          "Elementos de la estrategia",
         ],
         reflection:
-          "Reflexión personal de Florencia sobre la unidad 2 — completar.",
+          "Esta sección me ha permitido valorar la administración como una disciplina en constante evolución, desde el enfoque científico de Taylor y la teoría clásica de Fayol hasta las visiones humanistas y sistémicas. Reflexiono sobre cómo cada escuela de pensamiento aportó herramientas que aún son vigentes: mientras que la eficiencia técnica es vital, el factor humano y la comprensión de las organizaciones como sistemas abiertos son los que realmente garantizan la sostenibilidad a largo plazo. No se puede liderar hoy sin entender los cimientos teóricos que construyeron las mejores prácticas del pasado.",
       },
       {
         id: 3,
@@ -259,15 +261,14 @@ export const teamMembers: TeamMember[] = [
         subtitle: "LA CONDUCTA HUMANA EN LA ORGANIZACIÓN",
         color: "mint",
         newConcepts: [
-          "Concepto nuevo 1 — completar",
-          "Concepto nuevo 2 — completar",
+          "People Analytics",
         ],
         interestConcepts: [
-          "Concepto de interés 1 — completar",
-          "Concepto de interés 2 — completar",
+          "Gestión del Clima y la Cultura Organizacional",
+          "Talento 4.0",
         ],
         reflection:
-          "Reflexión personal de Florencia sobre la unidad 3 — completar.",
+          "Lo aprendido en esta unidad resalta que ninguna empresa es una isla; el administrador debe ser un analista agudo del entorno ético, global y social. He reflexionado sobre la importancia de la Responsabilidad Social Empresarial (RSE) y la ética, entendiendo que el éxito financiero no debe estar reñido con el bienestar de la comunidad y el respeto al medio ambiente. En un mundo donde la globalización conecta mercados y culturas, la capacidad de adaptarse a la diversidad y actuar con integridad se convierte en la mayor ventaja competitiva de cualquier profesional de la gestión.",
       },
     ],
   },
