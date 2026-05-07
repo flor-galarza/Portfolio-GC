@@ -1,6 +1,6 @@
 ---
 import teamLogo from "../assets/logo.png";
-import { challengeSlugs, navLinks, siteMeta } from "../data/content";
+import { navLinks, siteMeta } from "../data/content";
 
 interface Props {
   currentPath: string;
@@ -35,20 +35,8 @@ const isCurrent = (href: string) => {
             <a href={link.href} class={isCurrent(link.href) ? "active" : ""}>{link.label}</a>
           </li>
         ))}
-        <li class="has-submenu">
-          <a href="/desafios" class={currentPath.startsWith("/desafios") ? "active" : ""}>Desafios</a>
-          <ul class="submenu">
-            {challengeSlugs.map((slug) => (
-              <li>
-                <a href={`/desafios/${slug}`}>{slug.toUpperCase()}</a>
-              </li>
-            ))}
-          </ul>
-        </li>
-      </ul>
-      
-    </nav>
-  </div>
+      <li>
+        <a href="/desafios" class={currentPath.startsWith("/desafios") ? "active" : ""}>Desafios</a>
 
   <nav class="nav-mobile" aria-label="Principal movil" data-mobile-menu>
     <ul>
@@ -60,11 +48,6 @@ const isCurrent = (href: string) => {
       <li>
         <a href="/desafios" class={currentPath.startsWith("/desafios") ? "active" : ""}>Desafios</a>
       </li>
-      {challengeSlugs.map((slug) => (
-        <li>
-          <a href={`/desafios/${slug}`}>{slug.toUpperCase()}</a>
-        </li>
-      ))}
       <li>
         <button class="theme-toggle" data-theme-toggle type="button" aria-pressed="true">Tema: Oscuro</button>
       </li>

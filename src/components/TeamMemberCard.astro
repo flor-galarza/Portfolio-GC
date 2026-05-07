@@ -1,7 +1,6 @@
 ---
 import Badge from "./Badge.astro";
 import type { TeamMember } from "../data/content";
-import florImg from "../assets/flor.jpeg";
 
 interface Props {
   member: TeamMember;
@@ -20,10 +19,7 @@ const profileGroups = [
   <div class="profile-card__header">
       <div class={`profile-avatar profile-avatar--${member.accent}`} aria-hidden="true">
         {member.avatar ? (
-          // `avatar` is expected to be a local path like "/src/assets/...".
           <img src={member.avatar} alt={member.name} />
-        ) : member.id === "florencia-galarza-maumary" ? (
-          <img src={florImg.src} alt={member.name} />
         ) : (
           <span>{member.initials}</span>
         )}

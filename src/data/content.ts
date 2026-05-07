@@ -17,6 +17,16 @@ export interface SiteMeta {
   logoAlt: string;
 }
 
+export interface LearningUnit {
+  id: number;
+  title: string;                   // Nombre de la unidad, ej. "Unidad 1 – Introducción"
+  subtitle: string;                // Tema o foco principal de la unidad
+  color?: "cyan" | "mint" | "violet" | "amber" | "rose";
+  newConcepts: string[];           // Conceptos nuevos adquiridos
+  interestConcepts: string[];      // Conceptos de interés (lo que más llamó la atención)
+  reflection: string;              // Reflexión personal libre
+}
+ 
 export interface TeamMember {
   id: string;
   name: string;
@@ -27,12 +37,10 @@ export interface TeamMember {
   bio: string;
   interests: string[];
   competencies: string[];
-  rpa: string[];
   contribution: string;
   avatar?: string;
-  note?: string;
+  learningUnits: LearningUnit[];   // ← reemplaza a rpa
 }
-
 export interface TimelineItem {
   period: string;
   title: string;
@@ -112,7 +120,27 @@ export const navLinks: NavLink[] = [
   { href: "/mapa-conceptual", label: "Mapa conceptual" },
 ];
 
+const UNIT_PLACEHOLDER = (id: number): LearningUnit => ({
+  id,
+  title: `Unidad ${id}`,
+  subtitle: "Tema o foco de la unidad — completar",
+  color: undefined,                // hereda el accent del miembro si no se define
+  newConcepts: [
+    "Concepto nuevo 1 — completar",
+    "Concepto nuevo 2 — completar",
+  ],
+  interestConcepts: [
+    "Concepto de interés 1 — completar",
+    "Concepto de interés 2 — completar",
+  ],
+  reflection:
+    "Reflexión personal sobre la unidad — completar con la experiencia propia.",
+});
+ 
+// ── Datos del equipo ──────────────────────────────────────────────────────────
+ 
 export const teamMembers: TeamMember[] = [
+  // ── Camila Zeniquel ────────────────────────────────────────────────────────
   {
     id: "camila-zeniquel",
     name: "Camila Zeniquel",
@@ -123,16 +151,62 @@ export const teamMembers: TeamMember[] = [
     bio: "Lidera la investigación, la arquitectura de información y los criterios visuales que sostienen el recorrido del sitio.",
     interests: ["Service design", "Design systems", "Validación con usuarios"],
     competencies: ["UX research", "Security", "Arquitectura de información"],
-    rpa: [
-      "Detectar necesidades reales del usuario antes de diseñar.",
-      "Supervisar la integridad entre el diseño visual y los requerimientos funcionales.",
-      "Documentar hallazgos para mejorar iteraciones futuras."
-    ],
     contribution:
-      "Actualizaciones del micrositio con los objetivos académicos y aseguró que cada sección tuviera sentido para docentes y pares."
-    ,
-    avatar: camiAvatar.src
+      "Actualizaciones del micrositio con los objetivos académicos y aseguró que cada sección tuviera sentido para docentes y pares.",
+    avatar: camiAvatar.src,
+    learningUnits: [
+      {
+        id: 1,
+        title: "Unidad 1",
+        subtitle: "LAS ORGANIZACIONES Y SU ADMINISTRACIÓN",
+        color: "cyan",
+        newConcepts: [
+          "Roles de gerencia",
+          "Punto de equilibrio",
+        ],
+        interestConcepts: [
+          "Usos del proceso administrativo",
+          "Teorías modernas de gestión",
+        ],
+        reflection:
+          "La unidad sirvió como una manera de refrescar conceptos clave de administración, esto nos ayudó a orientarnos en el desarrollo del TPI y entender el contexto administrativo de la organización. Personalmente, me interesa el liderazgo desde el papel del gerente, y me ayuda a ponerle nombre a dinámicas que veo en el día a día de las organizaciones, aún siendo un rol al que actualmente no aspiro. Me pareció interesante la discusión sobre el proceso administrativo como una guía flexible, no un manual rígido, y cómo se adapta a diferentes contextos organizacionales.",
+      },
+      {
+        id: 2,
+        title: "Unidad 2",
+        subtitle: "ESTRATEGIA EMPRESARIAL",
+        color: "cyan",
+        newConcepts: [
+          "Análisis de situación",
+          "Cuadro de mando integral",
+          "Mapa estratégico"
+        ],
+        interestConcepts: [
+          "Gestión del conocimiento",
+          "Elementos de la estrategia",
+        ],
+        reflection:
+          "Esta unidad me pareció interesante por su manera de analizar la organización desde distintos puntos de vista y niveles de detalle. Me ayudó a entender mejor cómo se toman decisiones estratégicas en las organizaciones y cómo se pueden medir los resultados de esas decisiones. Personalmente, me llamó la atención el concepto de gestión del conocimiento y cómo las organizaciones pueden aprovechar su experiencia interna para mejorar su desempeño.",
+      },
+      {
+        id: 3,
+        title: "Unidad 3",
+        subtitle: "LA CONDUCTA HUMANA EN LA ORGANIZACIÓN",
+        color: "cyan",
+        newConcepts: [
+          "People Analytics",
+        ],
+        interestConcepts: [
+          "Gestión del Clima y la Cultura Organizacional",
+          "Talento 4.0",
+        ],
+        reflection:
+          "Es la unidad que más me interesó, debido a que la gestión de equipos es un tema que me llama mucho la atención. Me ayudó a entender mejor cómo se pueden gestionar los equipos de trabajo para mejorar su desempeño y cómo se pueden medir los resultados de esa gestión. Personalmente, me pareció interesante el concepto de People Analytics y cómo se puede utilizar para tomar decisiones informadas sobre la gestión de personas en las organizaciones.",
+      },
+    ],
   },
+ 
+  // ── Florencia Galarza Maumary ──────────────────────────────────────────────
   {
     id: "florencia-galarza-maumary",
     name: "Florencia Galarza Maumary",
@@ -143,15 +217,62 @@ export const teamMembers: TeamMember[] = [
     bio: "Diseña la arquitectura del frontend, implementa componentes reutilizables y cuida el rendimiento del sitio en desktop y mobile.",
     interests: ["Performance web", "Semántica HTML", "Componentización"],
     competencies: ["Astro", "TypeScript", "Optimización frontend"],
-    rpa: [
-      "Escalar una base multipágina sin duplicar lógica ni contenido.",
-      "Mejorar accesibilidad y motion con degradación elegante.",
-      "Preparar una base flexible para evidencias definitivas."
-    ],
     contribution:
       "Convirtió el portfolio en una experiencia multipágina coherente, con una estructura lista para futuras entregas y ajustes rápidos.",
-    avatar: florAvatar.src
+    avatar: florAvatar.src,
+    learningUnits: [
+      {
+        id: 1,
+        title: "Unidad 1",
+        subtitle: "LAS ORGANIZACIONES Y SU ADMINISTRACIÓN",
+        color: "mint",
+        newConcepts: [
+          "Concepto nuevo 1 — completar",
+          "Concepto nuevo 2 — completar",
+        ],
+        interestConcepts: [
+          "Concepto de interés 1 — completar",
+          "Concepto de interés 2 — completar",
+        ],
+        reflection:
+          "Reflexión personal de Florencia sobre la unidad 1 — completar.",
+      },
+      {
+        id: 2,
+        title: "Unidad 2",
+        subtitle: "ESTRATEGIA EMPRESARIAL",
+        color: "mint",
+        newConcepts: [
+          "Concepto nuevo 1 — completar",
+          "Concepto nuevo 2 — completar",
+        ],
+        interestConcepts: [
+          "Concepto de interés 1 — completar",
+          "Concepto de interés 2 — completar",
+        ],
+        reflection:
+          "Reflexión personal de Florencia sobre la unidad 2 — completar.",
+      },
+      {
+        id: 3,
+        title: "Unidad 3",
+        subtitle: "LA CONDUCTA HUMANA EN LA ORGANIZACIÓN",
+        color: "mint",
+        newConcepts: [
+          "Concepto nuevo 1 — completar",
+          "Concepto nuevo 2 — completar",
+        ],
+        interestConcepts: [
+          "Concepto de interés 1 — completar",
+          "Concepto de interés 2 — completar",
+        ],
+        reflection:
+          "Reflexión personal de Florencia sobre la unidad 3 — completar.",
+      },
+    ],
   },
+ 
+  // ── Bruno Rivero ───────────────────────────────────────────────────────────
   {
     id: "bruno-rivero",
     name: "Bruno Rivero",
@@ -161,16 +282,63 @@ export const teamMembers: TeamMember[] = [
     tagline: "Ordena procesos y vuelve trazables las evidencias del proyecto.",
     bio: "Se enfoca en la consistencia de entregables, el seguimiento de evidencias y la estandarización de reportes por desafío.",
     interests: ["Redes de datos", "DevOps", "Seguridad de la información"],
-    competencies: [ "Process mapping", "Infraestructura"],
-    rpa: [
-      "Estructurar evidencia para evitar pérdidas de contexto.",
-      "Definir rutinas repetibles de revisión por desafío.",
-      "Conectar documentación con decisiones del TPI."
-    ],
+    competencies: ["Process mapping", "Infraestructura"],
     contribution:
       "Diseñó el marco de control que permite mostrar avances, respaldos y aprendizajes sin romper la claridad del portfolio.",
-    avatar: BrunoAvatar.src
+    avatar: BrunoAvatar.src,
+    learningUnits: [
+      {
+        id: 1,
+        title: "Unidad 1",
+        subtitle: "LAS ORGANIZACIONES Y SU ADMINISTRACIÓN",
+        color: "violet",
+        newConcepts: [
+          "Concepto nuevo 1 — completar",
+          "Concepto nuevo 2 — completar",
+        ],
+        interestConcepts: [
+          "Concepto de interés 1 — completar",
+          "Concepto de interés 2 — completar",
+        ],
+        reflection:
+          "Reflexión personal de Bruno sobre la unidad 1 — completar.",
+      },
+      {
+        id: 2,
+        title: "Unidad 2",
+        subtitle: "ESTRATEGIA EMPRESARIAL",
+        color: "violet",
+        newConcepts: [
+          "Concepto nuevo 1 — completar",
+          "Concepto nuevo 2 — completar",
+        ],
+        interestConcepts: [
+          "Concepto de interés 1 — completar",
+          "Concepto de interés 2 — completar",
+        ],
+        reflection:
+          "Reflexión personal de Bruno sobre la unidad 2 — completar.",
+      },
+      {
+        id: 3,
+        title: "Unidad 3",
+        subtitle: "LA CONDUCTA HUMANA EN LA ORGANIZACIÓN",
+        color: "violet",
+        newConcepts: [
+          "Concepto nuevo 1 — completar",
+          "Concepto nuevo 2 — completar",
+        ],
+        interestConcepts: [
+          "Concepto de interés 1 — completar",
+          "Concepto de interés 2 — completar",
+        ],
+        reflection:
+          "Reflexión personal de Bruno sobre la unidad 3 — completar.",
+      },
+    ],
   },
+ 
+  // ── Renzo Urturi ───────────────────────────────────────────────────────────
   {
     id: "renzo-urturi",
     name: "Renzo Urturi",
@@ -181,15 +349,62 @@ export const teamMembers: TeamMember[] = [
     bio: "Integra storytelling, documentación y síntesis para que el sitio exprese claramente qué se hizo, por qué y con qué impacto.",
     interests: ["Comunicación digital", "Presentaciones", "Narrativas de producto"],
     competencies: ["Documentación técnica", "Presentación de evidencias", "Métricas"],
-    rpa: [
-      "Traducir contenido técnico a un lenguaje claro y profesional.",
-      "Jerarquizar aprendizajes para la presentación final.",
-      "Vincular evidencias con resultados concretos del equipo."
-    ],
     contribution:
       "Aportó cohesión editorial a la experiencia, haciendo que cada página comunique proceso, valor y próximos pasos.",
-    avatar: renzoAvatar.src
+    avatar: renzoAvatar.src,
+    learningUnits: [
+      {
+        id: 1,
+        title: "Unidad 1",
+        subtitle: "LAS ORGANIZACIONES Y SU ADMINISTRACIÓN",
+        color: "amber",
+        newConcepts: [
+          "Concepto nuevo 1 — completar",
+          "Concepto nuevo 2 — completar",
+        ],
+        interestConcepts: [
+          "Concepto de interés 1 — completar",
+          "Concepto de interés 2 — completar",
+        ],
+        reflection:
+          "Reflexión personal de Renzo sobre la unidad 1 — completar.",
+      },
+      {
+        id: 2,
+        title: "Unidad 2",
+        subtitle: "ESTRATEGIA EMPRESARIAL",
+        color: "amber",
+        newConcepts: [
+          "Concepto nuevo 1 — completar",
+          "Concepto nuevo 2 — completar",
+        ],
+        interestConcepts: [
+          "Concepto de interés 1 — completar",
+          "Concepto de interés 2 — completar",
+        ],
+        reflection:
+          "Reflexión personal de Renzo sobre la unidad 2 — completar.",
+      },
+      {
+        id: 3,
+        title: "Unidad 3",
+        subtitle: "LA CONDUCTA HUMANA EN LA ORGANIZACIÓN",
+        color: "amber",
+        newConcepts: [
+          "Concepto nuevo 1 — completar",
+          "Concepto nuevo 2 — completar",
+        ],
+        interestConcepts: [
+          "Concepto de interés 1 — completar",
+          "Concepto de interés 2 — completar",
+        ],
+        reflection:
+          "Reflexión personal de Renzo sobre la unidad 3 — completar.",
+      },
+    ],
   },
+ 
+  // ── Fabricio Jerez ─────────────────────────────────────────────────────────
   {
     id: "fabricio-jerez",
     name: "Fabricio Jerez",
@@ -200,14 +415,59 @@ export const teamMembers: TeamMember[] = [
     bio: "Sostiene la integración entre desafíos y TPI para que el portfolio muestre un recorrido consistente de punta a punta.",
     interests: ["Gestión colaborativa", "Mejora continua", "Narrativa de proyecto"],
     competencies: ["Integración de contenidos", "Planificación", "Comunicación interna"],
-    rpa: [
-      "Conectar el avance individual con los objetivos del equipo.",
-      "Mantener coherencia entre desafíos, evidencias y TPI.",
-      "Identificar ajustes rápidos sin romper la estructura general."
-    ],
     contribution:
-      "Ayudó a consolidar una versión presentable del sitio, manteniendo consistencia entre páginas, mensajes y entregables."
-  }
+      "Ayudó a consolidar una versión presentable del sitio, manteniendo consistencia entre páginas, mensajes y entregables.",
+    learningUnits: [
+      {
+        id: 1,
+        title: "Unidad 1",
+        subtitle: "LAS ORGANIZACIONES Y SU ADMINISTRACIÓN",
+        color: "rose",
+        newConcepts: [
+          "Concepto nuevo 1 — completar",
+          "Concepto nuevo 2 — completar",
+        ],
+        interestConcepts: [
+          "Concepto de interés 1 — completar",
+          "Concepto de interés 2 — completar",
+        ],
+        reflection:
+          "Reflexión personal de Fabricio sobre la unidad 1 — completar.",
+      },
+      {
+        id: 2,
+        title: "Unidad 2",
+        subtitle: "ESTRATEGIA EMPRESARIAL",
+        color: "rose",
+        newConcepts: [
+          "Concepto nuevo 1 — completar",
+          "Concepto nuevo 2 — completar",
+        ],
+        interestConcepts: [
+          "Concepto de interés 1 — completar",
+          "Concepto de interés 2 — completar",
+        ],
+        reflection:
+          "Reflexión personal de Fabricio sobre la unidad 2 — completar.",
+      },
+      {
+        id: 3,
+        title: "Unidad 3",
+        subtitle: "LA CONDUCTA HUMANA EN LA ORGANIZACIÓN",
+        color: "rose",
+        newConcepts: [
+          "Concepto nuevo 1 — completar",
+          "Concepto nuevo 2 — completar",
+        ],
+        interestConcepts: [
+          "Concepto de interés 1 — completar",
+          "Concepto de interés 2 — completar",
+        ],
+        reflection:
+          "Reflexión personal de Fabricio sobre la unidad 3 — completar.",
+      },
+    ],
+  },
 ];
 
 export const heroHighlights = [

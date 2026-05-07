@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Card from "../../components/Card.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
 import PageHero from "../../components/PageHero.astro";
+import LearningPath from "../../components/LearningPath.astro";
 import { teamMembers } from "../../data/content";
 
 const member = teamMembers.find((m) => m.id === "camila-zeniquel");
@@ -65,6 +66,8 @@ const member = teamMembers.find((m) => m.id === "camila-zeniquel");
             title="Ruta Personal de Aprendizaje"
             description="Reflexiones y aprendizajes específicos de cada integrante durante el proyecto"
           />
+
+          <LearningPath units={member.learningUnits} memberAccent={member.accent} />
         </div>
       </section>
     </>
