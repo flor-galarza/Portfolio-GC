@@ -359,15 +359,15 @@ export const teamMembers: TeamMember[] = [
         subtitle: "LAS ORGANIZACIONES Y SU ADMINISTRACIÓN",
         color: "amber",
         newConcepts: [
-          "Concepto nuevo 1 — completar",
-          "Concepto nuevo 2 — completar",
+          "Roles de Mintzberg",
+          "Autoridad y poder",
         ],
         interestConcepts: [
-          "Concepto de interés 1 — completar",
-          "Concepto de interés 2 — completar",
+          "Liderazgo",
+          "Rol del gerente",
         ],
         reflection:
-          "Reflexión personal de Renzo sobre la unidad 1 — completar.",
+          "La unidad permitió comprender cómo el perfil gerencial actual no se limita únicamente a planificar, organizar, dirigir y controlar, sino que también requiere habilidades blandas, comunicación efectiva y capacidad para coordinar personas en distintos contextos organizacionales. Desde una mirada vinculada a sistemas, me resultó interesante entender al gerente como alguien que interpreta información, toma decisiones y articula recursos, personas y tecnología para alcanzar objetivos. También me permitió reconocer que el rol del gerente se vuelve cada vez más dinámico, especialmente en organizaciones que necesitan adaptarse al cambio.",
       },
       {
         id: 2,
@@ -375,15 +375,15 @@ export const teamMembers: TeamMember[] = [
         subtitle: "ESTRATEGIA EMPRESARIAL",
         color: "amber",
         newConcepts: [
-          "Concepto nuevo 1 — completar",
-          "Concepto nuevo 2 — completar",
+          "Escenarios futuros",
+          "Mapa estratégico",
         ],
         interestConcepts: [
-          "Concepto de interés 1 — completar",
-          "Concepto de interés 2 — completar",
+          "FODA / CAME",
+          "Estrategia empresarial",
         ],
         reflection:
-          "Reflexión personal de Renzo sobre la unidad 2 — completar.",
+          "Esta unidad me ayudó a comprender la utilidad de las herramientas de análisis estratégico para ordenar la información y guiar la toma de decisiones dentro de una organización. Me pareció valioso ver cómo instrumentos como FODA, CAME, escenarios futuros o mapas estratégicos permiten analizar situaciones complejas de forma más clara y práctica. Desde el enfoque de sistemas, la estrategia puede entenderse como una forma de orientar recursos, procesos e información hacia objetivos concretos, evitando decisiones aisladas o improvisadas.",
       },
       {
         id: 3,
@@ -391,15 +391,14 @@ export const teamMembers: TeamMember[] = [
         subtitle: "LA CONDUCTA HUMANA EN LA ORGANIZACIÓN",
         color: "amber",
         newConcepts: [
-          "Concepto nuevo 1 — completar",
-          "Concepto nuevo 2 — completar",
+          "STEAM",
+          "Nuevas formas de trabajo",
         ],
         interestConcepts: [
-          "Concepto de interés 1 — completar",
-          "Concepto de interés 2 — completar",
+          "Talento 4.0",
         ],
         reflection:
-          "Reflexión personal de Renzo sobre la unidad 3 — completar.",
+          "La unidad permitió observar cómo cambiaron las formas de trabajo y las habilidades que actualmente demanda el mercado laboral. Me resultó interesante la relación entre tecnología, personas y organización, especialmente porque la transformación digital no depende solo de herramientas, sino también de capacidades humanas como adaptación, aprendizaje continuo, colaboración y pensamiento crítico. Desde una perspectiva vinculada a sistemas, esta unidad muestra que las organizaciones necesitan perfiles capaces de integrarse a entornos digitales, flexibles y en constante cambio.",
       },
     ],
   },
