@@ -282,7 +282,7 @@ export const teamMembers: TeamMember[] = [
     accent: "violet",
     tagline: "Ordena procesos y vuelve trazables las evidencias del proyecto.",
     bio: "Se enfoca en la consistencia de entregables, el seguimiento de evidencias y la estandarización de reportes por desafío.",
-    interests: ["Redes de datos", "DevOps", "Seguridad de la información"],
+    interests: ["Resolución de conflictos","Redes de información", "DevOps", "Seguridad de la información"],
     competencies: ["Process mapping", "Infraestructura"],
     contribution:
       "Diseñó el marco de control que permite mostrar avances, respaldos y aprendizajes sin romper la claridad del portfolio.",
@@ -294,15 +294,16 @@ export const teamMembers: TeamMember[] = [
         subtitle: "LAS ORGANIZACIONES Y SU ADMINISTRACIÓN",
         color: "violet",
         newConcepts: [
-          "Concepto nuevo 1 — completar",
-          "Concepto nuevo 2 — completar",
+          "Habilidades gerenciales",
+          "Teorías sobre liderazgo",
+          "Punto de equilibrio"
         ],
         interestConcepts: [
-          "Concepto de interés 1 — completar",
-          "Concepto de interés 2 — completar",
+          "Características de un líder",
+          "Roles del gerente",
         ],
         reflection:
-          "Reflexión personal de Bruno sobre la unidad 1 — completar.",
+          "Esta unidad me resultó útil para reforzar conceptos organizacionales y de administración que fui incorporando desde el inicio de la carrera y relacionarlos con una mirada más práctica. Además, me permitió sumar conocimientos sobre gerencia y liderazgo, entendiendo mejor cómo la toma de decisiones, la comunicación y la coordinación de equipos influyen en el funcionamiento de una organización. Considero que estos contenidos amplían mi visión profesional y ayudan a comprender la importancia de gestionar no solo recursos, sino también a las personas.",
       },
       {
         id: 2,
@@ -310,15 +311,15 @@ export const teamMembers: TeamMember[] = [
         subtitle: "ESTRATEGIA EMPRESARIAL",
         color: "violet",
         newConcepts: [
-          "Concepto nuevo 1 — completar",
-          "Concepto nuevo 2 — completar",
+          "Cuadro de mando integral",
+          "Análisis PESTEL",
         ],
         interestConcepts: [
-          "Concepto de interés 1 — completar",
-          "Concepto de interés 2 — completar",
+          "Estrategias del análisis CAME",
+          "Análisis del entorno mediante escenarios futuros",
         ],
         reflection:
-          "Reflexión personal de Bruno sobre la unidad 2 — completar.",
+          "Esta unidad me permitió comprender la importancia de analizar el contexto y el entorno antes de definir cualquier estrategia, ya que las decisiones no pueden tomarse de manera aislada ni pensando únicamente en el presente. Además, encontré muy útil el concepto de cuadro de mando integral, porque muestra cómo una visión estratégica puede traducirse en objetivos, indicadores y acciones concretas aplicables al trabajo cotidiano de una organización.",
       },
       {
         id: 3,
@@ -326,15 +327,15 @@ export const teamMembers: TeamMember[] = [
         subtitle: "LA CONDUCTA HUMANA EN LA ORGANIZACIÓN",
         color: "violet",
         newConcepts: [
-          "Concepto nuevo 1 — completar",
-          "Concepto nuevo 2 — completar",
+          "Nuevas formas de trabajo",
+          "Talento 4.0",
         ],
         interestConcepts: [
-          "Concepto de interés 1 — completar",
-          "Concepto de interés 2 — completar",
+          "Gestión del talento",
+          "Habilidades STEAM",
         ],
         reflection:
-          "Reflexión personal de Bruno sobre la unidad 3 — completar.",
+          "Estudiar esta unidad me hizo reflexionar sobre algo que vivo de cerca: la forma en que nuestra generación se relaciona con el trabajo es realmente distinta a la de generaciones anteriores, y no por capricho, sino porque el contexto tecnológico y social cambió las reglas de juego. En ese contexto, el concepto de Talento 4.0 me resultó revelador, porque pone nombre a algo que intuía pero no sabía cómo articular: que adaptarse al mundo digital no es solo saber usar herramientas, sino desarrollar una mentalidad crítica, autónoma y orientada al aprendizaje continuo.",
       },
     ],
   },
