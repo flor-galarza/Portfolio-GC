@@ -2,6 +2,7 @@ import camiAvatar from "../assets/cami.jpeg";
 import florAvatar from "../assets/flor.jpeg";
 import BrunoAvatar from "../assets/Bruno.jpeg";
 import renzoAvatar from "../assets/Renzo.jpg";
+import fabriAvatar from "../assets/fabri.jpeg";
 import mapaUnidad1 from "../assets/Mapas Mentales/Unidad 1.png";
 import mapaUnidad2 from "../assets/Mapas Mentales/Unidad 2.png";
 import mapaUnidad3 from "../assets/Mapas Mentales/Unidad 3.png";
@@ -418,6 +419,7 @@ export const teamMembers: TeamMember[] = [
     competencies: ["Integración de contenidos", "Planificación", "Comunicación interna"],
     contribution:
       "Ayudó a consolidar una versión presentable del sitio, manteniendo consistencia entre páginas, mensajes y entregables.",
+    avatar: fabriAvatar.src,
     learningUnits: [
       {
         id: 1,
@@ -425,15 +427,15 @@ export const teamMembers: TeamMember[] = [
         subtitle: "LAS ORGANIZACIONES Y SU ADMINISTRACIÓN",
         color: "rose",
         newConcepts: [
-          "Concepto nuevo 1 — completar",
-          "Concepto nuevo 2 — completar",
+          "Procesos gerenciales",
+          "Herramientas de gestión gerencial",
         ],
         interestConcepts: [
-          "Concepto de interés 1 — completar",
-          "Concepto de interés 2 — completar",
+          "Organización como sistemas",
+          "Rol del gerente en una organización",
         ],
         reflection:
-          "Reflexión personal de Fabricio sobre la unidad 1 — completar.",
+          "Esta unidad me permitió los procesos y responsabilidades que involucra estar en la posición del gerente y las estrategias para tener una visión transversal de la organización",
       },
       {
         id: 2,
@@ -441,15 +443,15 @@ export const teamMembers: TeamMember[] = [
         subtitle: "ESTRATEGIA EMPRESARIAL",
         color: "rose",
         newConcepts: [
-          "Concepto nuevo 1 — completar",
-          "Concepto nuevo 2 — completar",
+          "Objetivos SMART",
+          "Análisis CAME",
         ],
         interestConcepts: [
-          "Concepto de interés 1 — completar",
-          "Concepto de interés 2 — completar",
+          "Análisis PESTEL",
+          "Cuadro de Mando Integral",
         ],
         reflection:
-          "Reflexión personal de Fabricio sobre la unidad 2 — completar.",
+          "Esta unidad me permitió ver las herramientas con las que cuenta un gerente a la hora de analizar el contexto de la organización para definir el objetivo y la estrategia que se llevará a cabo",
       },
       {
         id: 3,
@@ -457,15 +459,15 @@ export const teamMembers: TeamMember[] = [
         subtitle: "LA CONDUCTA HUMANA EN LA ORGANIZACIÓN",
         color: "rose",
         newConcepts: [
-          "Concepto nuevo 1 — completar",
-          "Concepto nuevo 2 — completar",
+          "Talento 4.0",
+          "STEAM"
         ],
         interestConcepts: [
-          "Concepto de interés 1 — completar",
-          "Concepto de interés 2 — completar",
+          "Modelo de negoocio",
+          "Modelo Canvas",
         ],
         reflection:
-          "Reflexión personal de Fabricio sobre la unidad 3 — completar.",
+         "Esta unidad me permitió ver tanto la forma en que hay que enfocar nuestro talento para el nuevo mercado laboral, como las herramientas para definir el modelo de negocio de una organización",
       },
     ],
   },
