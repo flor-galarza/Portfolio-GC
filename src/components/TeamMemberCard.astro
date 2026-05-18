@@ -16,45 +16,40 @@ const profileGroups = [
 
 <a class="profile-link" href={`/equipo/${member.id}`}>
   <article class={`profile-card reveal-up ${compact ? "profile-card--compact" : ""}`} data-reveal>
-  <div class="profile-card__header">
-      <div class={`profile-avatar profile-avatar--${member.accent}`} aria-hidden="true">
-        {member.avatar ? (
-          <img src={member.avatar} alt={member.name} />
-        ) : (
-          <span>{member.initials}</span>
-        )}
-      </div>
-    <div>
+    <div class={`profile-card__photo profile-photo--${member.accent}`}>
+      {member.avatar ? (
+        <img src={member.avatar} alt={member.name} loading="lazy" decoding="async" />
+      ) : (
+        <span class="profile-card__initials">{member.initials}</span>
+      )}
+    </div>
+
+    <div class="profile-card__body">
       <p class="profile-kicker">{member.role}</p>
       <h3>{member.name}</h3>
       {!compact && <p class="profile-tagline">{member.tagline}</p>}
-    </div>
-  </div>
+      <p class="profile-bio">{member.bio}</p>
 
-  {/* Show bio even in compact mode */}
-  <p>{member.bio}</p>
+      {!compact &&
+        profileGroups.map((group) => (
+          <div class="profile-group">
+            <p class="list-label">{group.label}</p>
+            <div class="badge-row">
+              {group.items.map((item) => (
+                <Badge label={item} />
+              ))}
+            </div>
+          </div>
+        ))}
 
-  {/* Show detailed groups only in full view */}
-  {!compact &&
-    profileGroups.map((group) => (
-      <div class="profile-group">
-        <p class="list-label">{group.label}</p>
-        <div class="badge-row">
-          {group.items.map((item) => (
-            <Badge label={item} />
-          ))}
+      {!compact && member.note && <p class="support-note profile-note">{member.note}</p>}
+
+      {!compact && (
+        <div class="profile-group">
+          <p class="list-label">Aporte al TPI</p>
+          <p>{member.contribution}</p>
         </div>
-      </div>
-    ))}
-
-  {/* Notes and contribution only in full view */}
-  {!compact && member.note && <p class="support-note profile-note">{member.note}</p>}
-
-  {!compact && (
-    <div class="profile-group">
-      <p class="list-label">Aporte al TPI</p>
-      <p>{member.contribution}</p>
+      )}
     </div>
-  )}
   </article>
 </a>
