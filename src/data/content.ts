@@ -2,6 +2,7 @@ import camiAvatar from "../assets/cami.jpeg";
 import florAvatar from "../assets/flor.jpeg";
 import BrunoAvatar from "../assets/Bruno.jpeg";
 import renzoAvatar from "../assets/Renzo.jpg";
+import fabriAvatar from "../assets/fabri.jpeg";
 import mapaUnidad1 from "../assets/Mapas Mentales/Unidad 1.png";
 import mapaUnidad2 from "../assets/Mapas Mentales/Unidad 2.png";
 import mapaUnidad3 from "../assets/Mapas Mentales/Unidad 3.png";
@@ -39,6 +40,7 @@ export interface TeamMember {
   competencies: string[];
   contribution: string;
   avatar?: string;
+  note?: string;
   learningUnits: LearningUnit[];   // ← reemplaza a rpa
 }
 export interface TimelineItem {
@@ -227,15 +229,15 @@ export const teamMembers: TeamMember[] = [
         subtitle: "LAS ORGANIZACIONES Y SU ADMINISTRACIÓN",
         color: "mint",
         newConcepts: [
-          "Concepto nuevo 1 — completar",
-          "Concepto nuevo 2 — completar",
+          "Roles de gerencia",
+          "Punto de equilibrio",
         ],
         interestConcepts: [
-          "Concepto de interés 1 — completar",
-          "Concepto de interés 2 — completar",
+          "Usos del proceso administrativo",
+          "Teorías modernas de gestión",
         ],
         reflection:
-          "Reflexión personal de Florencia sobre la unidad 1 — completar.",
+          "En esta unidad, lo más valioso es comprender que la administración no es solo un conjunto de tareas, sino un proceso dinámico de planificación, organización, dirección y control orientado a alcanzar metas de manera eficiente y eficaz. He aprendido que las organizaciones son sistemas sociales complejos que operan en un entorno cambiante, lo que exige que el administrador moderno actúe como un facilitador capaz de coordinar el esfuerzo humano. Me queda claro que la labor gerencial es indispensable para transformar recursos aislados en resultados colectivos con propósito.",
       },
       {
         id: 2,
@@ -243,15 +245,16 @@ export const teamMembers: TeamMember[] = [
         subtitle: "ESTRATEGIA EMPRESARIAL",
         color: "mint",
         newConcepts: [
-          "Concepto nuevo 1 — completar",
-          "Concepto nuevo 2 — completar",
+          "Análisis de situación",
+          "Cuadro de mando integral",
+          "Mapa estratégico",
         ],
         interestConcepts: [
-          "Concepto de interés 1 — completar",
-          "Concepto de interés 2 — completar",
+          "Gestión del conocimiento",
+          "Elementos de la estrategia",
         ],
         reflection:
-          "Reflexión personal de Florencia sobre la unidad 2 — completar.",
+          "Esta sección me ha permitido valorar la administración como una disciplina en constante evolución, desde el enfoque científico de Taylor y la teoría clásica de Fayol hasta las visiones humanistas y sistémicas. Reflexiono sobre cómo cada escuela de pensamiento aportó herramientas que aún son vigentes: mientras que la eficiencia técnica es vital, el factor humano y la comprensión de las organizaciones como sistemas abiertos son los que realmente garantizan la sostenibilidad a largo plazo. No se puede liderar hoy sin entender los cimientos teóricos que construyeron las mejores prácticas del pasado.",
       },
       {
         id: 3,
@@ -259,15 +262,14 @@ export const teamMembers: TeamMember[] = [
         subtitle: "LA CONDUCTA HUMANA EN LA ORGANIZACIÓN",
         color: "mint",
         newConcepts: [
-          "Concepto nuevo 1 — completar",
-          "Concepto nuevo 2 — completar",
+          "People Analytics",
         ],
         interestConcepts: [
-          "Concepto de interés 1 — completar",
-          "Concepto de interés 2 — completar",
+          "Gestión del Clima y la Cultura Organizacional",
+          "Talento 4.0",
         ],
         reflection:
-          "Reflexión personal de Florencia sobre la unidad 3 — completar.",
+          "Lo aprendido en esta unidad resalta que ninguna empresa es una isla; el administrador debe ser un analista agudo del entorno ético, global y social. He reflexionado sobre la importancia de la Responsabilidad Social Empresarial (RSE) y la ética, entendiendo que el éxito financiero no debe estar reñido con el bienestar de la comunidad y el respeto al medio ambiente. En un mundo donde la globalización conecta mercados y culturas, la capacidad de adaptarse a la diversidad y actuar con integridad se convierte en la mayor ventaja competitiva de cualquier profesional de la gestión.",
       },
     ],
   },
@@ -281,7 +283,7 @@ export const teamMembers: TeamMember[] = [
     accent: "violet",
     tagline: "Ordena procesos y vuelve trazables las evidencias del proyecto.",
     bio: "Se enfoca en la consistencia de entregables, el seguimiento de evidencias y la estandarización de reportes por desafío.",
-    interests: ["Redes de datos", "DevOps", "Seguridad de la información"],
+    interests: ["Resolución de conflictos","Redes de información", "DevOps", "Seguridad de la información"],
     competencies: ["Process mapping", "Infraestructura"],
     contribution:
       "Diseñó el marco de control que permite mostrar avances, respaldos y aprendizajes sin romper la claridad del portfolio.",
@@ -293,15 +295,16 @@ export const teamMembers: TeamMember[] = [
         subtitle: "LAS ORGANIZACIONES Y SU ADMINISTRACIÓN",
         color: "violet",
         newConcepts: [
-          "Concepto nuevo 1 — completar",
-          "Concepto nuevo 2 — completar",
+          "Habilidades gerenciales",
+          "Teorías sobre liderazgo",
+          "Punto de equilibrio"
         ],
         interestConcepts: [
-          "Concepto de interés 1 — completar",
-          "Concepto de interés 2 — completar",
+          "Características de un líder",
+          "Roles del gerente",
         ],
         reflection:
-          "Reflexión personal de Bruno sobre la unidad 1 — completar.",
+          "Esta unidad me resultó útil para reforzar conceptos organizacionales y de administración que fui incorporando desde el inicio de la carrera y relacionarlos con una mirada más práctica. Además, me permitió sumar conocimientos sobre gerencia y liderazgo, entendiendo mejor cómo la toma de decisiones, la comunicación y la coordinación de equipos influyen en el funcionamiento de una organización. Considero que estos contenidos amplían mi visión profesional y ayudan a comprender la importancia de gestionar no solo recursos, sino también a las personas.",
       },
       {
         id: 2,
@@ -309,15 +312,15 @@ export const teamMembers: TeamMember[] = [
         subtitle: "ESTRATEGIA EMPRESARIAL",
         color: "violet",
         newConcepts: [
-          "Concepto nuevo 1 — completar",
-          "Concepto nuevo 2 — completar",
+          "Cuadro de mando integral",
+          "Análisis PESTEL",
         ],
         interestConcepts: [
-          "Concepto de interés 1 — completar",
-          "Concepto de interés 2 — completar",
+          "Estrategias del análisis CAME",
+          "Análisis del entorno mediante escenarios futuros",
         ],
         reflection:
-          "Reflexión personal de Bruno sobre la unidad 2 — completar.",
+          "Esta unidad me permitió comprender la importancia de analizar el contexto y el entorno antes de definir cualquier estrategia, ya que las decisiones no pueden tomarse de manera aislada ni pensando únicamente en el presente. Además, encontré muy útil el concepto de cuadro de mando integral, porque muestra cómo una visión estratégica puede traducirse en objetivos, indicadores y acciones concretas aplicables al trabajo cotidiano de una organización.",
       },
       {
         id: 3,
@@ -325,15 +328,15 @@ export const teamMembers: TeamMember[] = [
         subtitle: "LA CONDUCTA HUMANA EN LA ORGANIZACIÓN",
         color: "violet",
         newConcepts: [
-          "Concepto nuevo 1 — completar",
-          "Concepto nuevo 2 — completar",
+          "Nuevas formas de trabajo",
+          "Talento 4.0",
         ],
         interestConcepts: [
-          "Concepto de interés 1 — completar",
-          "Concepto de interés 2 — completar",
+          "Gestión del talento",
+          "Habilidades STEAM",
         ],
         reflection:
-          "Reflexión personal de Bruno sobre la unidad 3 — completar.",
+          "Estudiar esta unidad me hizo reflexionar sobre algo que vivo de cerca: la forma en que nuestra generación se relaciona con el trabajo es realmente distinta a la de generaciones anteriores, y no por capricho, sino porque el contexto tecnológico y social cambió las reglas de juego. En ese contexto, el concepto de Talento 4.0 me resultó revelador, porque pone nombre a algo que intuía pero no sabía cómo articular: que adaptarse al mundo digital no es solo saber usar herramientas, sino desarrollar una mentalidad crítica, autónoma y orientada al aprendizaje continuo.",
       },
     ],
   },
@@ -359,15 +362,15 @@ export const teamMembers: TeamMember[] = [
         subtitle: "LAS ORGANIZACIONES Y SU ADMINISTRACIÓN",
         color: "amber",
         newConcepts: [
-          "Concepto nuevo 1 — completar",
-          "Concepto nuevo 2 — completar",
+          "Roles de Mintzberg",
+          "Autoridad y poder",
         ],
         interestConcepts: [
-          "Concepto de interés 1 — completar",
-          "Concepto de interés 2 — completar",
+          "Liderazgo",
+          "Rol del gerente",
         ],
         reflection:
-          "Reflexión personal de Renzo sobre la unidad 1 — completar.",
+          "La unidad permitió comprender cómo el perfil gerencial actual no se limita únicamente a planificar, organizar, dirigir y controlar, sino que también requiere habilidades blandas, comunicación efectiva y capacidad para coordinar personas en distintos contextos organizacionales. Desde una mirada vinculada a sistemas, me resultó interesante entender al gerente como alguien que interpreta información, toma decisiones y articula recursos, personas y tecnología para alcanzar objetivos. También me permitió reconocer que el rol del gerente se vuelve cada vez más dinámico, especialmente en organizaciones que necesitan adaptarse al cambio.",
       },
       {
         id: 2,
@@ -375,15 +378,15 @@ export const teamMembers: TeamMember[] = [
         subtitle: "ESTRATEGIA EMPRESARIAL",
         color: "amber",
         newConcepts: [
-          "Concepto nuevo 1 — completar",
-          "Concepto nuevo 2 — completar",
+          "Escenarios futuros",
+          "Mapa estratégico",
         ],
         interestConcepts: [
-          "Concepto de interés 1 — completar",
-          "Concepto de interés 2 — completar",
+          "FODA / CAME",
+          "Estrategia empresarial",
         ],
         reflection:
-          "Reflexión personal de Renzo sobre la unidad 2 — completar.",
+          "Esta unidad me ayudó a comprender la utilidad de las herramientas de análisis estratégico para ordenar la información y guiar la toma de decisiones dentro de una organización. Me pareció valioso ver cómo instrumentos como FODA, CAME, escenarios futuros o mapas estratégicos permiten analizar situaciones complejas de forma más clara y práctica. Desde el enfoque de sistemas, la estrategia puede entenderse como una forma de orientar recursos, procesos e información hacia objetivos concretos, evitando decisiones aisladas o improvisadas.",
       },
       {
         id: 3,
@@ -391,15 +394,14 @@ export const teamMembers: TeamMember[] = [
         subtitle: "LA CONDUCTA HUMANA EN LA ORGANIZACIÓN",
         color: "amber",
         newConcepts: [
-          "Concepto nuevo 1 — completar",
-          "Concepto nuevo 2 — completar",
+          "STEAM",
+          "Nuevas formas de trabajo",
         ],
         interestConcepts: [
-          "Concepto de interés 1 — completar",
-          "Concepto de interés 2 — completar",
+          "Talento 4.0",
         ],
         reflection:
-          "Reflexión personal de Renzo sobre la unidad 3 — completar.",
+          "La unidad permitió observar cómo cambiaron las formas de trabajo y las habilidades que actualmente demanda el mercado laboral. Me resultó interesante la relación entre tecnología, personas y organización, especialmente porque la transformación digital no depende solo de herramientas, sino también de capacidades humanas como adaptación, aprendizaje continuo, colaboración y pensamiento crítico. Desde una perspectiva vinculada a sistemas, esta unidad muestra que las organizaciones necesitan perfiles capaces de integrarse a entornos digitales, flexibles y en constante cambio.",
       },
     ],
   },
@@ -417,6 +419,7 @@ export const teamMembers: TeamMember[] = [
     competencies: ["Integración de contenidos", "Planificación", "Comunicación interna"],
     contribution:
       "Ayudó a consolidar una versión presentable del sitio, manteniendo consistencia entre páginas, mensajes y entregables.",
+    avatar: fabriAvatar.src,
     learningUnits: [
       {
         id: 1,
@@ -424,15 +427,15 @@ export const teamMembers: TeamMember[] = [
         subtitle: "LAS ORGANIZACIONES Y SU ADMINISTRACIÓN",
         color: "rose",
         newConcepts: [
-          "Concepto nuevo 1 — completar",
-          "Concepto nuevo 2 — completar",
+          "Procesos gerenciales",
+          "Herramientas de gestión gerencial",
         ],
         interestConcepts: [
-          "Concepto de interés 1 — completar",
-          "Concepto de interés 2 — completar",
+          "Organización como sistemas",
+          "Rol del gerente en una organización",
         ],
         reflection:
-          "Reflexión personal de Fabricio sobre la unidad 1 — completar.",
+          "Esta unidad me permitió los procesos y responsabilidades que involucra estar en la posición del gerente y las estrategias para tener una visión transversal de la organización",
       },
       {
         id: 2,
@@ -440,15 +443,15 @@ export const teamMembers: TeamMember[] = [
         subtitle: "ESTRATEGIA EMPRESARIAL",
         color: "rose",
         newConcepts: [
-          "Concepto nuevo 1 — completar",
-          "Concepto nuevo 2 — completar",
+          "Objetivos SMART",
+          "Análisis CAME",
         ],
         interestConcepts: [
-          "Concepto de interés 1 — completar",
-          "Concepto de interés 2 — completar",
+          "Análisis PESTEL",
+          "Cuadro de Mando Integral",
         ],
         reflection:
-          "Reflexión personal de Fabricio sobre la unidad 2 — completar.",
+          "Esta unidad me permitió ver las herramientas con las que cuenta un gerente a la hora de analizar el contexto de la organización para definir el objetivo y la estrategia que se llevará a cabo",
       },
       {
         id: 3,
@@ -456,15 +459,15 @@ export const teamMembers: TeamMember[] = [
         subtitle: "LA CONDUCTA HUMANA EN LA ORGANIZACIÓN",
         color: "rose",
         newConcepts: [
-          "Concepto nuevo 1 — completar",
-          "Concepto nuevo 2 — completar",
+          "Talento 4.0",
+          "STEAM"
         ],
         interestConcepts: [
-          "Concepto de interés 1 — completar",
-          "Concepto de interés 2 — completar",
+          "Modelo de negoocio",
+          "Modelo Canvas",
         ],
         reflection:
-          "Reflexión personal de Fabricio sobre la unidad 3 — completar.",
+         "Esta unidad me permitió ver tanto la forma en que hay que enfocar nuestro talento para el nuevo mercado laboral, como las herramientas para definir el modelo de negocio de una organización",
       },
     ],
   },

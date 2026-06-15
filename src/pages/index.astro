@@ -39,13 +39,14 @@ import teamLogo from "../assets/logo.png";
           <div class="orbital-ring orbital-ring-a" aria-hidden="true"></div>
           <div class="orbital-ring orbital-ring-b" aria-hidden="true"></div>
           <img src={teamLogo.src} alt={siteMeta.logoAlt} width="400" height="400" loading="eager" decoding="async" />
+          
         </div>
         {/* Cuadros de quickFacts eliminados */}
       </div>
     </div>
   </section>
 
-  <section class="page-section section-shell">
+  <section class="page-section section-shell section-after-hero">
     <div class="container split-grid split-grid--feature">
       <Card title="Identidad del equipo" subtitle="Quiénes somos y cómo trabajamos">
         <p>
@@ -64,6 +65,7 @@ import teamLogo from "../assets/logo.png";
           eyebrow="Integrantes"
           title="Perfiles individuales con rol, intereses y competencias"
           description={teamSectionDescription}
+          align="center"
         />
       <div class="card-grid card-grid--profiles">
         {teamMembers.map((member) => (

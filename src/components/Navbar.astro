@@ -14,12 +14,12 @@ const isCurrent = (href: string) => {
 };
 ---
 
-<header class="site-header">
+<header class="site-header" data-navbar>
   <div class="container nav-wrap">
     <a href="/" class="brand">
-      <img src={teamLogo.src} alt="" class="brand-logo" width="40" height="40" aria-hidden="true" />
-      <span>
-        <strong>{siteMeta.teamName}</strong>
+      <img src={teamLogo.src} alt="" class="" width="60" height="60" aria-hidden="true" />
+      <span class="gap-2">
+        <strong class="opacity-85">{siteMeta.teamName}</strong>
         <small>{siteMeta.teamLabel}</small>
       </span>
     </a>
@@ -54,3 +54,18 @@ const isCurrent = (href: string) => {
     </ul>
   </nav>
 </header>
+
+<script>
+  const navbar = document.querySelector("[data-navbar]") as HTMLElement;
+  let lastY = window.scrollY;
+
+  window.addEventListener("scroll", () => {
+    const currentY = window.scrollY;
+    if (currentY > lastY && currentY > 80) {
+      navbar.style.transform = "translateY(-100%)";
+    } else {
+      navbar.style.transform = "translateY(0)";
+    }
+    lastY = currentY;
+  }, { passive: true });
+</script>
