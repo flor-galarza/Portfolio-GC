@@ -1,11 +1,244 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import ChallengeTemplate from "../../components/ChallengeTemplate.astro";
+import Card from "../../components/Card.astro";
+import PageHero from "../../components/PageHero.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
 import { getChallengeBySlug, siteMeta } from "../../data/content";
 
 const challenge = getChallengeBySlug("d5");
+
+interface MemberTalentInfo {
+  name: string;
+  image?: string;
+}
+
+const talentProfiles: MemberTalentInfo[] = [
+  {
+    name: "Camila Zeniquel",
+    image: "/desafios/d5/Camila2030-Desafío 5.png"
+  },
+  {
+    name: "Bruno Rivero",
+    image: "/desafios/d5/Bruno2030-Desafío 5.png"
+  },
+  {
+    name: "Florencia Galarza Maumary"
+  },
+  {
+    name: "Renzo Urturi",
+    image: "/desafios/d5/Renzo2030-Desafío 5.png"
+  },
+  {
+    name: "Fabricio Jerez"
+  }
+];
 ---
 
-<BaseLayout title={`D5 | ${siteMeta.teamName}`} description={`Desafío D5 de ${siteMeta.teamName}.`}>
-  {challenge && <ChallengeTemplate challenge={challenge} />}
+<BaseLayout title={`D5 | ${siteMeta.teamName}`} description={challenge?.summary || ""}>
+  <PageHero
+    eyebrow="Desafío D5"
+    title="Talento 4.0 y Futuro 2030"
+    description="Visualización del equipo hacia el año 2030, definiendo el perfil de Talento 4.0 de cada integrante y los desafíos globales a resolver."
+    actions={[
+      { href: "/desafios", label: "Volver al recorrido", variant: "secondary" }
+    ]}
+    compact
+  />
+
+  <section class="page-section section-shell">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Talento 4.0"
+        title="Resultados por integrante"
+        description="A continuación se detallan las representaciones visuales proyectadas para cada miembro del equipo de cara al año 2030."
+      />
+
+      <div class="card-grid">
+        {talentProfiles.map((member) => (
+          <Card title={member.name}>
+            <div class="talent-card-content">
+              {member.image ? (
+                <div class="member-image-container" data-open-image>
+                  <img 
+                    src={member.image} 
+                    alt={`Perfil 2030 de ${member.name}`}
+                    class="member-image"
+                    loading="lazy"
+                  />
+                </div>
+              ) : (
+                <div class="member-image-placeholder">
+                  <span class="avatar-initials">
+                    {member.name.split(" ").map(n => n[0]).join("")}
+                  </span>
+                  <span class="placeholder-text">Imagen en preparación</span>
+                </div>
+              )}
+            </div>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div id="image-modal" class="image-modal" aria-hidden="true">
+    <div class="modal-wrapper">
+      <img id="modal-img" class="modal-content" alt="Vista ampliada" />
+    </div>
+  </div>
 </BaseLayout>
+
+<script>
+  const modal = document.getElementById('image-modal');
+  const modalImg = document.getElementById('modal-img') as HTMLImageElement;
+  const imageContainers = document.querySelectorAll('[data-open-image]');
+
+  imageContainers.forEach(container => {
+    container.addEventListener('click', () => {
+      const img = container.querySelector('img');
+      if (modal && modalImg && img) {
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+        modalImg.classList.remove('zoomed'); // reset zoom
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden'; // prevent page scroll
+      }
+    });
+  });
+
+  const closeModal = () => {
+    if (modal) {
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = ''; // restore scroll
+    }
+  };
+
+  // Close modal when clicking outside the image
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal || (e.target as HTMLElement).classList.contains('modal-wrapper')) {
+      closeModal();
+    }
+  });
+
+  // Toggle zoom when clicking the modal image
+  modalImg?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    modalImg.classList.toggle('zoomed');
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal?.getAttribute('aria-hidden') === 'false') {
+      closeModal();
+    }
+  });
+</script>
+
+<style>
+  .talent-card-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .member-image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-hover);
+    cursor: zoom-in;
+  }
+
+  .member-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .member-image-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    border: 2px dashed var(--border);
+    border-radius: var(--radius-lg);
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: var(--bg-subtle);
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .avatar-initials {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+    background: var(--bg-hover);
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  .placeholder-text {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  /* Lightbox Modal Styles */
+  .image-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(8px);
+  }
+
+  .image-modal[aria-hidden="false"] {
+    display: block;
+  }
+
+  .modal-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    overflow: auto;
+    padding: 2rem;
+    box-sizing: border-box;
+    cursor: default;
+  }
+
+  .modal-content {
+    margin: auto;
+    max-width: 95%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: var(--radius-md);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    transition: max-width 0.25s ease, max-height 0.25s ease;
+    cursor: zoom-in;
+  }
+
+  .modal-content.zoomed {
+    max-width: 150%;
+    max-height: 160vh;
+    cursor: zoom-out;
+  }
+
+  @media (max-width: 768px) {
+    .modal-content.zoomed {
+      max-width: 170%;
+      max-height: 170vh;
+    }
+  }
+</style>

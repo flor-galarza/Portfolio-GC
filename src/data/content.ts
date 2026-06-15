@@ -108,7 +108,7 @@ export const siteMeta: SiteMeta = {
   teamName,
   teamLabel: "Portfolio académico",
   description:
-    "Micrositio profesional del equipo Gestión Compartida con D3 desarrollado, D4 a D7 preparados como próximas etapas, RPA, mapa conceptual y TPI en una narrativa única.",
+    "Micrositio profesional del equipo Gestión Compartida con todos los desafíos (D3 a D8) completamente desarrollados, RPA, mapa conceptual y TPI en una narrativa única.",
   logoAlt: "Logo del equipo Gestión Compartida"
 };
 
@@ -472,14 +472,14 @@ export const teamMembers: TeamMember[] = [
 
 export const heroHighlights = [
   { value: String(teamMembers.length), label: "integrantes con roles complementarios" },
-  { value: "1", label: "desafío desarrollado con contenido real" },
-  { value: "4", label: "etapas reservadas para próximas entregas" }
+  { value: "6", label: "desafíos desarrollados con contenido real" },
+  { value: "100%", label: "de las etapas del recorrido completadas" }
 ];
 
 export const quickFacts = [
-  { value: "1", label: "semana cerrada con contenido publicado" },
+  { value: "100%", label: "desafíos documentados y funcionales" },
   { value: "5", label: "perfiles listos para presentar" },
-  { value: "100%", label: "estructura preparada para sumar D4-D7" }
+  { value: "6", label: "desafíos con evidencias reales publicadas" }
 ];
 
 export const teamIntro =
@@ -494,23 +494,33 @@ export const rpaSummary =
 export const timelineItems: TimelineItem[] = [
   {
     period: "Semana 1",
-    title: "Identidad y objetivos del equipo",
-    detail: "Se definieron roles, criterios de trabajo y la narrativa base del portfolio para sostener una entrega consistente."
+    title: "Identidad y objetivos del equipo (D3)",
+    detail: "Se definieron roles, criterios de trabajo y el micrositio inicial para ordenar la narrativa base del portfolio."
   },
   {
     period: "Semana 3",
-    title: "Próxima etapa: D4",
-    detail: "Espacio reservado para documentar decisiones, evidencias y aprendizajes cuando comience el siguiente desafío."
+    title: "Cálculo del Punto de Equilibrio (D4)",
+    detail: "Desarrollo del modelo de punto de equilibrio financiero y de la hoja de cálculo interactiva."
+  },
+  {
+    period: "Semana 5",
+    title: "Talento 4.0 (D5)",
+    detail: "Proyección profesional del equipo al 2030 analizando competencias clave y resolución de problemáticas con habilidades tecnológicas."
   },
   {
     period: "Semana 6",
-    title: "Próximas etapas: D5 y D6",
-    detail: "La narrativa del sitio ya prevé estas instancias sin anticipar contenido que todavía no fue desarrollado."
+    title: "Gestión del Cambio (D6)",
+    detail: "Análisis estratégico de un escenario organizacional para mitigar la resistencia y liderar el cambio."
+  },
+  {
+    period: "Semana 8",
+    title: "Visita de Experto (D8)",
+    detail: "Charla y entrevista con un experto corporativo para responder la guía y resolver el entregable en PDF."
   },
   {
     period: "Semana 9",
-    title: "Próxima etapa: D7",
-    detail: "El cierre final se incorporará cuando el proyecto llegue a esa fase y existan materiales reales para publicar."
+    title: "Causa y Efecto (D7)",
+    detail: "Elaboración de un diagrama de Ishikawa para identificar causas raíz y diagnosticar desvíos operativos."
   }
 ];
 
@@ -645,9 +655,110 @@ export const challengeContent: Challenge[] = [
     competenciesDeveloped: ["Análisis financiero", "Modelado matemático", "Toma de decisiones"],
     tpiConnection: "D4 aporta herramientas prácticas de gestión financiera que complementan el análisis organizacional del TPI, permitiendo evaluar la viabilidad económica de la organización estudiada."
   },
-  createUpcomingChallenge("d5", "D5"),
-  createUpcomingChallenge("d6", "D6"),
-  createUpcomingChallenge("d7", "D7")
+  {
+    slug: "d5",
+    code: "D5",
+    status: "available",
+    title: "Talento 4.0 y Futuro 2030",
+    summary: "Visualización del equipo hacia el año 2030, definiendo el perfil de Talento 4.0 de cada integrante y los desafíos globales a resolver.",
+    problem: "Proyectar la evolución profesional individual del equipo hacia el año 2030, identificando competencias clave y el rol del Talento 4.0 en la resolución de problemas tecnológicos.",
+    solution: "Análisis y definición de perfiles futuristas por integrante, conectando sus habilidades con problemas concretos del mercado y plasmando las visualizaciones en perfiles gráficos interactivos.",
+    tools: ["Planificación de Carrera", "Análisis de Competencias", "Diseño Gráfico", "Futurismo Tecnológico"],
+    evidences: [
+      {
+        title: "Perfiles de Talento 4.0 - Resultados",
+        description: "Visualizaciones y perfiles de los integrantes proyectados al 2030, detallando roles, habilidades y problemas a resolver.",
+        type: "Interactiva",
+        href: "/desafios/d5",
+        status: "available"
+      }
+    ],
+    learnings: [
+      { title: "Planificación de carrera 4.0", detail: "Proyectar competencias a largo plazo nos permite orientar el aprendizaje actual hacia necesidades futuras del mercado." },
+      { title: "Complementariedad futura", detail: "Verificar cómo los roles del equipo continuarán integrándose en escenarios tecnológicos complejos del mañana." }
+    ],
+    wouldDoDifferent: ["Incluir más herramientas de autodiagnóstico de competencias", "Realizar un taller interactivo de co-diseño de perfiles"],
+    competenciesDeveloped: ["Visión estratégica", "Autogestión del desarrollo", "Alineación profesional"],
+    tpiConnection: "Este desafío proyecta las habilidades de los integrantes hacia el futuro, sirviendo como marco para las competencias que se aplican activamente en la resolución técnica del TPI."
+  },
+  {
+    slug: "d6",
+    code: "D6",
+    status: "available",
+    title: "Gestión del cambio",
+    summary: "Análisis detallado de un escenario organizacional y la implementación de estrategias para la gestión eficaz del cambio cultural y operativo.",
+    problem: "Evaluar la resistencia al cambio en un escenario de transformación y proponer un plan estructurado para facilitar la transición organizacional sin afectar la continuidad.",
+    solution: "Desarrollo de un marco estratégico para la gestión del cambio, identificando agentes promotores, canales de comunicación y planes de capacitación detallados en el PDF.",
+    tools: ["Gestión del cambio", "Análisis de Stakeholders", "Planes de Comunicación", "Liderazgo"],
+    evidences: [
+      {
+        title: "Trabajo Práctico - Gestión del Cambio (PDF)",
+        description: "Documento en formato PDF con el análisis completo del escenario y las propuestas para mitigar la resistencia y liderar el cambio.",
+        type: "Documento",
+        href: "/desafios/d6/E8 - Desafío 6.pdf",
+        status: "available"
+      }
+    ],
+    learnings: [
+      { title: "Mitigación de resistencia", detail: "Comprender los factores psicológicos y operativos que generan barreras en los equipos ante procesos de transformación." },
+      { title: "Estrategias de comunicación", detail: "Diseñar planes de comunicación transparentes que involucren a los stakeholders clave como aliados." }
+    ],
+    wouldDoDifferent: ["Profundizar en la adopción temprana con métricas", "Diseñar dinámicas de feedback continuo más participativas"],
+    competenciesDeveloped: ["Liderazgo transformacional", "Gestión del cambio", "Diseño organizacional"],
+    tpiConnection: "Este análisis ayuda a comprender cómo la organización bajo estudio en el TPI podría absorber nuevas tecnologías o procesos con una menor resistencia."
+  },
+  {
+    slug: "d7",
+    code: "D7",
+    status: "available",
+    title: "Causa y efecto",
+    summary: "Identificación de las causas raíz de problemas en un escenario mediante la aplicación práctica del diagrama de Ishikawa (causa y efecto).",
+    problem: "Determinar las variables críticas y causas raíz que originan desvíos u anomalías operativas en un escenario organizacional propuesto.",
+    solution: "Elaboración de un diagrama de Ishikawa detallando las categorías principales (Mano de obra, Método, Maquinaria, Materiales, Medio ambiente, Medición) para trazar y mitigar desvíos.",
+    tools: ["Diagrama de Ishikawa", "Lluvia de ideas", "Análisis Causa Raíz (RCA)"],
+    evidences: [
+      {
+        title: "Diagrama de Ishikawa - Causa y Efecto (PDF)",
+        description: "Documento con el análisis de Ishikawa aplicado al escenario del Desafío 7, detallando causas principales y secundarias.",
+        type: "Documento",
+        href: "/desafios/d7/E8 - Desafio 7.pdf",
+        status: "available"
+      }
+    ],
+    learnings: [
+      { title: "Desglose de problemas complejos", detail: "Aprender a estructurar un problema general en múltiples categorías causales para evitar diagnósticos superficiales." },
+      { title: "Priorización de soluciones", detail: "Distinguir entre síntomas visibles y las verdaderas causas fundamentales que requieren intervención directa." }
+    ],
+    wouldDoDifferent: ["Combinar la espina de pescado con la técnica de los 5 porqués", "Involucrar a más perfiles técnicos en el debate de causas raíz"],
+    competenciesDeveloped: ["Pensamiento analítico", "Análisis causa-raíz", "Calidad y mejora de procesos"],
+    tpiConnection: "El análisis causa-efecto provee herramientas analíticas indispensables para diagnosticar desvíos de procesos en el Trabajo Práctico Integrador."
+  },
+  {
+    slug: "d8",
+    code: "D8",
+    status: "available",
+    title: "Visita experto",
+    summary: "Charla brindada por un experto de una empresa que aportó conocimientos prácticos y testimonios clave para responder las preguntas de la guía y resolver el trabajo práctico del PDF E8-Desafio 8.pdf.",
+    problem: "Comprender dinámicas operacionales y resolver las consignas del Desafío 8 basándonos en la experiencia real compartida por un profesional de la industria.",
+    solution: "Asistencia activa a la charla del experto externo, formulación de consultas específicas y elaboración de las respuestas del entregable, consolidando la información en un informe PDF.",
+    tools: ["Entrevista", "Charla técnica", "Análisis organizacional", "Caso de estudio"],
+    evidences: [
+      {
+        title: "Trabajo Práctico - Visita de Experto (PDF)",
+        description: "Documento oficial del Desafío 8 que compila las respuestas y conclusiones obtenidas de la charla con el experto corporativo.",
+        type: "Documento",
+        href: "/desafios/d8/E8-Desafio 8.pdf",
+        status: "available"
+      }
+    ],
+    learnings: [
+      { title: "Perspectiva del mercado real", detail: "Comprender cómo se aplican la administración y la cultura organizacional en grandes corporaciones de boca de sus propios líderes." },
+      { title: "Resolución dirigida por datos", detail: "Aprovechar testimonios estructurados de visitas técnicas para responder consignas y validar hipótesis del curso." }
+    ],
+    wouldDoDifferent: ["Profundizar las preguntas en aspectos de clima organizacional", "Solicitar material complementario adicional antes de la visita"],
+    competenciesDeveloped: ["Comunicación y entrevista", "Análisis de negocios", "Elaboración de informes técnicos"],
+    tpiConnection: "Este desafío complementa el diagnóstico del TPI al contrastar el relevamiento interno con la visión de un experto de la industria."
+  }
 ];
 
 export const challengeSlugs = challengeContent.map((challenge) => challenge.slug);
@@ -658,7 +769,7 @@ export const tpiContent: TpiContent = {
   description:
     "El Trabajo Práctico Integrador reúne el avance actual del equipo, incorpora el diagnóstico de la primera entrevista al cliente y deja listas las etapas futuras dentro de una experiencia web multipágina, clara y presentable.",
   focus:
-    "Integra identidad de equipo, desafío D3, rutas personales de aprendizaje, mapa conceptual y una base preparada para sumar D4 a D7 sin contradicciones.",
+    "Integra identidad de equipo, desafíos D3 a D8 completamente desarrollados, rutas personales de aprendizaje, mapa conceptual y el diagnóstico organizacional.",
   objectives: [
     "Mostrar el proceso de trabajo del equipo con una lectura clara y ordenada.",
     "Conectar cada desafío con aprendizajes, evidencias y decisiones de diseño e implementación.",
@@ -667,7 +778,7 @@ export const tpiContent: TpiContent = {
   integrations: [
     "Home como síntesis general del portfolio.",
     "Equipo y RPA para explicar roles, evolución y aportes individuales.",
-    "D3 como etapa actualmente documentada y D4 a D7 como estructura reservada para próximas entregas.",
+    "Desafíos D3 a D8 completamente documentados con sus respectivas evidencias.",
     "Mapa conceptual como lectura complementaria de los aprendizajes."
   ],
   result:

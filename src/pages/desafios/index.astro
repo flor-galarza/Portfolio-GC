@@ -6,10 +6,10 @@ import SectionHeader from "../../components/SectionHeader.astro";
 import { challengeContent, siteMeta } from "../../data/content";
 ---
 
-<BaseLayout title={`Desafíos | ${siteMeta.teamName}`} description={`Recorrido de ${siteMeta.teamName}: D3 disponible y D4 a D7 preparados como próximas etapas.`}>
+<BaseLayout title={`Desafíos | ${siteMeta.teamName}`} description={`Recorrido de ${siteMeta.teamName}: D3, D4, D6, D7 y D8 disponibles, y D5 preparado como próxima etapa.`}>
   <PageHero
     eyebrow="Desafíos"
-    title="Recorrido D3 a D7"
+    title="Recorrido D3 a D8"
     description="Desafíos completados y próximos a completar"
     actions={[
       { href: "/", label: "Ir al inicio", variant: "secondary" }
@@ -26,12 +26,12 @@ import { challengeContent, siteMeta } from "../../data/content";
       />
         <div class="card-vertical">
           {challengeContent.map((challenge) => (
-            <Card title={`${challenge.code} · ${challenge.title}`} subtitle="Página individual">
+            <Card title={`${challenge.code} · ${challenge.title}`}>
               <p>{challenge.summary}</p>
               {challenge.status === "available" && challenge.evidences.length > 0 && challenge.evidences[0].href && (
                 <p>
                   <a href={challenge.evidences[0].href} class="link-cta" target="_blank" rel="noopener noreferrer">
-                    {challenge.code === "D4" ? "Abrir hoja de cálculo" : "Ver evidencia"}
+                    {challenge.code === "D4" ? "Abrir hoja de cálculo" : challenge.code === "D5" ? "Ver resultados" : challenge.evidences[0].href.toLowerCase().endsWith(".pdf") ? "Abrir PDF" : "Ver evidencia"}
                   </a>
                 </p>
               )}
