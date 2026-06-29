@@ -22,7 +22,13 @@ const { items } = Astro.props;
       {item.href && (
         <p>
           <a href={item.href} class="link-cta" target="_blank" rel="noreferrer">
-            {item.href.toLowerCase().endsWith(".pdf") ? "Abrir PDF" : "Ver evidencia"}
+            {item.href.toLowerCase().endsWith(".pdf") 
+              ? "Abrir PDF" 
+              : item.href.toLowerCase().endsWith(".docx") 
+                ? "Descargar Documento" 
+                : item.href.toLowerCase().endsWith(".jpg") || item.href.toLowerCase().endsWith(".jpeg") || item.href.toLowerCase().endsWith(".png")
+                  ? "Ver Infografía"
+                  : "Ver evidencia"}
           </a>
         </p>
       )}

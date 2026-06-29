@@ -795,8 +795,22 @@ export const tpiContent: TpiContent = {
       href: "/tpi/diagnostico-organizacion-tpi-2026-gg.pdf",
       status: "available"
     },
-    placeholderEvidence("Presentación final del equipo", "Presentación"),
-    placeholderEvidence("Mapa conceptual final", "Mapa")
+    {
+      title: "Documento principal · análisis y desarrollo de plan de trabajo",
+      description:
+        "Documento de trabajo en formato Word (DOCX) que engloba el análisis organizacional de Esnal Seguros y el desarrollo detallado del plan de trabajo.",
+      type: "Documento de trabajo",
+      href: "/tpi/TPI-Gestión Compartida.docx",
+      status: "available"
+    },
+    {
+      title: "Infografía gráfica · información general del TPI",
+      description:
+        "Infografía visual en formato de imagen (JPEG) que resume de manera gráfica la información general y aspectos clave del Trabajo Práctico Integrador.",
+      type: "Infografía",
+      href: "/tpi/InfografiaTPI.jpeg",
+      status: "available"
+    }
   ]
 };
 
