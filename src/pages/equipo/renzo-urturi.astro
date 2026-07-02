@@ -3,7 +3,6 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Card from "../../components/Card.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
 import PageHero from "../../components/PageHero.astro";
-import LearningPath from "../../components/LearningPath.astro";
 import { teamMembers } from "../../data/content";
 
 const member = teamMembers.find((m) => m.id === "renzo-urturi");
@@ -58,18 +57,113 @@ const member = teamMembers.find((m) => m.id === "renzo-urturi");
         </div>
       </section>
 
-      <!-- Sección: Ruta Personal de Aprendizaje -->
+      <!-- Sección: Documentación RPA -->
       <section class="page-section section-shell">
         <div class="container">
           <SectionHeader
-            eyebrow="Desarrollo Individual"
-            title="Ruta Personal de Aprendizaje"
-            description="Reflexiones y aprendizajes específicos de cada integrante durante el proyecto"
+            eyebrow="Documentación RPA"
+            title="Evidencias de mi Ruta Personal de Aprendizaje"
+            description="Documentos que reflejan el proceso de autoevaluación, pensamiento crítico y mirada sistémica desarrollados durante la cursada"
           />
 
-          <LearningPath units={member.learningUnits} memberAccent={member.accent} />
+          <div class="rpa-grid">
+            <article class="card rpa-card">
+              <div class="rpa-card__icon" style="--card-accent: #ffc475;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <line x1="16" y1="13" x2="8" y2="13"/>
+                  <line x1="16" y1="17" x2="8" y2="17"/>
+                  <polyline points="10 9 9 9 8 9"/>
+                </svg>
+              </div>
+              <h3 class="rpa-card__title">Preguntas RPA</h3>
+              <p class="rpa-card__desc">Preguntas centrales formuladas por unidad, clasificadas y ordenadas, que integran las incumbencias profesionales del ingeniero en formación con una mirada sistémica.</p>
+              <a href="/RPA/Renzo/RPA%20Preguntas%20Renzo%20Urturi.pdf" target="_blank" rel="noreferrer" class="rpa-card__btn" style="--btn-accent: #ffc475;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <line x1="12" y1="18" x2="12" y2="12"/>
+                  <line x1="9" y1="15" x2="12" y2="12"/>
+                  <line x1="15" y1="15" x2="12" y2="12"/>
+                </svg>
+                Abrir PDF
+              </a>
+            </article>
+
+            <article class="card rpa-card">
+              <div class="rpa-card__icon" style="--card-accent: #ffc475;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <path d="M16 13H8M16 17H8M10 9H8"/>
+                </svg>
+              </div>
+              <h3 class="rpa-card__title">Síntesis Reflexiva</h3>
+              <p class="rpa-card__desc">Compilación crítica de las preguntas formuladas, con una síntesis reflexiva que destaca competencias adquiridas y hábitos del pensador sistémico experimentados.</p>
+              <a href="/RPA/Renzo/RPA%20Sintesis%20Renzo%20Urturi.pdf" target="_blank" rel="noreferrer" class="rpa-card__btn" style="--btn-accent: #ffc475;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <line x1="12" y1="18" x2="12" y2="12"/>
+                  <line x1="9" y1="15" x2="12" y2="12"/>
+                  <line x1="15" y1="15" x2="12" y2="12"/>
+                </svg>
+                Abrir PDF
+              </a>
+            </article>
+
+            <article class="card rpa-card rpa-card--image">
+              <div class="rpa-card__icon" style="--card-accent: #ffc475;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <polyline points="21 15 16 10 5 21"/>
+                </svg>
+              </div>
+              <h3 class="rpa-card__title">Infografía RPA</h3>
+              <p class="rpa-card__desc">Representación visual que sintetiza las competencias adquiridas y los hábitos del pensador sistémico experimentados durante el trayecto formativo.</p>
+              <button
+                class="rpa-card__thumb"
+                type="button"
+                aria-label="Ampliar infografía RPA"
+                data-open-map
+                data-map-src="/RPA/Renzo/Urturi%20Renzo.png"
+                data-map-alt="Infografía de la Ruta Personal de Aprendizaje"
+              >
+                <img
+                  src="/RPA/Renzo/Urturi%20Renzo.png"
+                  alt="Infografía RPA"
+                  loading="lazy"
+                />
+                <span class="rpa-card__thumb-overlay">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"/>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    <line x1="11" y1="8" x2="11" y2="14"/>
+                    <line x1="8" y1="11" x2="14" y2="11"/>
+                  </svg>
+                </span>
+              </button>
+            </article>
+          </div>
         </div>
       </section>
+
+      <dialog class="rpa-lightbox" data-map-dialog aria-label="Infografía RPA ampliada">
+        <div class="rpa-lightbox__content">
+          <p class="rpa-lightbox__label">Infografía RPA</p>
+          <div class="rpa-lightbox__zoom" role="group" aria-label="Controles de zoom">
+            <button class="rpa-lightbox__zoom-btn" type="button" data-zoom-out aria-label="Alejar">−</button>
+            <button class="rpa-lightbox__zoom-btn" type="button" data-zoom-reset aria-label="Restablecer zoom">100%</button>
+            <button class="rpa-lightbox__zoom-btn" type="button" data-zoom-in aria-label="Acercar">+</button>
+          </div>
+          <button class="rpa-lightbox__close" type="button" data-close-map aria-label="Cerrar">Cerrar</button>
+          <figure class="rpa-lightbox__figure">
+            <img data-map-preview src="" alt="" />
+          </figure>
+        </div>
+      </dialog>
     </>
   ) : (
     <section class="page-section">
@@ -80,3 +174,431 @@ const member = teamMembers.find((m) => m.id === "renzo-urturi");
     </section>
   )}
 </BaseLayout>
+
+<style>
+  .rpa-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .rpa-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    padding: 1.75rem;
+    transition: transform 260ms var(--ease-fluid), box-shadow 260ms var(--ease-fluid), border-color 260ms var(--ease-fluid);
+  }
+
+  .rpa-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+  }
+
+  .rpa-card__icon {
+    width: 3.25rem;
+    height: 3.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    background: color-mix(in srgb, var(--card-accent, var(--accent)) 18%, transparent);
+    color: var(--card-accent, var(--accent));
+    border: 1px solid color-mix(in srgb, var(--card-accent, var(--accent)) 30%, transparent);
+  }
+
+  .rpa-card__title {
+    margin: 0;
+    font-family: "Fraunces", "Georgia", serif;
+    font-size: 1.25rem;
+    color: var(--text);
+  }
+
+  .rpa-card__desc {
+    margin: 0;
+    font-size: 0.92rem;
+    color: var(--text-soft);
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .rpa-card__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    align-self: flex-start;
+    padding: 0.6rem 1.1rem;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 0.85rem;
+    text-decoration: none;
+    color: var(--bg);
+    background: linear-gradient(135deg, var(--btn-accent, var(--accent)), color-mix(in srgb, var(--btn-accent, var(--accent)) 70%, white 15%));
+    box-shadow: 0 8px 20px color-mix(in srgb, var(--btn-accent, var(--accent)) 25%, transparent);
+    border: none;
+    cursor: pointer;
+    transition: transform 220ms var(--ease-fluid), box-shadow 220ms var(--ease-fluid);
+  }
+
+  .rpa-card__btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px color-mix(in srgb, var(--btn-accent, var(--accent)) 35%, transparent);
+  }
+
+  .rpa-card__btn:focus-visible {
+    outline: 2px solid var(--btn-accent, var(--accent));
+    outline-offset: 3px;
+  }
+
+  .rpa-card--image {
+    position: relative;
+  }
+
+  .rpa-card__thumb {
+    position: relative;
+    display: block;
+    width: 100%;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background: none;
+    cursor: zoom-in;
+    border-radius: 1rem;
+    overflow: hidden;
+    aspect-ratio: 16 / 11;
+    border: 1px solid var(--line);
+  }
+
+  .rpa-card__thumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 400ms var(--ease-fluid);
+  }
+
+  .rpa-card__thumb:hover img {
+    transform: scale(1.06);
+  }
+
+  .rpa-card__thumb-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(8, 17, 31, 0.5);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: opacity 260ms var(--ease-fluid);
+    color: white;
+  }
+
+  .rpa-card__thumb:hover .rpa-card__thumb-overlay {
+    opacity: 1;
+  }
+
+  .rpa-lightbox {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    border: 0;
+    padding: 0;
+    width: min(92vw, 1080px);
+    max-width: 92vw;
+    max-height: 92vh;
+    border-radius: 1rem;
+    overflow: hidden;
+    background: var(--surface);
+    color: var(--text);
+  }
+
+  .rpa-lightbox__content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: min(92vh, 780px);
+  }
+
+  .rpa-lightbox::backdrop {
+    background: rgb(10 14 25 / 70%);
+    backdrop-filter: blur(2px);
+  }
+
+  .rpa-lightbox__close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    display: inline-flex;
+    border: 1px solid var(--line);
+    border-radius: 0.65rem;
+    background: var(--surface-2);
+    color: var(--text);
+    font: inherit;
+    font-weight: 700;
+    padding: 0.35rem 0.75rem;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .rpa-lightbox__label {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    margin: 0;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--surface-2);
+    color: var(--text);
+    font-weight: 700;
+    font-size: 0.9rem;
+    line-height: 1;
+    padding: 0.45rem 0.75rem;
+    z-index: 2;
+  }
+
+  .rpa-lightbox__zoom {
+    position: absolute;
+    top: 0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex;
+    gap: 0.35rem;
+    z-index: 2;
+  }
+
+  .rpa-lightbox__zoom-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.35rem;
+    border: 1px solid var(--line);
+    border-radius: 0.65rem;
+    background: var(--surface-2);
+    color: var(--text);
+    font: inherit;
+    font-weight: 700;
+    padding: 0.35rem 0.6rem;
+    cursor: pointer;
+    transition: background 180ms, border-color 180ms;
+  }
+
+  .rpa-lightbox__zoom-btn:hover {
+    background: var(--surface);
+    border-color: var(--line-strong);
+  }
+
+  .rpa-lightbox__zoom-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  .rpa-lightbox__zoom-btn:focus-visible,
+  .rpa-lightbox__close:focus-visible {
+    outline: 2px solid #ffc475;
+    outline-offset: 2px;
+  }
+
+  .rpa-lightbox__figure {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    padding-top: 3.25rem;
+    box-sizing: border-box;
+  }
+
+  .rpa-lightbox__figure img {
+    max-width: 100%;
+    max-height: calc(92vh - 4.25rem);
+    object-fit: contain;
+    display: block;
+    border-radius: 0.75rem;
+    transform-origin: center center;
+    transition: transform 140ms ease-out;
+    touch-action: none;
+  }
+
+  .rpa-lightbox__figure img.is-pannable {
+    cursor: grab;
+  }
+
+  .rpa-lightbox__figure img.is-panning {
+    cursor: grabbing;
+  }
+
+  @media (max-width: 640px) {
+    .rpa-lightbox {
+      width: 96vw;
+      max-width: 96vw;
+    }
+
+    .rpa-lightbox__content {
+      min-height: min(92vh, 96vw);
+    }
+
+    .rpa-lightbox__figure {
+      padding: 0.75rem;
+      padding-top: 3rem;
+    }
+
+    .rpa-lightbox__figure img {
+      max-height: calc(92vh - 3.75rem);
+    }
+  }
+</style>
+
+<script>
+  const dialog = document.querySelector("[data-map-dialog]");
+  const previewImage = dialog?.querySelector("[data-map-preview]");
+  const openButtons = document.querySelectorAll("[data-open-map]");
+  const closeButton = dialog?.querySelector("[data-close-map]");
+  const zoomInButton = dialog?.querySelector("[data-zoom-in]");
+  const zoomOutButton = dialog?.querySelector("[data-zoom-out]");
+  const zoomResetButton = dialog?.querySelector("[data-zoom-reset]");
+  const previewFigure = dialog?.querySelector(".rpa-lightbox__figure");
+
+  const minZoom = 0.5;
+  const maxZoom = 3;
+  const zoomStep = 0.25;
+  let currentZoom = 1;
+  let translateX = 0;
+  let translateY = 0;
+  let isPanning = false;
+  let activePointerId = null;
+  let panStartX = 0;
+  let panStartY = 0;
+  let panOriginX = 0;
+  let panOriginY = 0;
+
+  const clampZoom = (v) => Math.min(maxZoom, Math.max(minZoom, v));
+
+  const clampTranslate = () => {
+    if (!previewImage || !previewFigure) return;
+    const cw = previewFigure.clientWidth;
+    const ch = previewFigure.clientHeight;
+    const rw = previewImage.offsetWidth * currentZoom;
+    const rh = previewImage.offsetHeight * currentZoom;
+    const maxX = Math.max(0, (rw - cw) / 2);
+    const maxY = Math.max(0, (rh - ch) / 2);
+    translateX = Math.max(-maxX, Math.min(maxX, translateX));
+    translateY = Math.max(-maxY, Math.min(maxY, translateY));
+  };
+
+  const applyTransform = () => {
+    if (!previewImage) return;
+    previewImage.style.transform = `translate(${translateX}px, ${translateY}px) scale(${currentZoom})`;
+  };
+
+  const updateZoomUI = () => {
+    if (!previewImage) return;
+    if (currentZoom <= 1) {
+      translateX = 0;
+      translateY = 0;
+    } else {
+      clampTranslate();
+    }
+    applyTransform();
+    previewImage.classList.toggle("is-pannable", currentZoom > 1);
+    previewImage.classList.toggle("is-panning", isPanning && currentZoom > 1);
+    if (zoomResetButton) zoomResetButton.textContent = `${Math.round(currentZoom * 100)}%`;
+    if (zoomInButton) zoomInButton.disabled = currentZoom >= maxZoom;
+    if (zoomOutButton) zoomOutButton.disabled = currentZoom <= minZoom;
+  };
+
+  const setZoom = (next) => {
+    currentZoom = clampZoom(next);
+    updateZoomUI();
+  };
+
+  const resetZoom = () => {
+    isPanning = false;
+    activePointerId = null;
+    translateX = 0;
+    translateY = 0;
+    setZoom(1);
+  };
+
+  const closeLightbox = () => {
+    dialog?.close();
+    if (previewImage) {
+      previewImage.removeAttribute("src");
+      previewImage.removeAttribute("alt");
+    }
+    resetZoom();
+  };
+
+  openButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const src = btn.getAttribute("data-map-src");
+      const alt = btn.getAttribute("data-map-alt") ?? "Infografía RPA";
+      if (!src || !previewImage || !dialog) return;
+      previewImage.setAttribute("src", src);
+      previewImage.setAttribute("alt", alt);
+      resetZoom();
+      dialog.showModal();
+      closeButton?.focus();
+    });
+  });
+
+  zoomInButton?.addEventListener("click", () => setZoom(currentZoom + zoomStep));
+  zoomOutButton?.addEventListener("click", () => setZoom(currentZoom - zoomStep));
+  zoomResetButton?.addEventListener("click", resetZoom);
+
+  previewImage?.addEventListener("wheel", (e) => {
+    if (!dialog?.open) return;
+    e.preventDefault();
+    setZoom(currentZoom + (e.deltaY < 0 ? 1 : -1) * zoomStep);
+  }, { passive: false });
+
+  previewImage?.addEventListener("pointerdown", (e) => {
+    if (!dialog?.open || currentZoom <= 1) return;
+    e.preventDefault();
+    isPanning = true;
+    activePointerId = e.pointerId;
+    panStartX = e.clientX;
+    panStartY = e.clientY;
+    panOriginX = translateX;
+    panOriginY = translateY;
+    previewImage.setPointerCapture(e.pointerId);
+    updateZoomUI();
+  });
+
+  previewImage?.addEventListener("pointermove", (e) => {
+    if (!isPanning || e.pointerId !== activePointerId) return;
+    translateX = panOriginX + (e.clientX - panStartX);
+    translateY = panOriginY + (e.clientY - panStartY);
+    clampTranslate();
+    applyTransform();
+  });
+
+  const stopPanning = (e) => {
+    if (!previewImage || e.pointerId !== activePointerId) return;
+    if (previewImage.hasPointerCapture(e.pointerId)) previewImage.releasePointerCapture(e.pointerId);
+    isPanning = false;
+    activePointerId = null;
+    updateZoomUI();
+  };
+
+  previewImage?.addEventListener("pointerup", stopPanning);
+  previewImage?.addEventListener("pointercancel", stopPanning);
+
+  window.addEventListener("resize", () => {
+    if (!dialog?.open || currentZoom <= 1) return;
+    clampTranslate();
+    applyTransform();
+  });
+
+  dialog?.addEventListener("keydown", (e) => {
+    if (e.key === "+" || e.key === "=") { e.preventDefault(); setZoom(currentZoom + zoomStep); return; }
+    if (e.key === "-" || e.key === "_") { e.preventDefault(); setZoom(currentZoom - zoomStep); return; }
+    if (e.key === "0") { e.preventDefault(); resetZoom(); }
+  });
+
+  closeButton?.addEventListener("click", closeLightbox);
+  dialog?.addEventListener("click", (e) => { if (e.target === dialog) closeLightbox(); });
+</script>
